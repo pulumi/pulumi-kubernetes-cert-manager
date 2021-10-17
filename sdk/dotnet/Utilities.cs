@@ -6,7 +6,7 @@ using System.IO;
 using System.Reflection;
 using Pulumi;
 
-namespace Pulumi.ChartCertManager
+namespace Pulumi.KubernetesCertManager
 {
     static class Utilities
     {
@@ -66,7 +66,7 @@ namespace Pulumi.ChartCertManager
         static Utilities()
         {
             var assembly = typeof(Utilities).GetTypeInfo().Assembly;
-            using var stream = assembly.GetManifestResourceStream("Pulumi.ChartCertManager.version.txt");
+            using var stream = assembly.GetManifestResourceStream("Pulumi.KubernetesCertManager.version.txt");
             using var reader = new StreamReader(stream ?? throw new NotSupportedException("Missing embedded version.txt file"));
             version = reader.ReadToEnd().Trim();
             var parts = version.Split("\n");
@@ -78,9 +78,9 @@ namespace Pulumi.ChartCertManager
         }
     }
 
-    internal sealed class ChartCertManagerResourceTypeAttribute : Pulumi.ResourceTypeAttribute
+    internal sealed class KubernetesCertManagerResourceTypeAttribute : Pulumi.ResourceTypeAttribute
     {
-        public ChartCertManagerResourceTypeAttribute(string type) : base(type, Utilities.Version)
+        public KubernetesCertManagerResourceTypeAttribute(string type) : base(type, Utilities.Version)
         {
         }
     }

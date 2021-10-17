@@ -638,7 +638,7 @@ class CertManager(pulumi.ComponentResource):
             __props__.__dict__["webhook"] = webhook
             __props__.__dict__["status"] = None
         super(CertManager, __self__).__init__(
-            'chart-cert-manager:index:CertManager',
+            'kubernetes-cert-manager:index:CertManager',
             resource_name,
             __props__,
             opts,

@@ -7,12 +7,12 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.ChartCertManager
+namespace Pulumi.KubernetesCertManager
 {
     /// <summary>
     /// Automates the management and issuance of TLS certificates from various issuing sources within Kubernetes
     /// </summary>
-    [ChartCertManagerResourceType("chart-cert-manager:index:CertManager")]
+    [KubernetesCertManagerResourceType("kubernetes-cert-manager:index:CertManager")]
     public partial class CertManager : Pulumi.ComponentResource
     {
         /// <summary>
@@ -30,7 +30,7 @@ namespace Pulumi.ChartCertManager
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public CertManager(string name, CertManagerArgs? args = null, ComponentResourceOptions? options = null)
-            : base("chart-cert-manager:index:CertManager", name, args ?? new CertManagerArgs(), MakeResourceOptions(options, ""), remote: true)
+            : base("kubernetes-cert-manager:index:CertManager", name, args ?? new CertManagerArgs(), MakeResourceOptions(options, ""), remote: true)
         {
         }
 

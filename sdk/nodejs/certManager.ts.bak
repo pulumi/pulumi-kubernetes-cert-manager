@@ -12,7 +12,7 @@ import * as pulumiKubernetes from "@pulumi/kubernetes";
  */
 export class CertManager extends pulumi.ComponentResource {
     /** @internal */
-    public static readonly __pulumiType = 'chart-cert-manager:index:CertManager';
+    public static readonly __pulumiType = 'kubernetes-cert-manager:index:CertManager';
 
     /**
      * Returns true if the given object is an instance of CertManager.  This is designed to work even

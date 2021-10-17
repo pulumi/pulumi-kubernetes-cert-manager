@@ -1,5 +1,5 @@
 import * as k8s from "@pulumi/kubernetes";
-import * as certmanager from "@pulumi/chart-cert-manager";
+import * as certmanager from "@pulumi/kubernetes-cert-manager";
 
 // Create a sandbox namespace.
 const nsName = "sandbox";

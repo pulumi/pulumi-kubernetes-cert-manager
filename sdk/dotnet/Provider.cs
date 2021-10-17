@@ -7,9 +7,9 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.ChartCertManager
+namespace Pulumi.KubernetesCertManager
 {
-    [ChartCertManagerResourceType("pulumi:providers:chart-cert-manager")]
+    [KubernetesCertManagerResourceType("pulumi:providers:kubernetes-cert-manager")]
     public partial class Provider : Pulumi.ProviderResource
     {
         /// <summary>
@@ -20,7 +20,7 @@ namespace Pulumi.ChartCertManager
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Provider(string name, ProviderArgs? args = null, CustomResourceOptions? options = null)
-            : base("chart-cert-manager", name, args ?? new ProviderArgs(), MakeResourceOptions(options, ""))
+            : base("kubernetes-cert-manager", name, args ?? new ProviderArgs(), MakeResourceOptions(options, ""))
         {
         }
 

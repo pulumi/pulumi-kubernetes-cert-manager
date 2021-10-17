@@ -24,7 +24,7 @@ import (
 )
 
 const (
-	ProviderName  = "chart-cert-manager"
+	ProviderName  = "kubernetes-cert-manager"
 	ComponentName = ProviderName + ":index:CertManager"
 )
 

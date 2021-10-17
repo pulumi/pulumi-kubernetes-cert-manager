@@ -379,6 +379,8 @@ github.com/jmespath/go-jmespath v0.0.0-20180206201540-c2b33e8439af/go.mod h1:Nht
 github.com/jmespath/go-jmespath v0.3.0/go.mod h1:9QtRXoHjLGCJ5IBSaohpXITPlowMeeYCZ7fLUTSywik=
 github.com/jmespath/go-jmespath v0.4.0/go.mod h1:T8mJZnbsbmF+m6zOOFylbeCJqk5+pHWvzYPziyZiYoo=
 github.com/jmespath/go-jmespath/internal/testify v1.5.1/go.mod h1:L3OGu8Wl2/fWfCI6z80xFu9LTZmf1ZRjMHUOPmWr69U=
+github.com/joeduffy/pulumi-go-helmbase v0.0.11 h1:eMw5ZRCGByd1UrECuXDQoNuExdTYk7tJ+My1EvEPQjo=
+github.com/joeduffy/pulumi-go-helmbase v0.0.11/go.mod h1:lg+j2fNFX8bvvYuR/ig4dlokiI1FS8zGS/Dp3WD0bnM=
 github.com/joho/godotenv v1.3.0/go.mod h1:7hK45KPybAkOC6peb+G5yklZfMxEjkZhHbwpqxOKXbg=
 github.com/jonboulle/clockwork v0.1.0/go.mod h1:Ii8DK3G1RaLaWxj9trq07+26W01tbo22gdxWY5EU2bo=
 github.com/json-iterator/go v1.1.6/go.mod h1:+SdeFBvtyEkXs7REEP0seUULqWtbJapLOCVDaaPEHmU=
@@ -518,6 +520,8 @@ github.com/pulumi/pulumi/pkg/v3 v3.12.0 h1:pkfMQpCK2kQhRzqijiLtM/Y/wJOqSO2JQQJZh
 github.com/pulumi/pulumi/pkg/v3 v3.12.0/go.mod h1:OKKvB7W0q739IaDSlai/bpNBTc7+5/sTUwysYjZ1we8=
 github.com/pulumi/pulumi/sdk/v3 v3.3.1/go.mod h1:GBHyQ7awNQSRmiKp/p8kIKrGrMOZeA/k2czoM/GOqds=
 github.com/pulumi/pulumi/sdk/v3 v3.12.0/go.mod h1:bxxmONw/K6M4KHRKWTwP/u77JbqDFnt96p0nSsrsHnQ=
+github.com/pulumi/pulumi/sdk/v3 v3.13.2 h1:WACuLmogYmUubf3jKcnkN9ACJ5G+3PLSPkCI86DpY9k=
+github.com/pulumi/pulumi/sdk/v3 v3.13.2/go.mod h1:aT7YmFdR6/T7tp2tMIZ68WRD1Xyv5a6Y4BhsuaCNpW0=
 github.com/rjeczalik/notify v0.9.2/go.mod h1:aErll2f0sUX9PXZnVNyeiObbmTlk5jnMoCa4QEjJeqM=
 github.com/rogpeppe/fastuuid v0.0.0-20150106093220-6724a57986af/go.mod h1:XWv6SoW27p1b0cqNHllgS5HIMJraePCO15w5zCzIWYg=
 github.com/rogpeppe/go-internal v1.3.0/go.mod h1:M8bDsm7K2OlrFYOpmOWEs/qY81heoFRclV5y23lUDJ4=

@@ -13,11 +13,11 @@ _utilities.register(
     resource_modules="""
 [
  {
-  "pkg": "chart-cert-manager",
+  "pkg": "kubernetes-cert-manager",
   "mod": "index",
-  "fqn": "pulumi_chart_cert_manager",
+  "fqn": "pulumi_kubernetes_cert_manager",
   "classes": {
-   "chart-cert-manager:index:CertManager": "CertManager"
+   "kubernetes-cert-manager:index:CertManager": "CertManager"
   }
  }
 ]
@@ -25,9 +25,9 @@ _utilities.register(
     resource_packages="""
 [
  {
-  "pkg": "chart-cert-manager",
-  "token": "pulumi:providers:chart-cert-manager",
-  "fqn": "pulumi_chart_cert_manager",
+  "pkg": "kubernetes-cert-manager",
+  "token": "pulumi:providers:kubernetes-cert-manager",
+  "fqn": "pulumi_kubernetes_cert_manager",
   "class": "Provider"
  }
 ]

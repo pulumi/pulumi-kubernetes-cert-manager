@@ -17,8 +17,8 @@
 package main
 
 import (
-	"github.com/joeduffy/pulumi-chart-cert-manager/pkg/provider"
-	"github.com/joeduffy/pulumi-chart-cert-manager/pkg/version"
+	"github.com/pulumi/pulumi-kubernetes-cert-manager/pkg/provider"
+	"github.com/pulumi/pulumi-kubernetes-cert-manager/pkg/version"
 )
 
 func main() {

@@ -1,5 +1,5 @@
 {
-    "name": "@pulumi/chart-cert-manager",
+    "name": "@pulumi/kubernetes-cert-manager",
     "version": "${VERSION}",
     "scripts": {
         "build": "tsc"

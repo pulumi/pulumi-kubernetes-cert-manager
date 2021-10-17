@@ -1,6 +1,6 @@
 VERSION         := 0.0.1
 
-PACK            := chart-cert-manager
+PACK            := kubernetes-cert-manager
 PROJECT         := github.com/pulumi/pulumi-${PACK}
 
 PROVIDER        := pulumi-resource-${PACK}

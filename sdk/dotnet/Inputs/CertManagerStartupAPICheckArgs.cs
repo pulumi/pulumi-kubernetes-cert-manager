@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.ChartCertManager.Inputs
+namespace Pulumi.KubernetesCertManager.Inputs
 {
 
     public sealed class CertManagerStartupAPICheckArgs : Pulumi.ResourceArgs

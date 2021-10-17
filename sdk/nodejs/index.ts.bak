@@ -22,21 +22,21 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "chart-cert-manager:index:CertManager":
+            case "kubernetes-cert-manager:index:CertManager":
                 return new CertManager(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("chart-cert-manager", "index", _module)
+pulumi.runtime.registerResourceModule("kubernetes-cert-manager", "index", _module)
 
 import { Provider } from "./provider";
 
-pulumi.runtime.registerResourcePackage("chart-cert-manager", {
+pulumi.runtime.registerResourcePackage("kubernetes-cert-manager", {
     version: utilities.getVersion(),
     constructProvider: (name: string, type: string, urn: string): pulumi.ProviderResource => {
-        if (type !== "pulumi:providers:chart-cert-manager") {
+        if (type !== "pulumi:providers:kubernetes-cert-manager") {
             throw new Error(`unknown provider type ${type}`);
         }
         return new Provider(name, <any>undefined, { urn });

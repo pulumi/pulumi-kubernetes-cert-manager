@@ -7,7 +7,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.ChartCertManager.Outputs
+namespace Pulumi.KubernetesCertManager.Outputs
 {
 
     [OutputType]

@@ -1,7 +1,7 @@
 {
-    "name": "chart-cert-manager",
+    "name": "kubernetes-cert-manager",
     "resources": {
-        "chart-cert-manager:index:CertManager": {
+        "kubernetes-cert-manager:index:CertManager": {
             "description": "Automates the management and issuance of TLS certificates from various issuing sources within Kubernetes",
             "isComponent": true,
             "inputProperties": {
@@ -9,7 +9,7 @@
                     "$ref": "/kubernetes/v3.8.1/schema.json#/types/kubernetes:core/v1:Affinity"
                 },
                 "cainjector": {
-                    "$ref": "#/types/chart-cert-manager:index:CertManagerCaInjector"
+                    "$ref": "#/types/kubernetes-cert-manager:index:CertManagerCaInjector"
                 },
                 "clusterResourceNamespace": {
                     "description": "Override the namespace used to store DNS provider credentials etc. for ClusterIssuer resources. By default, the same namespace as cert-manager is deployed within is used. This namespace will not be automatically created by the Helm chart.",
@@ -56,10 +56,10 @@
                     "type": "string"
                 },
                 "global": {
-                    "$ref": "#/types/chart-cert-manager:index:CertManagerGlobal"
+                    "$ref": "#/types/kubernetes-cert-manager:index:CertManagerGlobal"
                 },
                 "helmOptions": {
-                    "$ref": "#/types/chart-cert-manager:index:Release",
+                    "$ref": "#/types/kubernetes-cert-manager:index:Release",
                     "description": "HelmOptions is an escape hatch that lets the end user control any aspect of the Helm deployment. This exposes the entirety of the underlying Helm Release component args."
                 },
                 "http_proxy": {
@@ -69,10 +69,10 @@
                     "type": "string"
                 },
                 "image": {
-                    "$ref": "#/types/chart-cert-manager:index:CertManagerImage"
+                    "$ref": "#/types/kubernetes-cert-manager:index:CertManagerImage"
                 },
                 "ingressShim": {
-                    "$ref": "#/types/chart-cert-manager:index:CertManagerIngressShim"
+                    "$ref": "#/types/kubernetes-cert-manager:index:CertManagerIngressShim"
                 },
                 "installCRDs": {
                     "type": "boolean"
@@ -107,7 +107,7 @@
                     "type": "object"
                 },
                 "prometheus": {
-                    "$ref": "#/types/chart-cert-manager:index:CertManagerPrometheus"
+                    "$ref": "#/types/kubernetes-cert-manager:index:CertManagerPrometheus"
                 },
                 "replicaCount": {
                     "type": "integer"
@@ -120,7 +120,7 @@
                     "description": "Pod Security Context. ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/"
                 },
                 "serviceAccount": {
-                    "$ref": "#/types/chart-cert-manager:index:CertManagerServiceAccount"
+                    "$ref": "#/types/kubernetes-cert-manager:index:CertManagerServiceAccount"
                 },
                 "serviceAnnotations": {
                     "additionalProperties": {
@@ -137,7 +137,7 @@
                     "type": "object"
                 },
                 "startupapicheck": {
-                    "$ref": "#/types/chart-cert-manager:index:CertManagerStartupAPICheck"
+                    "$ref": "#/types/kubernetes-cert-manager:index:CertManagerStartupAPICheck"
                 },
                 "strategy": {
                     "$ref": "/kubernetes/v3.8.1/schema.json#/types/kubernetes:apps/v1:DeploymentStrategy"
@@ -149,12 +149,12 @@
                     "type": "array"
                 },
                 "webhook": {
-                    "$ref": "#/types/chart-cert-manager:index:CertManagerWebhook"
+                    "$ref": "#/types/kubernetes-cert-manager:index:CertManagerWebhook"
                 }
             },
             "properties": {
                 "status": {
-                    "$ref": "#/types/chart-cert-manager:index:ReleaseStatus",
+                    "$ref": "#/types/kubernetes-cert-manager:index:ReleaseStatus",
                     "description": "Detailed information about the status of the underlying Helm deployment."
                 }
             },
@@ -164,7 +164,7 @@
         }
     },
     "types": {
-        "chart-cert-manager:index:Release": {
+        "kubernetes-cert-manager:index:Release": {
             "description": "A Release is an instance of a chart running in a Kubernetes cluster.\nA Chart is a Helm package. It contains all of the resource definitions necessary to run an application, tool, or service inside of a Kubernetes cluster.\nNote - Helm Release is currently in BETA and may change. Use in production environment is discouraged.",
             "properties": {
                 "atomic": {
@@ -255,7 +255,7 @@
                     "description": "Re-use the given name, even if that name is already used. This is unsafe in production"
                 },
                 "repositoryOpts": {
-                    "$ref": "#/types/chart-cert-manager:index:RepositoryOpts",
+                    "$ref": "#/types/kubernetes-cert-manager:index:RepositoryOpts",
                     "description": "Specification defining the Helm chart repository to use."
                 },
                 "resetValues": {
@@ -317,7 +317,7 @@
             },
             "type": "object"
         },
-        "chart-cert-manager:index:ReleaseStatus": {
+        "kubernetes-cert-manager:index:ReleaseStatus": {
             "properties": {
                 "appVersion": {
                     "type": "string",
@@ -359,7 +359,7 @@
                 "status"
             ]
         },
-        "chart-cert-manager:index:RepositoryOpts": {
+        "kubernetes-cert-manager:index:RepositoryOpts": {
             "description": "Specification defining the Helm chart repository to use.",
             "properties": {
                 "caFile": {
@@ -402,7 +402,7 @@
                 }
             }
         },
-        "chart-cert-manager:index:CertManagerCaInjector": {
+        "kubernetes-cert-manager:index:CertManagerCaInjector": {
             "properties": {
                 "affinity": {
                     "$ref": "/kubernetes/v3.8.1/schema.json#/types/kubernetes:core/v1:Affinity"
@@ -426,7 +426,7 @@
                     "type": "array"
                 },
                 "image": {
-                    "$ref": "#/types/chart-cert-manager:index:CertManagerImage"
+                    "$ref": "#/types/kubernetes-cert-manager:index:CertManagerImage"
                 },
                 "nodeSelector": {
                     "additionalProperties": {
@@ -459,7 +459,7 @@
                     "$ref": "/kubernetes/v3.8.1/schema.json#/types/kubernetes:core/v1:ResourceRequirements"
                 },
                 "serviceAccount": {
-                    "$ref": "#/types/chart-cert-manager:index:CertManagerServiceAccount"
+                    "$ref": "#/types/kubernetes-cert-manager:index:CertManagerServiceAccount"
                 },
                 "strategy": {
                     "$ref": "/kubernetes/v3.8.1/schema.json#/types/kubernetes:apps/v1:DeploymentStrategy"
@@ -476,7 +476,7 @@
             },
             "type": "object"
         },
-        "chart-cert-manager:index:CertManagerGlobal": {
+        "kubernetes-cert-manager:index:CertManagerGlobal": {
             "properties": {
                 "imagePullSecrets": {
                     "description": "Reference to one or more secrets to be used when pulling images. ref: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/",
@@ -486,26 +486,26 @@
                     "type": "array"
                 },
                 "leaderElection": {
-                    "$ref": "#/types/chart-cert-manager:index:CertManagerGlobalLeaderElection"
+                    "$ref": "#/types/kubernetes-cert-manager:index:CertManagerGlobalLeaderElection"
                 },
                 "logLevel": {
                     "description": "Set the verbosity of cert-manager. Range of 0 - 6 with 6 being the most verbose.",
                     "type": "integer"
                 },
                 "podSecurityPolicy": {
-                    "$ref": "#/types/chart-cert-manager:index:CertManagerGlobalPodSecurityPolicy"
+                    "$ref": "#/types/kubernetes-cert-manager:index:CertManagerGlobalPodSecurityPolicy"
                 },
                 "priorityClassName": {
                     "description": "Optional priority class to be used for the cert-manager pods.",
                     "type": "string"
                 },
                 "rbac": {
-                    "$ref": "#/types/chart-cert-manager:index:CertManagerGlobalRbac"
+                    "$ref": "#/types/kubernetes-cert-manager:index:CertManagerGlobalRbac"
                 }
             },
             "type": "object"
         },
-        "chart-cert-manager:index:CertManagerGlobalLeaderElection": {
+        "kubernetes-cert-manager:index:CertManagerGlobalLeaderElection": {
             "properties": {
                 "leaseDuration": {
                     "description": "The duration that non-leader candidates will wait after observing a leadership renewal until attempting to acquire leadership of a led but unrenewed leader slot. This is effectively the maximum duration that a leader can be stopped before it is replaced by another candidate.",
@@ -522,7 +522,7 @@
             },
             "type": "object"
         },
-        "chart-cert-manager:index:CertManagerGlobalPodSecurityPolicy": {
+        "kubernetes-cert-manager:index:CertManagerGlobalPodSecurityPolicy": {
             "properties": {
                 "enabled": {
                     "type": "boolean"
@@ -533,7 +533,7 @@
             },
             "type": "object"
         },
-        "chart-cert-manager:index:CertManagerGlobalRbac": {
+        "kubernetes-cert-manager:index:CertManagerGlobalRbac": {
             "properties": {
                 "create": {
                     "type": "boolean"
@@ -541,7 +541,7 @@
             },
             "type": "object"
         },
-        "chart-cert-manager:index:CertManagerImage": {
+        "kubernetes-cert-manager:index:CertManagerImage": {
             "properties": {
                 "digest": {
                     "description": "Setting a digest will override any tag, e.g. `digest: sha256:0e072dddd1f7f8fc8909a2ca6f65e76c5f0d2fcfb8be47935ae3457e8bbceb20`.",
@@ -565,7 +565,7 @@
             },
             "type": "object"
         },
-        "chart-cert-manager:index:CertManagerIngressShim": {
+        "kubernetes-cert-manager:index:CertManagerIngressShim": {
             "properties": {
                 "defaultIssuerGroup": {
                     "type": "string"
@@ -579,18 +579,18 @@
             },
             "type": "object"
         },
-        "chart-cert-manager:index:CertManagerPrometheus": {
+        "kubernetes-cert-manager:index:CertManagerPrometheus": {
             "properties": {
                 "enabled": {
                     "type": "boolean"
                 },
                 "serviceMonitor": {
-                    "$ref": "#/types/chart-cert-manager:index:CertManagerPrometheusServiceMonitor"
+                    "$ref": "#/types/kubernetes-cert-manager:index:CertManagerPrometheusServiceMonitor"
                 }
             },
             "type": "object"
         },
-        "chart-cert-manager:index:CertManagerPrometheusServiceMonitor": {
+        "kubernetes-cert-manager:index:CertManagerPrometheusServiceMonitor": {
             "properties": {
                 "enabled": {
                     "type": "boolean"
@@ -619,7 +619,7 @@
             },
             "type": "object"
         },
-        "chart-cert-manager:index:CertManagerServiceAccount": {
+        "kubernetes-cert-manager:index:CertManagerServiceAccount": {
             "properties": {
                 "annotations": {
                     "additionalProperties": {
@@ -643,7 +643,7 @@
             },
             "type": "object"
         },
-        "chart-cert-manager:index:CertManagerStartupAPICheck": {
+        "kubernetes-cert-manager:index:CertManagerStartupAPICheck": {
             "properties": {
                 "affinity": {
                     "$ref": "/kubernetes/v3.8.1/schema.json#/types/kubernetes:core/v1:Affinity"
@@ -663,7 +663,7 @@
                     "type": "array"
                 },
                 "image": {
-                    "$ref": "#/types/chart-cert-manager:index:CertManagerImage"
+                    "$ref": "#/types/kubernetes-cert-manager:index:CertManagerImage"
                 },
                 "jobAnnotations": {
                     "additionalProperties": {
@@ -693,7 +693,7 @@
                     "type": "object"
                 },
                 "rbac": {
-                    "$ref": "#/types/chart-cert-manager:index:CertManagerStartupAPICheckRBAC"
+                    "$ref": "#/types/kubernetes-cert-manager:index:CertManagerStartupAPICheckRBAC"
                 },
                 "resources": {
                     "$ref": "/kubernetes/v3.8.1/schema.json#/types/kubernetes:core/v1:ResourceRequirements"
@@ -703,7 +703,7 @@
                     "description": "Pod Security Context to be set on the startupapicheck component Pod. ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/"
                 },
                 "serviceAccount": {
-                    "$ref": "#/types/chart-cert-manager:index:CertManagerServiceAccount"
+                    "$ref": "#/types/kubernetes-cert-manager:index:CertManagerServiceAccount"
                 },
                 "timeout": {
                     "description": "Timeout for 'kubectl check api' command",
@@ -718,7 +718,7 @@
             },
             "type": "object"
         },
-        "chart-cert-manager:index:CertManagerStartupAPICheckRBAC": {
+        "kubernetes-cert-manager:index:CertManagerStartupAPICheckRBAC": {
             "properties": {
                 "annotations": {
                     "additionalProperties": {
@@ -730,7 +730,7 @@
             },
             "type": "object"
         },
-        "chart-cert-manager:index:CertManagerWebhook": {
+        "kubernetes-cert-manager:index:CertManagerWebhook": {
             "properties": {
                 "affinity": {
                     "$ref": "/kubernetes/v3.8.1/schema.json#/types/kubernetes:core/v1:Affinity"
@@ -758,7 +758,7 @@
                     "type": "boolean"
                 },
                 "image": {
-                    "$ref": "#/types/chart-cert-manager:index:CertManagerImage"
+                    "$ref": "#/types/kubernetes-cert-manager:index:CertManagerImage"
                 },
                 "livenessProbe": {
                     "$ref": "/kubernetes/v3.8.1/schema.json#/types/kubernetes:core/v1:Probe",
@@ -813,7 +813,7 @@
                     "description": "Pod Security Context to be set on the webhook component Pod. ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/"
                 },
                 "serviceAccount": {
-                    "$ref": "#/types/chart-cert-manager:index:CertManagerServiceAccount"
+                    "$ref": "#/types/kubernetes-cert-manager:index:CertManagerServiceAccount"
                 },
                 "serviceAnnotations": {
                     "additionalProperties": {
@@ -846,7 +846,7 @@
                     "type": "array"
                 },
                 "url": {
-                    "$ref": "#/types/chart-cert-manager:index:CertManagerWebhookURL",
+                    "$ref": "#/types/kubernetes-cert-manager:index:CertManagerWebhookURL",
                     "description": "Overrides the mutating webhook and validating webhook so they reach the webhook service using the `url` field instead of a service."
                 },
                 "validatingWebhookConfigurationAnnotations": {
@@ -859,7 +859,7 @@
             },
             "type": "object"
         },
-        "chart-cert-manager:index:CertManagerWebhookURL": {
+        "kubernetes-cert-manager:index:CertManagerWebhookURL": {
             "properties": {
                 "host": {
                     "type": "string"
@@ -871,7 +871,7 @@
     "language": {
         "csharp": {
             "namespaces": {
-                "chart-cert-manager": "ChartCertManager"
+                "kubernetes-cert-manager": "KubernetesCertManager"
             },
             "packageReferences": {
                 "Pulumi": "3.*",
@@ -880,7 +880,7 @@
         },
         "go": {
             "generateResourceContainerTypes": true,
-            "importBasePath": "github.com/pulumi/pulumi-chart-cert-manager/sdk/go/chart-cert-manager"
+            "importBasePath": "github.com/pulumi/pulumi-kubernetes-cert-manager/sdk/go/kubernetes-cert-manager"
         },
         "nodejs": {
             "dependencies": {
