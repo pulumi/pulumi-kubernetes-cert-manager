@@ -7,7 +7,7 @@ const ns = new k8s.core.v1.Namespace("sandbox-ns", {
     metadata: { name: nsName },
 });
 
-// Set up a cert manager namespace and deploy into it.
+// Install a cert manager into our cluster.
 const manager = new certmanager.CertManager("cert-manager", {
     installCRDs: true,
     helmOptions: {
