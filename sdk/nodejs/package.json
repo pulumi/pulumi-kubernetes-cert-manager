@@ -1,0 +1,19 @@
+{
+    "name": "@pulumi/chart-cert-manager",
+    "version": "${VERSION}",
+    "scripts": {
+        "build": "tsc"
+    },
+    "dependencies": {
+        "@pulumi/kubernetes": "^3.7.1"
+    },
+    "devDependencies": {
+        "typescript": "^3.7.0"
+    },
+    "peerDependencies": {
+        "@pulumi/pulumi": "latest"
+    },
+    "pulumi": {
+        "resource": true
+    }
+}
