@@ -15,9 +15,11 @@
 package provider
 
 import (
+	helmbase "github.com/joeduffy/pulumi-go-helmbase"
 	appsv1 "github.com/pulumi/pulumi-kubernetes/sdk/v3/go/kubernetes/apps/v1"
 	corev1 "github.com/pulumi/pulumi-kubernetes/sdk/v3/go/kubernetes/core/v1"
 	helmv3 "github.com/pulumi/pulumi-kubernetes/sdk/v3/go/kubernetes/helm/v3"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -87,10 +89,10 @@ type CertManagerArgs struct {
 
 	// HelmOptions is an escape hatch that lets the end user control any aspect of the
 	// Helm deployment. This exposes the entirety of the underlying Helm Release component args.
-	HelmOptions *helmv3.ReleaseType `pulumi:"helmOptions" pschema:"ref=#/types/chart-cert-manager:index:Release" json:"-"`
+	HelmOptions *helmbase.ReleaseType `pulumi:"helmOptions" pschema:"ref=#/types/chart-cert-manager:index:Release" json:"-"`
 }
 
-func (args *CertManagerArgs) R() **helmv3.ReleaseType { return &args.HelmOptions }
+func (args *CertManagerArgs) R() **helmbase.ReleaseType { return &args.HelmOptions }
 
 type CertManagerGlobal struct {
 	// Reference to one or more secrets to be used when pulling images.
