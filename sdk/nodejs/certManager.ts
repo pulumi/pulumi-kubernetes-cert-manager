@@ -38,51 +38,49 @@ export class CertManager extends pulumi.ComponentResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: CertManagerArgs, opts?: pulumi.ComponentResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            inputs["affinity"] = args ? args.affinity : undefined;
-            inputs["cainjector"] = args ? args.cainjector : undefined;
-            inputs["clusterResourceNamespace"] = args ? args.clusterResourceNamespace : undefined;
-            inputs["containerSecurityContext"] = args ? args.containerSecurityContext : undefined;
-            inputs["deploymentAnnotations"] = args ? args.deploymentAnnotations : undefined;
-            inputs["extraArgs"] = args ? args.extraArgs : undefined;
-            inputs["extraEnv"] = args ? args.extraEnv : undefined;
-            inputs["extraVolumeMounts"] = args ? args.extraVolumeMounts : undefined;
-            inputs["extraVolumes"] = args ? args.extraVolumes : undefined;
-            inputs["featureGates"] = args ? args.featureGates : undefined;
-            inputs["global"] = args ? args.global : undefined;
-            inputs["helmOptions"] = args ? args.helmOptions : undefined;
-            inputs["http_proxy"] = args ? args.http_proxy : undefined;
-            inputs["https_proxy"] = args ? args.https_proxy : undefined;
-            inputs["image"] = args ? args.image : undefined;
-            inputs["ingressShim"] = args ? args.ingressShim : undefined;
-            inputs["installCRDs"] = args ? args.installCRDs : undefined;
-            inputs["no_proxy"] = args ? args.no_proxy : undefined;
-            inputs["nodeSelector"] = args ? args.nodeSelector : undefined;
-            inputs["podAnnotations"] = args ? args.podAnnotations : undefined;
-            inputs["podDnsConfig"] = args ? args.podDnsConfig : undefined;
-            inputs["podDnsPolicy"] = args ? args.podDnsPolicy : undefined;
-            inputs["podLabels"] = args ? args.podLabels : undefined;
-            inputs["prometheus"] = args ? args.prometheus : undefined;
-            inputs["replicaCount"] = args ? args.replicaCount : undefined;
-            inputs["resources"] = args ? args.resources : undefined;
-            inputs["securityContext"] = args ? args.securityContext : undefined;
-            inputs["serviceAccount"] = args ? args.serviceAccount : undefined;
-            inputs["serviceAnnotations"] = args ? args.serviceAnnotations : undefined;
-            inputs["serviceLabels"] = args ? args.serviceLabels : undefined;
-            inputs["startupapicheck"] = args ? args.startupapicheck : undefined;
-            inputs["strategy"] = args ? args.strategy : undefined;
-            inputs["tolerations"] = args ? args.tolerations : undefined;
-            inputs["webhook"] = args ? args.webhook : undefined;
-            inputs["status"] = undefined /*out*/;
+            resourceInputs["affinity"] = args ? args.affinity : undefined;
+            resourceInputs["cainjector"] = args ? args.cainjector : undefined;
+            resourceInputs["clusterResourceNamespace"] = args ? args.clusterResourceNamespace : undefined;
+            resourceInputs["containerSecurityContext"] = args ? args.containerSecurityContext : undefined;
+            resourceInputs["deploymentAnnotations"] = args ? args.deploymentAnnotations : undefined;
+            resourceInputs["extraArgs"] = args ? args.extraArgs : undefined;
+            resourceInputs["extraEnv"] = args ? args.extraEnv : undefined;
+            resourceInputs["extraVolumeMounts"] = args ? args.extraVolumeMounts : undefined;
+            resourceInputs["extraVolumes"] = args ? args.extraVolumes : undefined;
+            resourceInputs["featureGates"] = args ? args.featureGates : undefined;
+            resourceInputs["global"] = args ? args.global : undefined;
+            resourceInputs["helmOptions"] = args ? args.helmOptions : undefined;
+            resourceInputs["http_proxy"] = args ? args.http_proxy : undefined;
+            resourceInputs["https_proxy"] = args ? args.https_proxy : undefined;
+            resourceInputs["image"] = args ? args.image : undefined;
+            resourceInputs["ingressShim"] = args ? args.ingressShim : undefined;
+            resourceInputs["installCRDs"] = args ? args.installCRDs : undefined;
+            resourceInputs["no_proxy"] = args ? args.no_proxy : undefined;
+            resourceInputs["nodeSelector"] = args ? args.nodeSelector : undefined;
+            resourceInputs["podAnnotations"] = args ? args.podAnnotations : undefined;
+            resourceInputs["podDnsConfig"] = args ? args.podDnsConfig : undefined;
+            resourceInputs["podDnsPolicy"] = args ? args.podDnsPolicy : undefined;
+            resourceInputs["podLabels"] = args ? args.podLabels : undefined;
+            resourceInputs["prometheus"] = args ? args.prometheus : undefined;
+            resourceInputs["replicaCount"] = args ? args.replicaCount : undefined;
+            resourceInputs["resources"] = args ? args.resources : undefined;
+            resourceInputs["securityContext"] = args ? args.securityContext : undefined;
+            resourceInputs["serviceAccount"] = args ? args.serviceAccount : undefined;
+            resourceInputs["serviceAnnotations"] = args ? args.serviceAnnotations : undefined;
+            resourceInputs["serviceLabels"] = args ? args.serviceLabels : undefined;
+            resourceInputs["startupapicheck"] = args ? args.startupapicheck : undefined;
+            resourceInputs["strategy"] = args ? args.strategy : undefined;
+            resourceInputs["tolerations"] = args ? args.tolerations : undefined;
+            resourceInputs["webhook"] = args ? args.webhook : undefined;
+            resourceInputs["status"] = undefined /*out*/;
         } else {
-            inputs["status"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(CertManager.__pulumiType, name, inputs, opts, true /*remote*/);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(CertManager.__pulumiType, name, resourceInputs, opts, true /*remote*/);
     }
 }
 

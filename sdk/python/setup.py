@@ -48,6 +48,7 @@ setup(name='pulumi_kubernetes_cert_manager',
       package_data={
           'pulumi_kubernetes_cert_manager': [
               'py.typed',
+              'pulumi-plugin.json',
           ]
       },
       install_requires=[

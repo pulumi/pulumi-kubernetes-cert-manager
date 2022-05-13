@@ -5,7 +5,7 @@ PROJECT         := github.com/pulumi/pulumi-${PACK}
 
 PROVIDER        := pulumi-resource-${PACK}
 CODEGEN         := pulumi-gen-${PACK}
-VERSION_PATH    := provider/pkg/version.Version
+VERSION_PATH    := pkg/version.Version
 
 WORKING_DIR     := $(shell pwd)
 SCHEMA_PATH     := ${WORKING_DIR}/schema.json
