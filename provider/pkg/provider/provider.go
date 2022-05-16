@@ -15,7 +15,7 @@
 package provider
 
 import (
-	helmbase "github.com/joeduffy/pulumi-go-helmbase"
+	helmbase "github.com/pulumi/pulumi-go-helmbase"
 
 	"github.com/pulumi/pulumi/pkg/v3/resource/provider"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/cmdutil"

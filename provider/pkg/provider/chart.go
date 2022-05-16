@@ -15,7 +15,7 @@
 package provider
 
 import (
-	helmbase "github.com/joeduffy/pulumi-go-helmbase"
+	helmbase "github.com/pulumi/pulumi-go-helmbase"
 	appsv1 "github.com/pulumi/pulumi-kubernetes/sdk/v3/go/kubernetes/apps/v1"
 	corev1 "github.com/pulumi/pulumi-kubernetes/sdk/v3/go/kubernetes/core/v1"
 	helmv3 "github.com/pulumi/pulumi-kubernetes/sdk/v3/go/kubernetes/helm/v3"
