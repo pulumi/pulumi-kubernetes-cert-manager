@@ -2,16 +2,13 @@ import * as k8s from "@pulumi/kubernetes";
 import * as certmanager from "@pulumi/kubernetes-cert-manager";
 
 // Create a sandbox namespace.
-const nsName = "sandbox";
-const ns = new k8s.core.v1.Namespace("sandbox-ns", {
-    metadata: { name: nsName },
-});
+const ns = new k8s.core.v1.Namespace("sandbox-ns");
 
 // Install a cert manager into our cluster.
 const manager = new certmanager.CertManager("cert-manager", {
     installCRDs: true,
     helmOptions: {
-        namespace: nsName,
+        namespace: ns.metadata.name,
     },
 });
 
@@ -25,7 +22,7 @@ const issuer = new k8s.apiextensions.CustomResource("issuer", {
     kind: "Issuer",
     metadata: {
         name: "selfsigned-issuer",
-        namespace: nsName,
+        namespace: ns.metadata.name,
     },
     spec: {
         selfSigned: {},
