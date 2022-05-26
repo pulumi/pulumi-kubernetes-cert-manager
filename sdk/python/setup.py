@@ -44,6 +44,7 @@ setup(name='pulumi_kubernetes_cert_manager',
       cmdclass={
           'install': InstallPluginCommand,
       },
+      keywords='pulumi kubernetes cert-manager kind/component category/infrastructure',
       packages=find_packages(),
       package_data={
           'pulumi_kubernetes_cert_manager': [
