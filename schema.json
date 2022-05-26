@@ -1,5 +1,14 @@
 {
     "name": "kubernetes-cert-manager",
+    "displayName": "Kubernetes Cert Manager",
+    "keywords": [
+        "pulumi",
+        "kubernetes",
+        "cert-manager",
+        "kind/component",
+        "category/infrastructure"
+    ],
+    "publisher": "Pulumi",
     "resources": {
         "kubernetes-cert-manager:index:CertManager": {
             "description": "Automates the management and issuance of TLS certificates from various issuing sources within Kubernetes",

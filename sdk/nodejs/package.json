@@ -1,6 +1,13 @@
 {
     "name": "@pulumi/kubernetes-cert-manager",
     "version": "${VERSION}",
+    "keywords": [
+        "pulumi",
+        "kubernetes",
+        "cert-manager",
+        "kind/component",
+        "category/infrastructure"
+    ],
     "scripts": {
         "build": "tsc",
         "install": "node scripts/install-pulumi-plugin.js resource kubernetes-cert-manager ${VERSION}"

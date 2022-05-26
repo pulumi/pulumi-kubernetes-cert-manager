@@ -13,6 +13,7 @@ package-lock.json
 nuget/
 .vscode/
 **/*.bak
+.DS_Store
 
 ci-scripts/
 *.tar.gz
