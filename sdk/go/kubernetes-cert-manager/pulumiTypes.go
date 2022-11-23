@@ -39,7 +39,7 @@ type CertManagerCaInjector struct {
 // CertManagerCaInjectorInput is an input type that accepts CertManagerCaInjectorArgs and CertManagerCaInjectorOutput values.
 // You can construct a concrete instance of `CertManagerCaInjectorInput` via:
 //
-//          CertManagerCaInjectorArgs{...}
+//	CertManagerCaInjectorArgs{...}
 type CertManagerCaInjectorInput interface {
 	pulumi.Input
 
@@ -94,11 +94,11 @@ func (i CertManagerCaInjectorArgs) ToCertManagerCaInjectorPtrOutputWithContext(c
 // CertManagerCaInjectorPtrInput is an input type that accepts CertManagerCaInjectorArgs, CertManagerCaInjectorPtr and CertManagerCaInjectorPtrOutput values.
 // You can construct a concrete instance of `CertManagerCaInjectorPtrInput` via:
 //
-//          CertManagerCaInjectorArgs{...}
+//	        CertManagerCaInjectorArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CertManagerCaInjectorPtrInput interface {
 	pulumi.Input
 
@@ -394,7 +394,7 @@ type CertManagerGlobal struct {
 // CertManagerGlobalInput is an input type that accepts CertManagerGlobalArgs and CertManagerGlobalOutput values.
 // You can construct a concrete instance of `CertManagerGlobalInput` via:
 //
-//          CertManagerGlobalArgs{...}
+//	CertManagerGlobalArgs{...}
 type CertManagerGlobalInput interface {
 	pulumi.Input
 
@@ -437,11 +437,11 @@ func (i CertManagerGlobalArgs) ToCertManagerGlobalPtrOutputWithContext(ctx conte
 // CertManagerGlobalPtrInput is an input type that accepts CertManagerGlobalArgs, CertManagerGlobalPtr and CertManagerGlobalPtrOutput values.
 // You can construct a concrete instance of `CertManagerGlobalPtrInput` via:
 //
-//          CertManagerGlobalArgs{...}
+//	        CertManagerGlobalArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CertManagerGlobalPtrInput interface {
 	pulumi.Input
 
@@ -611,7 +611,7 @@ type CertManagerGlobalLeaderElection struct {
 // CertManagerGlobalLeaderElectionInput is an input type that accepts CertManagerGlobalLeaderElectionArgs and CertManagerGlobalLeaderElectionOutput values.
 // You can construct a concrete instance of `CertManagerGlobalLeaderElectionInput` via:
 //
-//          CertManagerGlobalLeaderElectionArgs{...}
+//	CertManagerGlobalLeaderElectionArgs{...}
 type CertManagerGlobalLeaderElectionInput interface {
 	pulumi.Input
 
@@ -651,11 +651,11 @@ func (i CertManagerGlobalLeaderElectionArgs) ToCertManagerGlobalLeaderElectionPt
 // CertManagerGlobalLeaderElectionPtrInput is an input type that accepts CertManagerGlobalLeaderElectionArgs, CertManagerGlobalLeaderElectionPtr and CertManagerGlobalLeaderElectionPtrOutput values.
 // You can construct a concrete instance of `CertManagerGlobalLeaderElectionPtrInput` via:
 //
-//          CertManagerGlobalLeaderElectionArgs{...}
+//	        CertManagerGlobalLeaderElectionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CertManagerGlobalLeaderElectionPtrInput interface {
 	pulumi.Input
 
@@ -782,7 +782,7 @@ type CertManagerGlobalPodSecurityPolicy struct {
 // CertManagerGlobalPodSecurityPolicyInput is an input type that accepts CertManagerGlobalPodSecurityPolicyArgs and CertManagerGlobalPodSecurityPolicyOutput values.
 // You can construct a concrete instance of `CertManagerGlobalPodSecurityPolicyInput` via:
 //
-//          CertManagerGlobalPodSecurityPolicyArgs{...}
+//	CertManagerGlobalPodSecurityPolicyArgs{...}
 type CertManagerGlobalPodSecurityPolicyInput interface {
 	pulumi.Input
 
@@ -818,11 +818,11 @@ func (i CertManagerGlobalPodSecurityPolicyArgs) ToCertManagerGlobalPodSecurityPo
 // CertManagerGlobalPodSecurityPolicyPtrInput is an input type that accepts CertManagerGlobalPodSecurityPolicyArgs, CertManagerGlobalPodSecurityPolicyPtr and CertManagerGlobalPodSecurityPolicyPtrOutput values.
 // You can construct a concrete instance of `CertManagerGlobalPodSecurityPolicyPtrInput` via:
 //
-//          CertManagerGlobalPodSecurityPolicyArgs{...}
+//	        CertManagerGlobalPodSecurityPolicyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CertManagerGlobalPodSecurityPolicyPtrInput interface {
 	pulumi.Input
 
@@ -929,7 +929,7 @@ type CertManagerGlobalRbac struct {
 // CertManagerGlobalRbacInput is an input type that accepts CertManagerGlobalRbacArgs and CertManagerGlobalRbacOutput values.
 // You can construct a concrete instance of `CertManagerGlobalRbacInput` via:
 //
-//          CertManagerGlobalRbacArgs{...}
+//	CertManagerGlobalRbacArgs{...}
 type CertManagerGlobalRbacInput interface {
 	pulumi.Input
 
@@ -964,11 +964,11 @@ func (i CertManagerGlobalRbacArgs) ToCertManagerGlobalRbacPtrOutputWithContext(c
 // CertManagerGlobalRbacPtrInput is an input type that accepts CertManagerGlobalRbacArgs, CertManagerGlobalRbacPtr and CertManagerGlobalRbacPtrOutput values.
 // You can construct a concrete instance of `CertManagerGlobalRbacPtrInput` via:
 //
-//          CertManagerGlobalRbacArgs{...}
+//	        CertManagerGlobalRbacArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CertManagerGlobalRbacPtrInput interface {
 	pulumi.Input
 
@@ -1070,7 +1070,7 @@ type CertManagerImage struct {
 // CertManagerImageInput is an input type that accepts CertManagerImageArgs and CertManagerImageOutput values.
 // You can construct a concrete instance of `CertManagerImageInput` via:
 //
-//          CertManagerImageArgs{...}
+//	CertManagerImageArgs{...}
 type CertManagerImageInput interface {
 	pulumi.Input
 
@@ -1113,11 +1113,11 @@ func (i CertManagerImageArgs) ToCertManagerImagePtrOutputWithContext(ctx context
 // CertManagerImagePtrInput is an input type that accepts CertManagerImageArgs, CertManagerImagePtr and CertManagerImagePtrOutput values.
 // You can construct a concrete instance of `CertManagerImagePtrInput` via:
 //
-//          CertManagerImageArgs{...}
+//	        CertManagerImageArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CertManagerImagePtrInput interface {
 	pulumi.Input
 
@@ -1273,7 +1273,7 @@ type CertManagerIngressShim struct {
 // CertManagerIngressShimInput is an input type that accepts CertManagerIngressShimArgs and CertManagerIngressShimOutput values.
 // You can construct a concrete instance of `CertManagerIngressShimInput` via:
 //
-//          CertManagerIngressShimArgs{...}
+//	CertManagerIngressShimArgs{...}
 type CertManagerIngressShimInput interface {
 	pulumi.Input
 
@@ -1310,11 +1310,11 @@ func (i CertManagerIngressShimArgs) ToCertManagerIngressShimPtrOutputWithContext
 // CertManagerIngressShimPtrInput is an input type that accepts CertManagerIngressShimArgs, CertManagerIngressShimPtr and CertManagerIngressShimPtrOutput values.
 // You can construct a concrete instance of `CertManagerIngressShimPtrInput` via:
 //
-//          CertManagerIngressShimArgs{...}
+//	        CertManagerIngressShimArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CertManagerIngressShimPtrInput interface {
 	pulumi.Input
 
@@ -1435,7 +1435,7 @@ type CertManagerPrometheus struct {
 // CertManagerPrometheusInput is an input type that accepts CertManagerPrometheusArgs and CertManagerPrometheusOutput values.
 // You can construct a concrete instance of `CertManagerPrometheusInput` via:
 //
-//          CertManagerPrometheusArgs{...}
+//	CertManagerPrometheusArgs{...}
 type CertManagerPrometheusInput interface {
 	pulumi.Input
 
@@ -1471,11 +1471,11 @@ func (i CertManagerPrometheusArgs) ToCertManagerPrometheusPtrOutputWithContext(c
 // CertManagerPrometheusPtrInput is an input type that accepts CertManagerPrometheusArgs, CertManagerPrometheusPtr and CertManagerPrometheusPtrOutput values.
 // You can construct a concrete instance of `CertManagerPrometheusPtrInput` via:
 //
-//          CertManagerPrometheusArgs{...}
+//	        CertManagerPrometheusArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CertManagerPrometheusPtrInput interface {
 	pulumi.Input
 
@@ -1588,7 +1588,7 @@ type CertManagerPrometheusServiceMonitor struct {
 // CertManagerPrometheusServiceMonitorInput is an input type that accepts CertManagerPrometheusServiceMonitorArgs and CertManagerPrometheusServiceMonitorOutput values.
 // You can construct a concrete instance of `CertManagerPrometheusServiceMonitorInput` via:
 //
-//          CertManagerPrometheusServiceMonitorArgs{...}
+//	CertManagerPrometheusServiceMonitorArgs{...}
 type CertManagerPrometheusServiceMonitorInput interface {
 	pulumi.Input
 
@@ -1629,11 +1629,11 @@ func (i CertManagerPrometheusServiceMonitorArgs) ToCertManagerPrometheusServiceM
 // CertManagerPrometheusServiceMonitorPtrInput is an input type that accepts CertManagerPrometheusServiceMonitorArgs, CertManagerPrometheusServiceMonitorPtr and CertManagerPrometheusServiceMonitorPtrOutput values.
 // You can construct a concrete instance of `CertManagerPrometheusServiceMonitorPtrInput` via:
 //
-//          CertManagerPrometheusServiceMonitorArgs{...}
+//	        CertManagerPrometheusServiceMonitorArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CertManagerPrometheusServiceMonitorPtrInput interface {
 	pulumi.Input
 
@@ -1812,7 +1812,7 @@ type CertManagerServiceAccount struct {
 // CertManagerServiceAccountInput is an input type that accepts CertManagerServiceAccountArgs and CertManagerServiceAccountOutput values.
 // You can construct a concrete instance of `CertManagerServiceAccountInput` via:
 //
-//          CertManagerServiceAccountArgs{...}
+//	CertManagerServiceAccountArgs{...}
 type CertManagerServiceAccountInput interface {
 	pulumi.Input
 
@@ -1854,11 +1854,11 @@ func (i CertManagerServiceAccountArgs) ToCertManagerServiceAccountPtrOutputWithC
 // CertManagerServiceAccountPtrInput is an input type that accepts CertManagerServiceAccountArgs, CertManagerServiceAccountPtr and CertManagerServiceAccountPtrOutput values.
 // You can construct a concrete instance of `CertManagerServiceAccountPtrInput` via:
 //
-//          CertManagerServiceAccountArgs{...}
+//	        CertManagerServiceAccountArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CertManagerServiceAccountPtrInput interface {
 	pulumi.Input
 
@@ -2020,7 +2020,7 @@ type CertManagerStartupAPICheck struct {
 // CertManagerStartupAPICheckInput is an input type that accepts CertManagerStartupAPICheckArgs and CertManagerStartupAPICheckOutput values.
 // You can construct a concrete instance of `CertManagerStartupAPICheckInput` via:
 //
-//          CertManagerStartupAPICheckArgs{...}
+//	CertManagerStartupAPICheckArgs{...}
 type CertManagerStartupAPICheckInput interface {
 	pulumi.Input
 
@@ -2076,11 +2076,11 @@ func (i CertManagerStartupAPICheckArgs) ToCertManagerStartupAPICheckPtrOutputWit
 // CertManagerStartupAPICheckPtrInput is an input type that accepts CertManagerStartupAPICheckArgs, CertManagerStartupAPICheckPtr and CertManagerStartupAPICheckPtrOutput values.
 // You can construct a concrete instance of `CertManagerStartupAPICheckPtrInput` via:
 //
-//          CertManagerStartupAPICheckArgs{...}
+//	        CertManagerStartupAPICheckArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CertManagerStartupAPICheckPtrInput interface {
 	pulumi.Input
 
@@ -2371,7 +2371,7 @@ type CertManagerStartupAPICheckRBAC struct {
 // CertManagerStartupAPICheckRBACInput is an input type that accepts CertManagerStartupAPICheckRBACArgs and CertManagerStartupAPICheckRBACOutput values.
 // You can construct a concrete instance of `CertManagerStartupAPICheckRBACInput` via:
 //
-//          CertManagerStartupAPICheckRBACArgs{...}
+//	CertManagerStartupAPICheckRBACArgs{...}
 type CertManagerStartupAPICheckRBACInput interface {
 	pulumi.Input
 
@@ -2407,11 +2407,11 @@ func (i CertManagerStartupAPICheckRBACArgs) ToCertManagerStartupAPICheckRBACPtrO
 // CertManagerStartupAPICheckRBACPtrInput is an input type that accepts CertManagerStartupAPICheckRBACArgs, CertManagerStartupAPICheckRBACPtr and CertManagerStartupAPICheckRBACPtrOutput values.
 // You can construct a concrete instance of `CertManagerStartupAPICheckRBACPtrInput` via:
 //
-//          CertManagerStartupAPICheckRBACArgs{...}
+//	        CertManagerStartupAPICheckRBACArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CertManagerStartupAPICheckRBACPtrInput interface {
 	pulumi.Input
 
@@ -2548,7 +2548,7 @@ type CertManagerWebhook struct {
 // CertManagerWebhookInput is an input type that accepts CertManagerWebhookArgs and CertManagerWebhookOutput values.
 // You can construct a concrete instance of `CertManagerWebhookInput` via:
 //
-//          CertManagerWebhookArgs{...}
+//	CertManagerWebhookArgs{...}
 type CertManagerWebhookInput interface {
 	pulumi.Input
 
@@ -2624,11 +2624,11 @@ func (i CertManagerWebhookArgs) ToCertManagerWebhookPtrOutputWithContext(ctx con
 // CertManagerWebhookPtrInput is an input type that accepts CertManagerWebhookArgs, CertManagerWebhookPtr and CertManagerWebhookPtrOutput values.
 // You can construct a concrete instance of `CertManagerWebhookPtrInput` via:
 //
-//          CertManagerWebhookArgs{...}
+//	        CertManagerWebhookArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CertManagerWebhookPtrInput interface {
 	pulumi.Input
 
@@ -3079,7 +3079,7 @@ type CertManagerWebhookURL struct {
 // CertManagerWebhookURLInput is an input type that accepts CertManagerWebhookURLArgs and CertManagerWebhookURLOutput values.
 // You can construct a concrete instance of `CertManagerWebhookURLInput` via:
 //
-//          CertManagerWebhookURLArgs{...}
+//	CertManagerWebhookURLArgs{...}
 type CertManagerWebhookURLInput interface {
 	pulumi.Input
 
@@ -3114,11 +3114,11 @@ func (i CertManagerWebhookURLArgs) ToCertManagerWebhookURLPtrOutputWithContext(c
 // CertManagerWebhookURLPtrInput is an input type that accepts CertManagerWebhookURLArgs, CertManagerWebhookURLPtr and CertManagerWebhookURLPtrOutput values.
 // You can construct a concrete instance of `CertManagerWebhookURLPtrInput` via:
 //
-//          CertManagerWebhookURLArgs{...}
+//	        CertManagerWebhookURLArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CertManagerWebhookURLPtrInput interface {
 	pulumi.Input
 
@@ -3280,7 +3280,7 @@ type Release struct {
 // ReleaseInput is an input type that accepts ReleaseArgs and ReleaseOutput values.
 // You can construct a concrete instance of `ReleaseInput` via:
 //
-//          ReleaseArgs{...}
+//	ReleaseArgs{...}
 type ReleaseInput interface {
 	pulumi.Input
 
@@ -3383,11 +3383,11 @@ func (i ReleaseArgs) ToReleasePtrOutputWithContext(ctx context.Context) ReleaseP
 // ReleasePtrInput is an input type that accepts ReleaseArgs, ReleasePtr and ReleasePtrOutput values.
 // You can construct a concrete instance of `ReleasePtrInput` via:
 //
-//          ReleaseArgs{...}
+//	        ReleaseArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ReleasePtrInput interface {
 	pulumi.Input
 
@@ -4044,7 +4044,7 @@ type RepositoryOpts struct {
 // RepositoryOptsInput is an input type that accepts RepositoryOptsArgs and RepositoryOptsOutput values.
 // You can construct a concrete instance of `RepositoryOptsInput` via:
 //
-//          RepositoryOptsArgs{...}
+//	RepositoryOptsArgs{...}
 type RepositoryOptsInput interface {
 	pulumi.Input
 
@@ -4091,11 +4091,11 @@ func (i RepositoryOptsArgs) ToRepositoryOptsPtrOutputWithContext(ctx context.Con
 // RepositoryOptsPtrInput is an input type that accepts RepositoryOptsArgs, RepositoryOptsPtr and RepositoryOptsPtrOutput values.
 // You can construct a concrete instance of `RepositoryOptsPtrInput` via:
 //
-//          RepositoryOptsArgs{...}
+//	        RepositoryOptsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type RepositoryOptsPtrInput interface {
 	pulumi.Input
 

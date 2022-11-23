@@ -158,7 +158,7 @@ func (i *CertManager) ToCertManagerOutputWithContext(ctx context.Context) CertMa
 // CertManagerArrayInput is an input type that accepts CertManagerArray and CertManagerArrayOutput values.
 // You can construct a concrete instance of `CertManagerArrayInput` via:
 //
-//          CertManagerArray{ CertManagerArgs{...} }
+//	CertManagerArray{ CertManagerArgs{...} }
 type CertManagerArrayInput interface {
 	pulumi.Input
 
@@ -183,7 +183,7 @@ func (i CertManagerArray) ToCertManagerArrayOutputWithContext(ctx context.Contex
 // CertManagerMapInput is an input type that accepts CertManagerMap and CertManagerMapOutput values.
 // You can construct a concrete instance of `CertManagerMapInput` via:
 //
-//          CertManagerMap{ "key": CertManagerArgs{...} }
+//	CertManagerMap{ "key": CertManagerArgs{...} }
 type CertManagerMapInput interface {
 	pulumi.Input
 
