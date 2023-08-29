@@ -123,7 +123,7 @@ require (
 	go.uber.org/atomic v1.9.0 // indirect
 	gocloud.dev v0.23.0 // indirect
 	gocloud.dev/secrets/hashivault v0.23.0 // indirect
-	golang.org/x/crypto v0.0.0-20220131195533-30dcbda58838 // indirect
+	golang.org/x/crypto v0.1.0 // indirect
 	golang.org/x/net v0.5.0 // indirect
 	golang.org/x/oauth2 v0.4.0 // indirect
 	golang.org/x/sync v0.1.0 // indirect
