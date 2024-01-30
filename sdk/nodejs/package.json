@@ -9,19 +9,18 @@
         "category/infrastructure"
     ],
     "scripts": {
-        "build": "tsc",
-        "install": "node scripts/install-pulumi-plugin.js resource kubernetes-cert-manager ${VERSION}"
+        "build": "tsc"
     },
     "dependencies": {
-        "@pulumi/kubernetes": "^3.7.1"
+        "@pulumi/kubernetes": "^3.7.1",
+        "@pulumi/pulumi": "^3.42.0"
     },
     "devDependencies": {
+        "@types/node": "^14",
         "typescript": "^3.7.0"
     },
-    "peerDependencies": {
-        "@pulumi/pulumi": "latest"
-    },
     "pulumi": {
-        "resource": true
+        "resource": true,
+        "name": "kubernetes-cert-manager"
     }
 }

@@ -13,7 +13,7 @@ namespace Pulumi.KubernetesCertManager
     /// Automates the management and issuance of TLS certificates from various issuing sources within Kubernetes
     /// </summary>
     [KubernetesCertManagerResourceType("kubernetes-cert-manager:index:CertManager")]
-    public partial class CertManager : Pulumi.ComponentResource
+    public partial class CertManager : global::Pulumi.ComponentResource
     {
         /// <summary>
         /// Detailed information about the status of the underlying Helm deployment.
@@ -47,7 +47,7 @@ namespace Pulumi.KubernetesCertManager
         }
     }
 
-    public sealed class CertManagerArgs : Pulumi.ResourceArgs
+    public sealed class CertManagerArgs : global::Pulumi.ResourceArgs
     {
         [Input("affinity")]
         public Input<Pulumi.Kubernetes.Types.Inputs.Core.V1.AffinityArgs>? Affinity { get; set; }
@@ -247,5 +247,6 @@ namespace Pulumi.KubernetesCertManager
         public CertManagerArgs()
         {
         }
+        public static new CertManagerArgs Empty => new CertManagerArgs();
     }
 }

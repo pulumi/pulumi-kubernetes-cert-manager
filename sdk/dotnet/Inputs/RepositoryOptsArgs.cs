@@ -13,7 +13,7 @@ namespace Pulumi.KubernetesCertManager.Inputs
     /// <summary>
     /// Specification defining the Helm chart repository to use.
     /// </summary>
-    public sealed class RepositoryOptsArgs : Pulumi.ResourceArgs
+    public sealed class RepositoryOptsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Repository's CA File
@@ -64,5 +64,6 @@ namespace Pulumi.KubernetesCertManager.Inputs
         public RepositoryOptsArgs()
         {
         }
+        public static new RepositoryOptsArgs Empty => new RepositoryOptsArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.KubernetesCertManager.Inputs
 {
 
-    public sealed class CertManagerStartupAPICheckArgs : Pulumi.ResourceArgs
+    public sealed class CertManagerStartupAPICheckArgs : global::Pulumi.ResourceArgs
     {
         [Input("affinity")]
         public Input<Pulumi.Kubernetes.Types.Inputs.Core.V1.AffinityArgs>? Affinity { get; set; }
@@ -115,5 +115,6 @@ namespace Pulumi.KubernetesCertManager.Inputs
         public CertManagerStartupAPICheckArgs()
         {
         }
+        public static new CertManagerStartupAPICheckArgs Empty => new CertManagerStartupAPICheckArgs();
     }
 }

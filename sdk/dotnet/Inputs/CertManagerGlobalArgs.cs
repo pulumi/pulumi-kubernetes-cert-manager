@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.KubernetesCertManager.Inputs
 {
 
-    public sealed class CertManagerGlobalArgs : Pulumi.ResourceArgs
+    public sealed class CertManagerGlobalArgs : global::Pulumi.ResourceArgs
     {
         [Input("imagePullSecrets")]
         private InputList<Pulumi.Kubernetes.Types.Inputs.Core.V1.LocalObjectReferenceArgs>? _imagePullSecrets;
@@ -48,5 +48,6 @@ namespace Pulumi.KubernetesCertManager.Inputs
         public CertManagerGlobalArgs()
         {
         }
+        public static new CertManagerGlobalArgs Empty => new CertManagerGlobalArgs();
     }
 }

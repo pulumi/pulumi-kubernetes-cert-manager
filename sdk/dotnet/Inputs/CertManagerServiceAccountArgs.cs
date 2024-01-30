@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.KubernetesCertManager.Inputs
 {
 
-    public sealed class CertManagerServiceAccountArgs : Pulumi.ResourceArgs
+    public sealed class CertManagerServiceAccountArgs : global::Pulumi.ResourceArgs
     {
         [Input("annotations")]
         private InputMap<string>? _annotations;
@@ -45,5 +45,6 @@ namespace Pulumi.KubernetesCertManager.Inputs
         public CertManagerServiceAccountArgs()
         {
         }
+        public static new CertManagerServiceAccountArgs Empty => new CertManagerServiceAccountArgs();
     }
 }

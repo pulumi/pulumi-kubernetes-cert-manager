@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.KubernetesCertManager.Inputs
 {
 
-    public sealed class CertManagerGlobalRbacArgs : Pulumi.ResourceArgs
+    public sealed class CertManagerGlobalRbacArgs : global::Pulumi.ResourceArgs
     {
         [Input("create")]
         public Input<bool>? Create { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.KubernetesCertManager.Inputs
         public CertManagerGlobalRbacArgs()
         {
         }
+        public static new CertManagerGlobalRbacArgs Empty => new CertManagerGlobalRbacArgs();
     }
 }

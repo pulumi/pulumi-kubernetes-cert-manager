@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.KubernetesCertManager.Inputs
 {
 
-    public sealed class CertManagerPrometheusServiceMonitorArgs : Pulumi.ResourceArgs
+    public sealed class CertManagerPrometheusServiceMonitorArgs : global::Pulumi.ResourceArgs
     {
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -41,5 +41,6 @@ namespace Pulumi.KubernetesCertManager.Inputs
         public CertManagerPrometheusServiceMonitorArgs()
         {
         }
+        public static new CertManagerPrometheusServiceMonitorArgs Empty => new CertManagerPrometheusServiceMonitorArgs();
     }
 }
