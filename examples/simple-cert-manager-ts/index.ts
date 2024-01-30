@@ -6,10 +6,10 @@ const ns = new k8s.core.v1.Namespace("sandbox-ns");
 
 // Install a cert manager into our cluster.
 const manager = new certmanager.CertManager("cert-manager", {
-    installCRDs: true,
-    helmOptions: {
-        namespace: ns.metadata.name,
-    },
+  installCRDs: true,
+  helmOptions: {
+    namespace: ns.metadata.name,
+  },
 });
 
 // Create a cluster issuer that uses self-signed certificates.
@@ -17,16 +17,20 @@ const manager = new certmanager.CertManager("cert-manager", {
 // dependencies, so is simple. Please refer to
 // https://cert-manager.io/docs/configuration/selfsigned/
 // for additional details on other signing providers.
-const issuer = new k8s.apiextensions.CustomResource("issuer", {
+const issuer = new k8s.apiextensions.CustomResource(
+  "issuer",
+  {
     apiVersion: "cert-manager.io/v1",
     kind: "Issuer",
     metadata: {
-        name: "selfsigned-issuer",
-        namespace: ns.metadata.name,
+      name: "selfsigned-issuer",
+      namespace: ns.metadata.name,
     },
     spec: {
-        selfSigned: {},
+      selfSigned: {},
     },
-});
+  },
+  { dependsOn: manager }
+);
 
 export const certManagerStatus = manager.status;
