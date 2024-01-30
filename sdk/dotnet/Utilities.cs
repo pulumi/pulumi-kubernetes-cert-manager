@@ -74,7 +74,7 @@ namespace Pulumi.KubernetesCertManager
         }
     }
 
-    internal sealed class KubernetesCertManagerResourceTypeAttribute : Pulumi.ResourceTypeAttribute
+    internal sealed class KubernetesCertManagerResourceTypeAttribute : global::Pulumi.ResourceTypeAttribute
     {
         public KubernetesCertManagerResourceTypeAttribute(string type) : base(type, Utilities.Version)
         {

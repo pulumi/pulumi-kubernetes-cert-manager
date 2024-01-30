@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.KubernetesCertManager.Inputs
 {
 
-    public sealed class CertManagerImageArgs : Pulumi.ResourceArgs
+    public sealed class CertManagerImageArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Setting a digest will override any tag, e.g. `digest: sha256:0e072dddd1f7f8fc8909a2ca6f65e76c5f0d2fcfb8be47935ae3457e8bbceb20`.
@@ -42,5 +42,6 @@ namespace Pulumi.KubernetesCertManager.Inputs
         public CertManagerImageArgs()
         {
         }
+        public static new CertManagerImageArgs Empty => new CertManagerImageArgs();
     }
 }

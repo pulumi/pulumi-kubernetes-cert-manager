@@ -15,7 +15,7 @@ namespace Pulumi.KubernetesCertManager.Inputs
     /// A Chart is a Helm package. It contains all of the resource definitions necessary to run an application, tool, or service inside of a Kubernetes cluster.
     /// Note - Helm Release is currently in BETA and may change. Use in production environment is discouraged.
     /// </summary>
-    public sealed class ReleaseArgs : Pulumi.ResourceArgs
+    public sealed class ReleaseArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// If set, installation process purges chart on fail. `skipAwait` will be disabled automatically if atomic is used.
@@ -242,5 +242,6 @@ namespace Pulumi.KubernetesCertManager.Inputs
         public ReleaseArgs()
         {
         }
+        public static new ReleaseArgs Empty => new ReleaseArgs();
     }
 }

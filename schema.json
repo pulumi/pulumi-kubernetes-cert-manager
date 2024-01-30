@@ -15,7 +15,7 @@
             "isComponent": true,
             "inputProperties": {
                 "affinity": {
-                    "$ref": "/kubernetes/v3.8.1/schema.json#/types/kubernetes:core/v1:Affinity"
+                    "$ref": "/kubernetes/v4.7.1/schema.json#/types/kubernetes:core/v1:Affinity"
                 },
                 "cainjector": {
                     "$ref": "#/types/kubernetes-cert-manager:index:CertManagerCaInjector"
@@ -25,7 +25,7 @@
                     "type": "string"
                 },
                 "containerSecurityContext": {
-                    "$ref": "/kubernetes/v3.8.1/schema.json#/types/kubernetes:core/v1:SecurityContext",
+                    "$ref": "/kubernetes/v4.7.1/schema.json#/types/kubernetes:core/v1:SecurityContext",
                     "description": "Container Security Context to be set on the controller component container. ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/"
                 },
                 "deploymentAnnotations": {
@@ -44,19 +44,19 @@
                 },
                 "extraEnv": {
                     "items": {
-                        "$ref": "/kubernetes/v3.8.1/schema.json#/types/kubernetes:core/v1:EnvVar"
+                        "$ref": "/kubernetes/v4.7.1/schema.json#/types/kubernetes:core/v1:EnvVar"
                     },
                     "type": "array"
                 },
                 "extraVolumeMounts": {
                     "items": {
-                        "$ref": "/kubernetes/v3.8.1/schema.json#/types/kubernetes:core/v1:VolumeMount"
+                        "$ref": "/kubernetes/v4.7.1/schema.json#/types/kubernetes:core/v1:VolumeMount"
                     },
                     "type": "array"
                 },
                 "extraVolumes": {
                     "items": {
-                        "$ref": "/kubernetes/v3.8.1/schema.json#/types/kubernetes:core/v1:Volume"
+                        "$ref": "/kubernetes/v4.7.1/schema.json#/types/kubernetes:core/v1:Volume"
                     },
                     "type": "array"
                 },
@@ -93,7 +93,7 @@
                     "type": "array"
                 },
                 "nodeSelector": {
-                    "$ref": "/kubernetes/v3.8.1/schema.json#/types/kubernetes:core/v1:NodeSelector"
+                    "$ref": "/kubernetes/v4.7.1/schema.json#/types/kubernetes:core/v1:NodeSelector"
                 },
                 "podAnnotations": {
                     "additionalProperties": {
@@ -103,7 +103,7 @@
                     "type": "object"
                 },
                 "podDnsConfig": {
-                    "$ref": "/kubernetes/v3.8.1/schema.json#/types/kubernetes:core/v1:PodDNSConfig"
+                    "$ref": "/kubernetes/v4.7.1/schema.json#/types/kubernetes:core/v1:PodDNSConfig"
                 },
                 "podDnsPolicy": {
                     "description": "Optional DNS settings, useful if you have a public and private DNS zone for the same domain on Route 53. What follows is an example of ensuring cert-manager can access an ingress or DNS TXT records at all times. NOTE: This requires Kubernetes 1.10 or `CustomPodDNS` feature gate enabled for the cluster to work.",
@@ -122,10 +122,10 @@
                     "type": "integer"
                 },
                 "resources": {
-                    "$ref": "/kubernetes/v3.8.1/schema.json#/types/kubernetes:core/v1:ResourceRequirements"
+                    "$ref": "/kubernetes/v4.7.1/schema.json#/types/kubernetes:core/v1:ResourceRequirements"
                 },
                 "securityContext": {
-                    "$ref": "/kubernetes/v3.8.1/schema.json#/types/kubernetes:core/v1:PodSecurityContext",
+                    "$ref": "/kubernetes/v4.7.1/schema.json#/types/kubernetes:core/v1:PodSecurityContext",
                     "description": "Pod Security Context. ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/"
                 },
                 "serviceAccount": {
@@ -149,11 +149,11 @@
                     "$ref": "#/types/kubernetes-cert-manager:index:CertManagerStartupAPICheck"
                 },
                 "strategy": {
-                    "$ref": "/kubernetes/v3.8.1/schema.json#/types/kubernetes:apps/v1:DeploymentStrategy"
+                    "$ref": "/kubernetes/v4.7.1/schema.json#/types/kubernetes:apps/v1:DeploymentStrategy"
                 },
                 "tolerations": {
                     "items": {
-                        "$ref": "/kubernetes/v3.8.1/schema.json#/types/kubernetes:core/v1:Toleration"
+                        "$ref": "/kubernetes/v4.7.1/schema.json#/types/kubernetes:core/v1:Toleration"
                     },
                     "type": "array"
                 },
@@ -414,10 +414,10 @@
         "kubernetes-cert-manager:index:CertManagerCaInjector": {
             "properties": {
                 "affinity": {
-                    "$ref": "/kubernetes/v3.8.1/schema.json#/types/kubernetes:core/v1:Affinity"
+                    "$ref": "/kubernetes/v4.7.1/schema.json#/types/kubernetes:core/v1:Affinity"
                 },
                 "containerSecurityContext": {
-                    "$ref": "/kubernetes/v3.8.1/schema.json#/types/kubernetes:core/v1:SecurityContext",
+                    "$ref": "/kubernetes/v4.7.1/schema.json#/types/kubernetes:core/v1:SecurityContext",
                     "description": "Container Security Context to be set on the cainjector component container. ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/"
                 },
                 "deploymentAnnotations": {
@@ -458,27 +458,27 @@
                     "type": "object"
                 },
                 "podSecurityContext": {
-                    "$ref": "/kubernetes/v3.8.1/schema.json#/types/kubernetes:core/v1:PodSecurityContext",
+                    "$ref": "/kubernetes/v4.7.1/schema.json#/types/kubernetes:core/v1:PodSecurityContext",
                     "description": "Pod Security Context to be set on the cainjector component Pod. ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/"
                 },
                 "replicaCount": {
                     "type": "integer"
                 },
                 "resources": {
-                    "$ref": "/kubernetes/v3.8.1/schema.json#/types/kubernetes:core/v1:ResourceRequirements"
+                    "$ref": "/kubernetes/v4.7.1/schema.json#/types/kubernetes:core/v1:ResourceRequirements"
                 },
                 "serviceAccount": {
                     "$ref": "#/types/kubernetes-cert-manager:index:CertManagerServiceAccount"
                 },
                 "strategy": {
-                    "$ref": "/kubernetes/v3.8.1/schema.json#/types/kubernetes:apps/v1:DeploymentStrategy"
+                    "$ref": "/kubernetes/v4.7.1/schema.json#/types/kubernetes:apps/v1:DeploymentStrategy"
                 },
                 "timeoutSeconds": {
                     "type": "integer"
                 },
                 "tolerations": {
                     "items": {
-                        "$ref": "/kubernetes/v3.8.1/schema.json#/types/kubernetes:core/v1:Toleration"
+                        "$ref": "/kubernetes/v4.7.1/schema.json#/types/kubernetes:core/v1:Toleration"
                     },
                     "type": "array"
                 }
@@ -490,7 +490,7 @@
                 "imagePullSecrets": {
                     "description": "Reference to one or more secrets to be used when pulling images. ref: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/",
                     "items": {
-                        "$ref": "/kubernetes/v3.8.1/schema.json#/types/kubernetes:core/v1:LocalObjectReference"
+                        "$ref": "/kubernetes/v4.7.1/schema.json#/types/kubernetes:core/v1:LocalObjectReference"
                     },
                     "type": "array"
                 },
@@ -655,7 +655,7 @@
         "kubernetes-cert-manager:index:CertManagerStartupAPICheck": {
             "properties": {
                 "affinity": {
-                    "$ref": "/kubernetes/v3.8.1/schema.json#/types/kubernetes:core/v1:Affinity"
+                    "$ref": "/kubernetes/v4.7.1/schema.json#/types/kubernetes:core/v1:Affinity"
                 },
                 "backoffLimit": {
                     "description": "Job backoffLimit",
@@ -705,10 +705,10 @@
                     "$ref": "#/types/kubernetes-cert-manager:index:CertManagerStartupAPICheckRBAC"
                 },
                 "resources": {
-                    "$ref": "/kubernetes/v3.8.1/schema.json#/types/kubernetes:core/v1:ResourceRequirements"
+                    "$ref": "/kubernetes/v4.7.1/schema.json#/types/kubernetes:core/v1:ResourceRequirements"
                 },
                 "securityContext": {
-                    "$ref": "/kubernetes/v3.8.1/schema.json#/types/kubernetes:core/v1:PodSecurityContext",
+                    "$ref": "/kubernetes/v4.7.1/schema.json#/types/kubernetes:core/v1:PodSecurityContext",
                     "description": "Pod Security Context to be set on the startupapicheck component Pod. ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/"
                 },
                 "serviceAccount": {
@@ -720,7 +720,7 @@
                 },
                 "tolerations": {
                     "items": {
-                        "$ref": "/kubernetes/v3.8.1/schema.json#/types/kubernetes:core/v1:Toleration"
+                        "$ref": "/kubernetes/v4.7.1/schema.json#/types/kubernetes:core/v1:Toleration"
                     },
                     "type": "array"
                 }
@@ -742,10 +742,10 @@
         "kubernetes-cert-manager:index:CertManagerWebhook": {
             "properties": {
                 "affinity": {
-                    "$ref": "/kubernetes/v3.8.1/schema.json#/types/kubernetes:core/v1:Affinity"
+                    "$ref": "/kubernetes/v4.7.1/schema.json#/types/kubernetes:core/v1:Affinity"
                 },
                 "containerSecurityContext": {
-                    "$ref": "/kubernetes/v3.8.1/schema.json#/types/kubernetes:core/v1:SecurityContext",
+                    "$ref": "/kubernetes/v4.7.1/schema.json#/types/kubernetes:core/v1:SecurityContext",
                     "description": "Container Security Context to be set on the webhook component container. ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/"
                 },
                 "deploymentAnnotations": {
@@ -770,7 +770,7 @@
                     "$ref": "#/types/kubernetes-cert-manager:index:CertManagerImage"
                 },
                 "livenessProbe": {
-                    "$ref": "/kubernetes/v3.8.1/schema.json#/types/kubernetes:core/v1:Probe",
+                    "$ref": "/kubernetes/v4.7.1/schema.json#/types/kubernetes:core/v1:Probe",
                     "description": "Liveness probe values. Ref: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-probes"
                 },
                 "loadBalancerIP": {
@@ -804,21 +804,21 @@
                     "type": "object"
                 },
                 "readinessProbe": {
-                    "$ref": "/kubernetes/v3.8.1/schema.json#/types/kubernetes:core/v1:Probe",
+                    "$ref": "/kubernetes/v4.7.1/schema.json#/types/kubernetes:core/v1:Probe",
                     "description": "Readiness probe values. Ref: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-probes"
                 },
                 "replicaCount": {
                     "type": "integer"
                 },
                 "resources": {
-                    "$ref": "/kubernetes/v3.8.1/schema.json#/types/kubernetes:core/v1:ResourceRequirements"
+                    "$ref": "/kubernetes/v4.7.1/schema.json#/types/kubernetes:core/v1:ResourceRequirements"
                 },
                 "securePort": {
                     "description": "The port that the webhook should listen on for requests. In GKE private clusters, by default kubernetes apiservers are allowed to talk to the cluster nodes only on 443 and 10250. so configuring securePort: 10250, will work out of the box without needing to add firewall rules or requiring NET_BIND_SERVICE capabilities to bind port numbers <1000",
                     "type": "integer"
                 },
                 "securityContext": {
-                    "$ref": "/kubernetes/v3.8.1/schema.json#/types/kubernetes:core/v1:PodSecurityContext",
+                    "$ref": "/kubernetes/v4.7.1/schema.json#/types/kubernetes:core/v1:PodSecurityContext",
                     "description": "Pod Security Context to be set on the webhook component Pod. ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/"
                 },
                 "serviceAccount": {
@@ -843,14 +843,14 @@
                     "type": "string"
                 },
                 "strategy": {
-                    "$ref": "/kubernetes/v3.8.1/schema.json#/types/kubernetes:apps/v1:DeploymentStrategy"
+                    "$ref": "/kubernetes/v4.7.1/schema.json#/types/kubernetes:apps/v1:DeploymentStrategy"
                 },
                 "timeoutSeconds": {
                     "type": "integer"
                 },
                 "tolerations": {
                     "items": {
-                        "$ref": "/kubernetes/v3.8.1/schema.json#/types/kubernetes:core/v1:Toleration"
+                        "$ref": "/kubernetes/v4.7.1/schema.json#/types/kubernetes:core/v1:Toleration"
                     },
                     "type": "array"
                 },

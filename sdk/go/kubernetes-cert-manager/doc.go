@@ -1,2 +1,2 @@
-// Package kubernetes-cert-manager exports types, functions, subpackages for provisioning kubernetes-cert-manager resources.
+// Package kubernetescertmanager exports types, functions, subpackages for provisioning kubernetescertmanager resources.
 package kubernetescertmanager

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.KubernetesCertManager.Inputs
 {
 
-    public sealed class CertManagerGlobalLeaderElectionArgs : Pulumi.ResourceArgs
+    public sealed class CertManagerGlobalLeaderElectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The duration that non-leader candidates will wait after observing a leadership renewal until attempting to acquire leadership of a led but unrenewed leader slot. This is effectively the maximum duration that a leader can be stopped before it is replaced by another candidate.
@@ -33,5 +33,6 @@ namespace Pulumi.KubernetesCertManager.Inputs
         public CertManagerGlobalLeaderElectionArgs()
         {
         }
+        public static new CertManagerGlobalLeaderElectionArgs Empty => new CertManagerGlobalLeaderElectionArgs();
     }
 }

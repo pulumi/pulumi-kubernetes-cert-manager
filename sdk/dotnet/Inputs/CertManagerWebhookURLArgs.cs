@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.KubernetesCertManager.Inputs
 {
 
-    public sealed class CertManagerWebhookURLArgs : Pulumi.ResourceArgs
+    public sealed class CertManagerWebhookURLArgs : global::Pulumi.ResourceArgs
     {
         [Input("host")]
         public Input<string>? Host { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.KubernetesCertManager.Inputs
         public CertManagerWebhookURLArgs()
         {
         }
+        public static new CertManagerWebhookURLArgs Empty => new CertManagerWebhookURLArgs();
     }
 }

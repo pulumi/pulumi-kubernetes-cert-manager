@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.KubernetesCertManager.Inputs
 {
 
-    public sealed class CertManagerIngressShimArgs : Pulumi.ResourceArgs
+    public sealed class CertManagerIngressShimArgs : global::Pulumi.ResourceArgs
     {
         [Input("defaultIssuerGroup")]
         public Input<string>? DefaultIssuerGroup { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.KubernetesCertManager.Inputs
         public CertManagerIngressShimArgs()
         {
         }
+        public static new CertManagerIngressShimArgs Empty => new CertManagerIngressShimArgs();
     }
 }

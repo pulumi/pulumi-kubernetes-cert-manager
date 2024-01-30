@@ -1,6 +1,6 @@
 import pulumi
 from pulumi_kubernetes.apiextensions import CustomResource
-from pulumi_kubernetes.core.v1 import Namespace, NamespaceArgs
+from pulumi_kubernetes.core.v1 import Namespace
 from pulumi_kubernetes_cert_manager import CertManager, ReleaseArgs
 
 # Create a sandbox namespace.
@@ -30,6 +30,7 @@ issuer = CustomResource('issuer',
     spec={
         'selfSigned': {},
     },
+    opts=pulumi.ResourceOptions(depends_on=[manager]),
 )
 
 pulumi.export('cert_manager_status', manager.status)

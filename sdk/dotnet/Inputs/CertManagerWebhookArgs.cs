@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.KubernetesCertManager.Inputs
 {
 
-    public sealed class CertManagerWebhookArgs : Pulumi.ResourceArgs
+    public sealed class CertManagerWebhookArgs : global::Pulumi.ResourceArgs
     {
         [Input("affinity")]
         public Input<Pulumi.Kubernetes.Types.Inputs.Core.V1.AffinityArgs>? Affinity { get; set; }
@@ -199,5 +199,6 @@ namespace Pulumi.KubernetesCertManager.Inputs
         public CertManagerWebhookArgs()
         {
         }
+        public static new CertManagerWebhookArgs Empty => new CertManagerWebhookArgs();
     }
 }

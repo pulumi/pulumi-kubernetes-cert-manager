@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.KubernetesCertManager.Inputs
 {
 
-    public sealed class CertManagerGlobalPodSecurityPolicyArgs : Pulumi.ResourceArgs
+    public sealed class CertManagerGlobalPodSecurityPolicyArgs : global::Pulumi.ResourceArgs
     {
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.KubernetesCertManager.Inputs
         public CertManagerGlobalPodSecurityPolicyArgs()
         {
         }
+        public static new CertManagerGlobalPodSecurityPolicyArgs Empty => new CertManagerGlobalPodSecurityPolicyArgs();
     }
 }

@@ -7,8 +7,9 @@ import (
 	"context"
 	"reflect"
 
-	appsv1 "github.com/pulumi/pulumi-kubernetes/sdk/v3/go/kubernetes/apps/v1"
-	corev1 "github.com/pulumi/pulumi-kubernetes/sdk/v3/go/kubernetes/core/v1"
+	"github.com/pulumi/pulumi-kubernetes-cert-manager/sdk/go/kubernetes-cert-manager/internal"
+	appsv1 "github.com/pulumi/pulumi-kubernetes/sdk/v4/go/kubernetes/apps/v1"
+	corev1 "github.com/pulumi/pulumi-kubernetes/sdk/v4/go/kubernetes/core/v1"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -27,6 +28,7 @@ func NewCertManager(ctx *pulumi.Context,
 		args = &CertManagerArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CertManager
 	err := ctx.RegisterRemoteComponentResource("kubernetes-cert-manager:index:CertManager", name, args, &resource, opts...)
 	if err != nil {
