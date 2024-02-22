@@ -35,7 +35,7 @@ jobs:
       - name: Setup Go
         uses: actions/setup-go@v5
         with:
-          go-version: '1.19.x'
+          go-version: '1.21.x'
       - uses: pulumi/actions@v5
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
@@ -112,18 +112,18 @@ jobs:
       fail-fast: true
       matrix:
         dotnetversion:
-          - 3.1.301
+          - 8.0
         goversion:
-          - 1.19.x
+          - 1.21.x
         language:
           - nodejs
           - python
           - dotnet
           - go
         nodeversion:
-          - 14.x
+          - 20.x
         pythonversion:
-          - "3.9"
+          - "3.11"
   tag_sdk:
     name: tag_sdk
     needs: publish_sdk
