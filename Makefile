@@ -12,6 +12,13 @@ SCHEMA_PATH     := ${WORKING_DIR}/schema.json
 
 GOPATH          := $(shell go env GOPATH)
 
+
+codegen: generate # Required by CI
+provider: build_provider # Required by CI
+test_provider: # Required by CI
+	go build ./provider/...
+generate_schema: # Required by CI
+
 generate:: gen_go_sdk gen_dotnet_sdk gen_nodejs_sdk gen_python_sdk
 
 build:: build_provider build_dotnet_sdk build_nodejs_sdk build_python_sdk
@@ -35,6 +42,10 @@ install_provider:: build_provider
 gen_go_sdk::
 	rm -rf sdk/go
 	cd provider/cmd/${CODEGEN} && go run . go ../../../sdk/go ${SCHEMA_PATH}
+build_go_sdk::
+generate_go: gen_go_sdk # Required by CI
+build_go: # Required by CI
+install_go_sdk:: # Required by CI
 
 
 # .NET SDK
@@ -54,6 +65,9 @@ install_dotnet_sdk:: build_dotnet_sdk
 	mkdir -p ${WORKING_DIR}/nuget
 	find . -name '*.nupkg' -print -exec cp -p {} ${WORKING_DIR}/nuget \;
 
+generate_dotnet: gen_dotnet_sdk # Required by CI
+build_dotnet: # Required by CI
+install_dotnet_sdk:: # Required by CI
 
 # Node.js SDK
 
@@ -75,7 +89,9 @@ build_nodejs_sdk:: gen_nodejs_sdk
 		sed -i.bak -e "s/\$${VERSION}/$(VERSION)/g" ./bin/package.json && \
 		rm ./bin/package.json.bak
 
-install_nodejs_sdk:: build_nodejs_sdk
+generate_nodejs: gen_nodejs_sdk # Required by CI
+build_nodejs: build_nodejs_sdk # Required by CI
+install_nodejs_sdk:: build_nodejs_sdk # Required by CI
 	yarn unlink ${PACK} || true
 	yarn link --cwd ${WORKING_DIR}/sdk/nodejs/bin
 
@@ -96,5 +112,13 @@ build_python_sdk:: gen_python_sdk
 		rm ./bin/setup.py.bak && \
 		cd ./bin && python3 setup.py build sdist
 
-## Empty build target for Go
-build_go_sdk::
+generate_python: build_python_sdk # Required by CI
+build_python: # Required by CI
+install_python_sdk:: # Required by CI
+
+# Java SDK
+
+generate_java: # Required by CI
+	pulumi package gen-sdk ${SCHEMA_PATH} -o sdk --language java
+build_java: # Required by CI
+install_java_sdk: # Required by CI
