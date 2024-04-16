@@ -130,7 +130,7 @@ type CertManagerGlobalLeaderElection struct {
 	RenewDeadline *string `pulumi:"renewDeadline"`
 	// The duration the clients should wait between attempting acquisition and
 	// renewal of a leadership.
-	RetryPeriod *string `pulumi:"retryPeriod`
+	RetryPeriod *string `pulumi:"retryPeriod"`
 }
 
 type CertManagerImage struct {
