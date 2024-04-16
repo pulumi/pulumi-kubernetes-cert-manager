@@ -16,7 +16,6 @@ GOPATH          := $(shell go env GOPATH)
 codegen: generate # Required by CI
 provider: build_provider # Required by CI
 test_provider: # Required by CI
-	go build ./provider/...
 generate_schema: # Required by CI
 
 generate:: gen_go_sdk gen_dotnet_sdk gen_nodejs_sdk gen_python_sdk
