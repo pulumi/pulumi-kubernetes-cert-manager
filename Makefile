@@ -13,12 +13,15 @@ SCHEMA_PATH     := ${WORKING_DIR}/provider/cmd/${PROVIDER}/schema.json
 GOPATH          := $(shell go env GOPATH)
 
 
-codegen: generate # Required by CI
+codegen: # Required by CI
+	rm -rf ${WORKING_DIR}/bin/${CODEGEN}
+	cd provider/cmd/${CODEGEN} && go build -o ${WORKING_DIR}/bin/${CODEGEN}
+
 provider: build_provider # Required by CI
 test_provider: # Required by CI
 generate_schema: # Required by CI
 
-generate:: gen_go_sdk gen_dotnet_sdk gen_nodejs_sdk gen_python_sdk
+generate:: gen_go_sdk gen_dotnet_sdk gen_nodejs_sdk gen_python_sdk generate_java
 
 build:: build_provider build_dotnet_sdk build_nodejs_sdk build_python_sdk
 
@@ -40,7 +43,7 @@ install_provider:: build_provider
 
 gen_go_sdk::
 	rm -rf sdk/go
-	cd provider/cmd/${CODEGEN} && go run . go ../../../sdk/go ${SCHEMA_PATH}
+	bin/${CODEGEN} go sdk/go ${SCHEMA_PATH}
 build_go_sdk::
 generate_go: gen_go_sdk # Required by CI
 build_go: # Required by CI
@@ -51,7 +54,7 @@ install_go_sdk:: # Required by CI
 
 gen_dotnet_sdk::
 	rm -rf sdk/dotnet
-	cd provider/cmd/${CODEGEN} && go run . dotnet ../../../sdk/dotnet ${SCHEMA_PATH}
+	bin/${CODEGEN} dotnet sdk/dotnet ${SCHEMA_PATH}
 
 build_dotnet_sdk:: DOTNET_VERSION := $(shell pulumictl get version --language dotnet)
 build_dotnet_sdk:: gen_dotnet_sdk
@@ -72,7 +75,7 @@ install_dotnet_sdk:: # Required by CI
 
 gen_nodejs_sdk::
 	rm -rf sdk/nodejs
-	cd provider/cmd/${CODEGEN} && go run . nodejs ../../../sdk/nodejs ${SCHEMA_PATH}
+	bin/${CODEGEN} nodejs sdk/nodejs ${SCHEMA_PATH}
 	# HACKHACK: work around https://github.com/pulumi/pulumi/issues/7979:
 	find sdk/nodejs -name "*.ts" -exec sed -i.bak \
 		's/pulumiKubernetes\.types\.input\.\([a-zA-Z0-9]*\)\.\([a-zA-Z0-9]*\)\.\([a-zA-Z]*\)Args/pulumiKubernetes.types.input.\1.\2.\3/g' \
@@ -99,7 +102,7 @@ install_nodejs_sdk:: build_nodejs_sdk # Required by CI
 
 gen_python_sdk::
 	rm -rf sdk/python
-	cd provider/cmd/${CODEGEN} && go run . python ../../../sdk/python ${SCHEMA_PATH}
+	bin/${CODEGEN} python sdk/python ${SCHEMA_PATH}
 	cp ${WORKING_DIR}/README.md sdk/python
 
 build_python_sdk:: PYPI_VERSION := $(shell pulumictl get version --language python)
