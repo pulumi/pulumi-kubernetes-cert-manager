@@ -18,7 +18,7 @@ def readme():
 
 
 setup(name='pulumi_kubernetes_cert_manager',
-      python_requires='>=3.7',
+      python_requires='>=3.8',
       version=VERSION,
       description="Strongly-typed Cert Manager installation",
       long_description=readme(),
