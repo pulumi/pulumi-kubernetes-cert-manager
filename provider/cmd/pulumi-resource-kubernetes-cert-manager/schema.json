@@ -1,6 +1,8 @@
 {
     "name": "kubernetes-cert-manager",
     "displayName": "Kubernetes Cert Manager",
+    "description": "Strongly-typed Cert Manager installation",
+    "repository": "https://github.com/pulumi/pulumi-kubernetes-cert-manager",
     "keywords": [
         "pulumi",
         "kubernetes",
@@ -890,6 +892,17 @@
         "go": {
             "generateResourceContainerTypes": true,
             "importBasePath": "github.com/pulumi/pulumi-kubernetes-cert-manager/sdk/go/kubernetes-cert-manager"
+        },
+        "java": {
+          "basePackage": "",
+          "buildFiles": "gradle",
+          "dependencies": {
+            "com.google.code.findbugs:jsr305": "3.0.2",
+            "com.google.code.gson:gson": "2.8.9",
+            "com.pulumi:pulumi": "0.9.9"
+          },
+          "gradleNexusPublishPluginVersion": "1.1.0",
+          "gradleTest": ""
         },
         "nodejs": {
             "dependencies": {
