@@ -8,7 +8,7 @@ CODEGEN         := pulumi-gen-${PACK}
 VERSION_PATH    := pkg/version.Version
 
 WORKING_DIR     := $(shell pwd)
-SCHEMA_PATH     := ${WORKING_DIR}/schema.json
+SCHEMA_PATH     := ${WORKING_DIR}/provider/cmd/${PROVIDER}/schema.json
 
 GOPATH          := $(shell go env GOPATH)
 
