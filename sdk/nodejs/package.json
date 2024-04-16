@@ -8,6 +8,7 @@
         "kind/component",
         "category/infrastructure"
     ],
+    "repository": "https://github.com/pulumi/pulumi-kubernetes-cert-manager",
     "scripts": {
         "build": "tsc"
     },
