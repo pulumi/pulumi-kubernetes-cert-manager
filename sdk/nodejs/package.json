@@ -8,7 +8,9 @@
         "kind/component",
         "category/infrastructure"
     ],
+    "homepage": "https://pulumi.io",
     "repository": "https://github.com/pulumi/pulumi-kubernetes-cert-manager",
+    "license": "Apache-2.0",
     "scripts": {
         "build": "tsc"
     },

@@ -5,8 +5,8 @@
     <Authors>Pulumi</Authors>
     <Company>Pulumi</Company>
     <Description>Strongly-typed Cert Manager installation</Description>
-    <PackageLicenseExpression></PackageLicenseExpression>
-    <PackageProjectUrl></PackageProjectUrl>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <PackageProjectUrl>https://pulumi.io</PackageProjectUrl>
     <RepositoryUrl>https://github.com/pulumi/pulumi-kubernetes-cert-manager</RepositoryUrl>
     <PackageIcon>logo.png</PackageIcon>
 
@@ -45,7 +45,7 @@
 
   <ItemGroup>
     <PackageReference Include="Pulumi" Version="3.*" />
-    <PackageReference Include="Pulumi.Kubernetes" Version="3.*" ExcludeAssets="contentFiles" />
+    <PackageReference Include="Pulumi.Kubernetes" Version="4.*" ExcludeAssets="contentFiles" />
   </ItemGroup>
 
   <ItemGroup>

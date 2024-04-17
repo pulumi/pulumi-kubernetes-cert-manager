@@ -10,6 +10,8 @@
         "kind/component",
         "category/infrastructure"
     ],
+    "homepage": "https://pulumi.io",
+    "license": "Apache-2.0",
     "publisher": "Pulumi",
     "resources": {
         "kubernetes-cert-manager:index:CertManager": {
@@ -886,7 +888,7 @@
             },
             "packageReferences": {
                 "Pulumi": "3.*",
-                "Pulumi.Kubernetes": "3.*"
+                "Pulumi.Kubernetes": "4.*"
             }
         },
         "go": {

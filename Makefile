@@ -62,14 +62,13 @@ build_dotnet_sdk:: gen_dotnet_sdk
 		echo "${DOTNET_VERSION}" >version.txt && \
 		dotnet build /p:Version=${DOTNET_VERSION}
 
-install_dotnet_sdk:: build_dotnet_sdk
+install_dotnet_sdk:: # Required by CI
 	rm -rf ${WORKING_DIR}/nuget
 	mkdir -p ${WORKING_DIR}/nuget
 	find . -name '*.nupkg' -print -exec cp -p {} ${WORKING_DIR}/nuget \;
 
 generate_dotnet: gen_dotnet_sdk # Required by CI
 build_dotnet: # Required by CI
-install_dotnet_sdk:: # Required by CI
 
 # Node.js SDK
 
@@ -93,7 +92,7 @@ build_nodejs_sdk:: gen_nodejs_sdk
 
 generate_nodejs: gen_nodejs_sdk # Required by CI
 build_nodejs: build_nodejs_sdk # Required by CI
-install_nodejs_sdk:: build_nodejs_sdk # Required by CI
+install_nodejs_sdk:: # Required by CI
 	yarn unlink ${PACK} || true
 	yarn link --cwd ${WORKING_DIR}/sdk/nodejs/bin
 
