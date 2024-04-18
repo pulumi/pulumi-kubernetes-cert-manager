@@ -18,11 +18,17 @@ def readme():
 
 
 setup(name='pulumi_kubernetes_cert_manager',
-      python_requires='>=3.7',
+      python_requires='>=3.8',
       version=VERSION,
+      description="Strongly-typed Cert Manager installation",
       long_description=readme(),
       long_description_content_type='text/markdown',
       keywords='pulumi kubernetes cert-manager kind/component category/infrastructure',
+      url='https://pulumi.io',
+      project_urls={
+          'Repository': 'https://github.com/pulumi/pulumi-kubernetes-cert-manager'
+      },
+      license='Apache-2.0',
       packages=find_packages(),
       package_data={
           'pulumi_kubernetes_cert_manager': [
