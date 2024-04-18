@@ -27,7 +27,7 @@ snapshot:
 changelog:
   skip: true
 release:
-  disable: false
+  disable: true
 blobs:
 - provider: s3
   region: us-west-2
