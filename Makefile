@@ -68,7 +68,7 @@ install_dotnet_sdk:: # Required by CI
 	find . -name '*.nupkg' -print -exec cp -p {} ${WORKING_DIR}/nuget \;
 
 generate_dotnet: gen_dotnet_sdk # Required by CI
-build_dotnet: # Required by CI
+build_dotnet: build_dotnet_sdk # Required by CI
 
 # Node.js SDK
 
@@ -113,8 +113,8 @@ build_python_sdk:: gen_python_sdk
 		rm ./bin/setup.py.bak && \
 		cd ./bin && python3 setup.py build sdist
 
-generate_python: build_python_sdk # Required by CI
-build_python: # Required by CI
+generate_python: gen_python_sdk # Required by CI
+build_python: build_python_sdk # Required by CI
 install_python_sdk:: # Required by CI
 
 # Java SDK
@@ -123,4 +123,6 @@ generate_java: # Required by CI
 	pulumi package gen-sdk ${SCHEMA_PATH} -o sdk --language java
 	cp ${WORKING_DIR}/README.md sdk/java
 build_java: # Required by CI
+	cd sdk/java && gradle --console=plain build
+
 install_java_sdk: # Required by CI
