@@ -8,8 +8,8 @@ require (
 	github.com/pkg/errors v0.9.1
 	github.com/pulumi/pulumi-go-helmbase v0.0.15-0.20240130224250-9aab5822f6ea
 	github.com/pulumi/pulumi-kubernetes/sdk/v4 v4.7.1
-	github.com/pulumi/pulumi/pkg/v3 v3.113.0
-	github.com/pulumi/pulumi/sdk/v3 v3.113.0
+	github.com/pulumi/pulumi/pkg/v3 v3.113.3
+	github.com/pulumi/pulumi/sdk/v3 v3.113.3
 )
 
 require (
