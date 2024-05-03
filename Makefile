@@ -1,4 +1,8 @@
-VERSION         := $(shell pulumictl get version)
+# Override during CI using `make [TARGET] PROVIDER_VERSION=""` or by setting a PROVIDER_VERSION environment variable
+# Local & branch builds will just used this fixed default version unless specified
+PROVIDER_VERSION ?= 1.0.0-alpha.0+dev
+# Use this normalised version everywhere rather than the raw input to ensure consistency.
+VERSION_GENERIC = $(shell pulumictl convert-version --language generic --version "$(PROVIDER_VERSION)")
 
 PACK            := kubernetes-cert-manager
 PROJECT         := github.com/pulumi/pulumi-${PACK}
@@ -32,8 +36,8 @@ install:: install_provider install_dotnet_sdk install_nodejs_sdk
 
 build_provider::
 	rm -rf ${WORKING_DIR}/bin/${PROVIDER}
-	cd provider/cmd/${PROVIDER} && VERSION=${VERSION} SCHEMA=${SCHEMA_PATH} go generate main.go
-	cd provider/cmd/${PROVIDER} && go build -o ${WORKING_DIR}/bin/${PROVIDER} -ldflags "-X ${PROJECT}/${VERSION_PATH}=${VERSION}" .
+	cd provider/cmd/${PROVIDER} && VERSION=${VERSION_GENERIC} SCHEMA=${SCHEMA_PATH} go generate main.go
+	cd provider/cmd/${PROVIDER} && go build -o ${WORKING_DIR}/bin/${PROVIDER} -ldflags "-X ${PROJECT}/${VERSION_PATH}=${VERSION_GENERIC}" .
 
 install_provider:: build_provider
 	cp ${WORKING_DIR}/bin/${PROVIDER} ${GOPATH}/bin
@@ -56,7 +60,7 @@ gen_dotnet_sdk::
 	rm -rf sdk/dotnet
 	bin/${CODEGEN} dotnet sdk/dotnet ${SCHEMA_PATH}
 
-build_dotnet_sdk:: DOTNET_VERSION := $(shell pulumictl get version --language dotnet)
+build_dotnet_sdk:: DOTNET_VERSION := $(shell pulumictl convert-version --language dotnet -v "$(VERSION_GENERIC)")
 build_dotnet_sdk:: gen_dotnet_sdk
 	cd sdk/dotnet/ && \
 		echo "${DOTNET_VERSION}" >version.txt && \
@@ -80,14 +84,14 @@ gen_nodejs_sdk::
 		's/pulumiKubernetes\.types\.input\.\([a-zA-Z0-9]*\)\.\([a-zA-Z0-9]*\)\.\([a-zA-Z]*\)Args/pulumiKubernetes.types.input.\1.\2.\3/g' \
 			'{}' \;
 
-build_nodejs_sdk:: VERSION := $(shell pulumictl get version --language javascript)
+build_nodejs_sdk:: NODE_VERSION := $(shell pulumictl convert-version --language javascript -v "$(VERSION_GENERIC)")
 build_nodejs_sdk:: gen_nodejs_sdk
 	cd sdk/nodejs/ && \
 		yarn install && \
 		yarn run tsc --version && \
 		yarn run tsc && \
 		cp ../../README.md ../../LICENSE package.json yarn.lock ./bin/ && \
-		sed -i.bak -e "s/\$${VERSION}/$(VERSION)/g" ./bin/package.json && \
+		sed -i.bak -e "s/\$${VERSION}/$(NODE_VERSION)/g" ./bin/package.json && \
 		rm ./bin/package.json.bak
 
 generate_nodejs: gen_nodejs_sdk # Required by CI
@@ -104,12 +108,12 @@ gen_python_sdk::
 	bin/${CODEGEN} python sdk/python ${SCHEMA_PATH}
 	cp ${WORKING_DIR}/README.md sdk/python
 
-build_python_sdk:: PYPI_VERSION := $(shell pulumictl get version --language python)
+build_python_sdk:: PYPI_VERSION := $(shell pulumictl convert-version --language python -v "$(VERSION_GENERIC)")
 build_python_sdk:: gen_python_sdk
 	cd sdk/python/ && \
 		python3 setup.py clean --all 2>/dev/null && \
 		rm -rf ./bin/ ../python.bin/ && cp -R . ../python.bin && mv ../python.bin ./bin && \
-		sed -i.bak -e 's/^VERSION = .*/VERSION = "$(PYPI_VERSION)"/g' -e 's/^PLUGIN_VERSION = .*/PLUGIN_VERSION = "$(VERSION)"/g' ./bin/setup.py && \
+		sed -i.bak -e 's/^VERSION = .*/VERSION = "$(PYPI_VERSION)"/g' -e 's/^PLUGIN_VERSION = .*/PLUGIN_VERSION = "$(VERSION_GENERIC)"/g' ./bin/setup.py && \
 		rm ./bin/setup.py.bak && \
 		cd ./bin && python3 setup.py build sdist
 
