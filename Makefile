@@ -24,6 +24,7 @@ codegen: # Required by CI
 provider: build_provider # Required by CI
 test_provider: # Required by CI
 generate_schema: # Required by CI
+local_generate: generate # Required by CI
 
 generate:: gen_go_sdk gen_dotnet_sdk gen_nodejs_sdk gen_python_sdk generate_java
 
