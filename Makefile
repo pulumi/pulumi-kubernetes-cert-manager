@@ -45,14 +45,13 @@ install_provider:: build_provider
 
 # Go SDK
 
-gen_go_sdk::
+gen_go_sdk: .pulumi/bin/pulumi
 	rm -rf sdk/go
 	.pulumi/bin/pulumi package gen-sdk ${SCHEMA_PATH} --language go --version ${VERSION_GENERIC}
 build_go_sdk::
 generate_go: gen_go_sdk # Required by CI
 build_go: # Required by CI
 install_go_sdk:: # Required by CI
-
 
 # .NET SDK
 
