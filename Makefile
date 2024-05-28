@@ -17,7 +17,9 @@ GOPATH          := $(shell go env GOPATH)
 
 export PULUMI_IGNORE_AMBIENT_PLUGINS = true
 
+# Ensure the codegen file is present so that the hard-coded "Tar Provider Binaries" step doesn't fail
 codegen: .pulumi/bin/pulumi # Required by CI
+	mkdir -p bin && touch bin/pulumi-gen-kubernetes-cert-manager
 
 provider: build_provider # Required by CI
 test_provider: # Required by CI
