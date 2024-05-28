@@ -8,7 +8,6 @@ PACK            := kubernetes-cert-manager
 PROJECT         := github.com/pulumi/pulumi-${PACK}
 
 PROVIDER        := pulumi-resource-${PACK}
-CODEGEN         := pulumi-gen-${PACK}
 VERSION_PATH    := pkg/version.Version
 
 WORKING_DIR     := $(shell pwd)
@@ -18,9 +17,7 @@ GOPATH          := $(shell go env GOPATH)
 
 export PULUMI_IGNORE_AMBIENT_PLUGINS = true
 
-codegen: # Required by CI
-	rm -rf ${WORKING_DIR}/bin/${CODEGEN}
-	cd provider/cmd/${CODEGEN} && go build -o ${WORKING_DIR}/bin/${CODEGEN}
+codegen: .pulumi/bin/pulumi # Required by CI
 
 provider: build_provider # Required by CI
 test_provider: # Required by CI
