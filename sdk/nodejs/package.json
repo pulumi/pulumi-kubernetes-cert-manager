@@ -1,6 +1,6 @@
 {
     "name": "@pulumi/kubernetes-cert-manager",
-    "version": "${VERSION}",
+    "version": "1.0.0-alpha.0+dev",
     "keywords": [
         "pulumi",
         "kubernetes",
@@ -24,6 +24,7 @@
     },
     "pulumi": {
         "resource": true,
-        "name": "kubernetes-cert-manager"
+        "name": "kubernetes-cert-manager",
+        "version": "1.0.0-alpha.0+dev"
     }
 }
