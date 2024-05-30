@@ -20,3 +20,4 @@
   [tool.setuptools]
     [tool.setuptools.package-data]
       pulumi_kubernetes_cert_manager = ["py.typed", "pulumi-plugin.json"]
+      pulumi_cert_manager_resources = ["py.typed", "pulumi-plugin.json"]
