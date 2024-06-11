@@ -45,8 +45,11 @@ jobs:
       uses: actions/checkout@v4
       with:
         lfs: true
-    - name: Unshallow clone for tags
-      run: git fetch --prune --unshallow --tags
+    - id: version
+      name: Set Provider Version
+      uses: pulumi/provider-version-action@v1
+      with:
+        set-env: PROVIDER_VERSION
     - name: Install Go
       uses: actions/setup-go@v5
       with:
@@ -81,6 +84,8 @@ jobs:
         git checkout -b update-pulumi/${{ github.run_id }}-${{ github.run_number }}
 
         for MODFILE in $(find . -name go.mod); do pushd $(dirname $MODFILE); go get github.com/pulumi/pulumi/pkg/v3 github.com/pulumi/pulumi/sdk/v3; go mod tidy; popd; done
+
+        gh repo view pulumi/pulumi --json latestRelease --jq .latestRelease.tagName | sed 's/^v//' > .pulumi.version
 
         git update-index -q --refresh
 
