@@ -1,6 +1,6 @@
 {
     "name": "@pulumi/kubernetes-cert-manager",
-    "version": "1.0.0-alpha.0+dev",
+    "version": "0.1.0-alpha.1717677520+e39943f",
     "keywords": [
         "pulumi",
         "kubernetes",
@@ -25,6 +25,6 @@
     "pulumi": {
         "resource": true,
         "name": "kubernetes-cert-manager",
-        "version": "1.0.0-alpha.0+dev"
+        "version": "0.1.0-alpha.1717677520+e39943f"
     }
 }
