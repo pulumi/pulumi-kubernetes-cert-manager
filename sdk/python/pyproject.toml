@@ -5,7 +5,7 @@
   keywords = ["pulumi", "kubernetes", "cert-manager", "kind/component", "category/infrastructure"]
   readme = "README.md"
   requires-python = ">=3.8"
-  version = "1.0.0a0+dev"
+  version = "0.1.0a1717677520+e39943f"
   [project.license]
     text = "Apache-2.0"
   [project.urls]
