@@ -45,11 +45,6 @@ jobs:
       uses: actions/checkout@v4
       with:
         lfs: true
-    - id: version
-      name: Set Provider Version
-      uses: pulumi/provider-version-action@v1
-      with:
-        set-env: PROVIDER_VERSION
     - name: Install Go
       uses: actions/setup-go@v5
       with:
@@ -61,6 +56,8 @@ jobs:
         repo: pulumi/pulumictl
     - name: Install Pulumi CLI
       uses: pulumi/actions@v5
+      with:
+        pulumi-version-file: .pulumi.version
     - name: Setup DotNet
       uses: actions/setup-dotnet@v4
       with:
@@ -123,12 +120,10 @@ jobs:
     - name: Create PR
       id: create-pr
       if: steps.gomod.outputs.changes != 0
-      uses: repo-sync/pull-request@v2.6.2
-      with:
-        source_branch: update-pulumi/${{ github.run_id }}-${{ github.run_number }}
-        destination_branch: master
-        pr_title: Automated Pulumi/Pulumi upgrade
-        github_token: ${{ secrets.PULUMI_BOT_TOKEN }}
+      run: |
+        ver=$(cat .pulumi.version)
+        msg="Automated upgrade: bump pulumi/pulumi to ${ver}"
+        gh pr create -t "$msg" -b "$msg" -B master
       env:
         GITHUB_TOKEN: ${{ secrets.PULUMI_BOT_TOKEN }}
     name: weekly-pulumi-update
