@@ -7,8 +7,8 @@ toolchain go1.21.6
 require (
 	github.com/pulumi/pulumi-go-helmbase v0.0.15-0.20240130224250-9aab5822f6ea
 	github.com/pulumi/pulumi-kubernetes/sdk/v4 v4.7.1
-	github.com/pulumi/pulumi/pkg/v3 v3.134.1
-	github.com/pulumi/pulumi/sdk/v3 v3.134.1
+	github.com/pulumi/pulumi/pkg/v3 v3.135.0
+	github.com/pulumi/pulumi/sdk/v3 v3.135.0
 )
 
 require (
