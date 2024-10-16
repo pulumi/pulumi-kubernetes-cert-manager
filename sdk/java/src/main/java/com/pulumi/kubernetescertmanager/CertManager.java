@@ -37,7 +37,7 @@ public class CertManager extends com.pulumi.resources.ComponentResource {
      *
      * @param name The _unique_ name of the resulting resource.
      */
-    public CertManager(String name) {
+    public CertManager(java.lang.String name) {
         this(name, CertManagerArgs.Empty);
     }
     /**
@@ -45,7 +45,7 @@ public class CertManager extends com.pulumi.resources.ComponentResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public CertManager(String name, @Nullable CertManagerArgs args) {
+    public CertManager(java.lang.String name, @Nullable CertManagerArgs args) {
         this(name, args, null);
     }
     /**
@@ -54,11 +54,18 @@ public class CertManager extends com.pulumi.resources.ComponentResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public CertManager(String name, @Nullable CertManagerArgs args, @Nullable com.pulumi.resources.ComponentResourceOptions options) {
-        super("kubernetes-cert-manager:index:CertManager", name, args == null ? CertManagerArgs.Empty : args, makeResourceOptions(options, Codegen.empty()), true);
+    public CertManager(java.lang.String name, @Nullable CertManagerArgs args, @Nullable com.pulumi.resources.ComponentResourceOptions options) {
+        super("kubernetes-cert-manager:index:CertManager", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), true);
     }
 
-    private static com.pulumi.resources.ComponentResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.ComponentResourceOptions options, @Nullable Output<String> id) {
+    private static CertManagerArgs makeArgs(@Nullable CertManagerArgs args, @Nullable com.pulumi.resources.ComponentResourceOptions options) {
+        if (options != null && options.getUrn().isPresent()) {
+            return null;
+        }
+        return args == null ? CertManagerArgs.Empty : args;
+    }
+
+    private static com.pulumi.resources.ComponentResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.ComponentResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.ComponentResourceOptions.builder()
             .version(Utilities.getVersion())
             .build();
