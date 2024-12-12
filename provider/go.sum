@@ -154,6 +154,8 @@ github.com/pulumi/esc v0.10.0 h1:jzBKzkLVW0mePeanDRfqSQoCJ5yrkux0jIwAkUxpRKE=
 github.com/pulumi/esc v0.10.0/go.mod h1:2Bfa+FWj/xl8CKqRTWbWgDX0SOD4opdQgvYSURTGK2c=
 github.com/pulumi/pulumi-go-helmbase v0.0.15-0.20241211230542-6fec3ecac7b9 h1:6vDamDgvyr3cGkk+0EjeQ67d+086fW3Wlkd8GrwWn0E=
 github.com/pulumi/pulumi-go-helmbase v0.0.15-0.20241211230542-6fec3ecac7b9/go.mod h1:0K+1UMpBm3mkRc9X6nr9Oy/h/YJqx7ofaXXpYSEBqn8=
+github.com/pulumi/pulumi-go-helmbase v0.0.15-0.20241212054217-111c74220d3a h1:n68SErNJaWiRZZyuAiKaJYnWp+bNVKPSlghdVYQxdzY=
+github.com/pulumi/pulumi-go-helmbase v0.0.15-0.20241212054217-111c74220d3a/go.mod h1:XVsFmZLQ13gpz/rnPBCENwQa2pFontjZvWM6SlyOdQw=
 github.com/pulumi/pulumi-kubernetes/sdk/v4 v4.18.4 h1:HfKyJcM6v9tKSko+oVedD6M6s1VPIU7wxfwAhs4Gx+k=
 github.com/pulumi/pulumi-kubernetes/sdk/v4 v4.18.4/go.mod h1:ATS+UN8pguMxypQAK+SaPewesU+UN5dpf93PNqVuHzs=
 github.com/pulumi/pulumi-kubernetes/sdk/v4 v4.19.0 h1:7AjJpUyW6YHHpZr0bI6Fy1A3/b7ERxq1LAo5mlyNN1Y=
@@ -162,6 +164,8 @@ github.com/pulumi/pulumi/pkg/v3 v3.142.0 h1:UE8TFyXrlxvPrATpd3Kl3En34KrFIFWOxxNA
 github.com/pulumi/pulumi/pkg/v3 v3.142.0/go.mod h1:3k6WwRIT7veiDnk3Yo2NtqEYX+4dgLCrMIFvEOnjQqI=
 github.com/pulumi/pulumi/sdk/v3 v3.142.0 h1:SmcVddGuvwAh3g3XUVQQ5gVRQUKH1yZ6iETpDNHIHlw=
 github.com/pulumi/pulumi/sdk/v3 v3.142.0/go.mod h1:PvKsX88co8XuwuPdzolMvew5lZV+4JmZfkeSjj7A6dI=
+github.com/pulumi/pulumi/sdk/v3 v3.143.0 h1:z1m8Fc6l723eU2J/bP7UHE5t6WbBu4iIDAl1WaalQk4=
+github.com/pulumi/pulumi/sdk/v3 v3.143.0/go.mod h1:OFpZabILGxrFqzcABFpMCksrHGVp4ymRM2BkKjlazDY=
 github.com/rivo/uniseg v0.1.0/go.mod h1:J6wj4VEh+S6ZtnVlnTBMWIodfgj8LQOQFoIToxlJtxc=
 github.com/rivo/uniseg v0.2.0/go.mod h1:J6wj4VEh+S6ZtnVlnTBMWIodfgj8LQOQFoIToxlJtxc=
 github.com/rivo/uniseg v0.4.4 h1:8TfxU8dW6PdqD27gjM8MVNuicgxIjxpm4K7x4jp8sis=

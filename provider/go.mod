@@ -5,10 +5,10 @@ go 1.22.4
 toolchain go1.23.4
 
 require (
-	github.com/pulumi/pulumi-go-helmbase v0.0.15-0.20241211230542-6fec3ecac7b9
+	github.com/pulumi/pulumi-go-helmbase v0.0.15-0.20241212054217-111c74220d3a
 	github.com/pulumi/pulumi-kubernetes/sdk/v4 v4.19.0
 	github.com/pulumi/pulumi/pkg/v3 v3.142.0
-	github.com/pulumi/pulumi/sdk/v3 v3.142.0
+	github.com/pulumi/pulumi/sdk/v3 v3.143.0
 )
 
 require (
