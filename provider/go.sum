@@ -156,6 +156,8 @@ github.com/pulumi/pulumi-go-helmbase v0.0.15-0.20241211230542-6fec3ecac7b9 h1:6v
 github.com/pulumi/pulumi-go-helmbase v0.0.15-0.20241211230542-6fec3ecac7b9/go.mod h1:0K+1UMpBm3mkRc9X6nr9Oy/h/YJqx7ofaXXpYSEBqn8=
 github.com/pulumi/pulumi-kubernetes/sdk/v4 v4.18.4 h1:HfKyJcM6v9tKSko+oVedD6M6s1VPIU7wxfwAhs4Gx+k=
 github.com/pulumi/pulumi-kubernetes/sdk/v4 v4.18.4/go.mod h1:ATS+UN8pguMxypQAK+SaPewesU+UN5dpf93PNqVuHzs=
+github.com/pulumi/pulumi-kubernetes/sdk/v4 v4.19.0 h1:7AjJpUyW6YHHpZr0bI6Fy1A3/b7ERxq1LAo5mlyNN1Y=
+github.com/pulumi/pulumi-kubernetes/sdk/v4 v4.19.0/go.mod h1:ATS+UN8pguMxypQAK+SaPewesU+UN5dpf93PNqVuHzs=
 github.com/pulumi/pulumi/pkg/v3 v3.142.0 h1:UE8TFyXrlxvPrATpd3Kl3En34KrFIFWOxxNAodywPNU=
 github.com/pulumi/pulumi/pkg/v3 v3.142.0/go.mod h1:3k6WwRIT7veiDnk3Yo2NtqEYX+4dgLCrMIFvEOnjQqI=
 github.com/pulumi/pulumi/sdk/v3 v3.142.0 h1:SmcVddGuvwAh3g3XUVQQ5gVRQUKH1yZ6iETpDNHIHlw=
