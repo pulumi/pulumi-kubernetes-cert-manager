@@ -903,8 +903,8 @@
             "dependencies": {
                 "com.google.code.findbugs:jsr305": "3.0.2",
                 "com.google.code.gson:gson": "2.8.9",
-                "com.pulumi:pulumi": "0.9.9",
-                "com.pulumi:kubernetes": "4.11.0"
+                "com.pulumi:pulumi": "0.13.0",
+                "com.pulumi:kubernetes": "4.19.0"
             },
             "gradleNexusPublishPluginVersion": "1.1.0",
             "gradleTest": ""
@@ -920,7 +920,7 @@
         },
         "python": {
             "requires": {
-                "pulumi-kubernetes": ">=3.7.1,<5.0.0"
+                "pulumi-kubernetes": ">=4.0.0,<5.0.0"
             },
             "respectSchemaVersion": true,
             "pyproject": {
