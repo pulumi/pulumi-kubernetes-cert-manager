@@ -114,10 +114,10 @@ install_python_sdk:: # Required by CI
 
 # Java SDK
 
-generate_java: # Required by CI
-	pulumi package gen-sdk ${SCHEMA_PATH} -o sdk --language java
+generate_java: .pulumi/bin/pulumi # Required by CI
+	.pulumi/bin/pulumi package gen-sdk ${SCHEMA_PATH} -o sdk --language java
 	cp ${WORKING_DIR}/README.md sdk/java
-build_java: # Required by CI
+build_java: generate_java # Required by CI
 	cd sdk/java && gradle --console=plain build
 
 install_java_sdk: # Required by CI
