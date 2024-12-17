@@ -2,8 +2,6 @@ module github.com/pulumi/pulumi-kubernetes-cert-manager
 
 go 1.22.4
 
-toolchain go1.23.4
-
 require (
 	github.com/pulumi/pulumi-go-helmbase v0.1.0
 	github.com/pulumi/pulumi-kubernetes/sdk/v4 v4.19.0

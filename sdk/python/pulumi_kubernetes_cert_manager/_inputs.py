@@ -54,8 +54,8 @@ MYPY = False
 
 if not MYPY:
     class CertManagerCaInjectorArgsDict(TypedDict):
-        affinity: NotRequired[pulumi.Input['pulumi_kubernetes.core.v1.AffinityArgs']]
-        container_security_context: NotRequired[pulumi.Input['pulumi_kubernetes.core.v1.SecurityContextArgs']]
+        affinity: NotRequired[pulumi.Input['pulumi_kubernetes.core.v1.AffinityArgsDict']]
+        container_security_context: NotRequired[pulumi.Input['pulumi_kubernetes.core.v1.SecurityContextArgsDict']]
         """
         Container Security Context to be set on the cainjector component container. ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
         """
@@ -77,16 +77,16 @@ if not MYPY:
         """
         Optional additional labels to add to the Webhook Pods
         """
-        pod_security_context: NotRequired[pulumi.Input['pulumi_kubernetes.core.v1.PodSecurityContextArgs']]
+        pod_security_context: NotRequired[pulumi.Input['pulumi_kubernetes.core.v1.PodSecurityContextArgsDict']]
         """
         Pod Security Context to be set on the cainjector component Pod. ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
         """
         replica_count: NotRequired[pulumi.Input[int]]
-        resources: NotRequired[pulumi.Input['pulumi_kubernetes.core.v1.ResourceRequirementsArgs']]
+        resources: NotRequired[pulumi.Input['pulumi_kubernetes.core.v1.ResourceRequirementsArgsDict']]
         service_account: NotRequired[pulumi.Input['CertManagerServiceAccountArgsDict']]
-        strategy: NotRequired[pulumi.Input['pulumi_kubernetes.apps.v1.DeploymentStrategyArgs']]
+        strategy: NotRequired[pulumi.Input['pulumi_kubernetes.apps.v1.DeploymentStrategyArgsDict']]
         timeout_seconds: NotRequired[pulumi.Input[int]]
-        tolerations: NotRequired[pulumi.Input[Sequence[pulumi.Input['pulumi_kubernetes.core.v1.TolerationArgs']]]]
+        tolerations: NotRequired[pulumi.Input[Sequence[pulumi.Input['pulumi_kubernetes.core.v1.TolerationArgsDict']]]]
 elif False:
     CertManagerCaInjectorArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -434,7 +434,7 @@ class CertManagerGlobalRbacArgs:
 
 if not MYPY:
     class CertManagerGlobalArgsDict(TypedDict):
-        image_pull_secrets: NotRequired[pulumi.Input[Sequence[pulumi.Input['pulumi_kubernetes.core.v1.LocalObjectReferenceArgs']]]]
+        image_pull_secrets: NotRequired[pulumi.Input[Sequence[pulumi.Input['pulumi_kubernetes.core.v1.LocalObjectReferenceArgsDict']]]]
         """
         Reference to one or more secrets to be used when pulling images. ref: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
         """
@@ -960,7 +960,7 @@ class CertManagerStartupAPICheckRBACArgs:
 
 if not MYPY:
     class CertManagerStartupAPICheckArgsDict(TypedDict):
-        affinity: NotRequired[pulumi.Input['pulumi_kubernetes.core.v1.AffinityArgs']]
+        affinity: NotRequired[pulumi.Input['pulumi_kubernetes.core.v1.AffinityArgsDict']]
         backoff_limit: NotRequired[pulumi.Input[int]]
         """
         Job backoffLimit
@@ -985,8 +985,8 @@ if not MYPY:
         Optional additional labels to add to the startupapicheck Pods
         """
         rbac: NotRequired[pulumi.Input['CertManagerStartupAPICheckRBACArgsDict']]
-        resources: NotRequired[pulumi.Input['pulumi_kubernetes.core.v1.ResourceRequirementsArgs']]
-        security_context: NotRequired[pulumi.Input['pulumi_kubernetes.core.v1.PodSecurityContextArgs']]
+        resources: NotRequired[pulumi.Input['pulumi_kubernetes.core.v1.ResourceRequirementsArgsDict']]
+        security_context: NotRequired[pulumi.Input['pulumi_kubernetes.core.v1.PodSecurityContextArgsDict']]
         """
         Pod Security Context to be set on the startupapicheck component Pod. ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
         """
@@ -995,7 +995,7 @@ if not MYPY:
         """
         Timeout for 'kubectl check api' command
         """
-        tolerations: NotRequired[pulumi.Input[Sequence[pulumi.Input['pulumi_kubernetes.core.v1.TolerationArgs']]]]
+        tolerations: NotRequired[pulumi.Input[Sequence[pulumi.Input['pulumi_kubernetes.core.v1.TolerationArgsDict']]]]
 elif False:
     CertManagerStartupAPICheckArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1239,8 +1239,8 @@ class CertManagerWebhookURLArgs:
 
 if not MYPY:
     class CertManagerWebhookArgsDict(TypedDict):
-        affinity: NotRequired[pulumi.Input['pulumi_kubernetes.core.v1.AffinityArgs']]
-        container_security_context: NotRequired[pulumi.Input['pulumi_kubernetes.core.v1.SecurityContextArgs']]
+        affinity: NotRequired[pulumi.Input['pulumi_kubernetes.core.v1.AffinityArgsDict']]
+        container_security_context: NotRequired[pulumi.Input['pulumi_kubernetes.core.v1.SecurityContextArgsDict']]
         """
         Container Security Context to be set on the webhook component container. ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
         """
@@ -1257,7 +1257,7 @@ if not MYPY:
         Specifies if the webhook should be started in hostNetwork mode. Required for use in some managed kubernetes clusters (such as AWS EKS) with custom CNI (such as calico), because control-plane managed by AWS cannot communicate with pods' IP CIDR and admission webhooks are not working Since the default port for the webhook conflicts with kubelet on the host network, `webhook.securePort` should be changed to an available port if running in hostNetwork mode.
         """
         image: NotRequired[pulumi.Input['CertManagerImageArgsDict']]
-        liveness_probe: NotRequired[pulumi.Input['pulumi_kubernetes.core.v1.ProbeArgs']]
+        liveness_probe: NotRequired[pulumi.Input['pulumi_kubernetes.core.v1.ProbeArgsDict']]
         """
         Liveness probe values. Ref: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-probes
         """
@@ -1275,17 +1275,17 @@ if not MYPY:
         """
         Optional additional labels to add to the Webhook Pods
         """
-        readiness_probe: NotRequired[pulumi.Input['pulumi_kubernetes.core.v1.ProbeArgs']]
+        readiness_probe: NotRequired[pulumi.Input['pulumi_kubernetes.core.v1.ProbeArgsDict']]
         """
         Readiness probe values. Ref: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-probes
         """
         replica_count: NotRequired[pulumi.Input[int]]
-        resources: NotRequired[pulumi.Input['pulumi_kubernetes.core.v1.ResourceRequirementsArgs']]
+        resources: NotRequired[pulumi.Input['pulumi_kubernetes.core.v1.ResourceRequirementsArgsDict']]
         secure_port: NotRequired[pulumi.Input[int]]
         """
         The port that the webhook should listen on for requests. In GKE private clusters, by default kubernetes apiservers are allowed to talk to the cluster nodes only on 443 and 10250. so configuring securePort: 10250, will work out of the box without needing to add firewall rules or requiring NET_BIND_SERVICE capabilities to bind port numbers <1000
         """
-        security_context: NotRequired[pulumi.Input['pulumi_kubernetes.core.v1.PodSecurityContextArgs']]
+        security_context: NotRequired[pulumi.Input['pulumi_kubernetes.core.v1.PodSecurityContextArgsDict']]
         """
         Pod Security Context to be set on the webhook component Pod. ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
         """
@@ -1302,9 +1302,9 @@ if not MYPY:
         """
         Specifies how the service should be handled. Useful if you want to expose the webhook to outside of the cluster. In some cases, the control plane cannot reach internal services.
         """
-        strategy: NotRequired[pulumi.Input['pulumi_kubernetes.apps.v1.DeploymentStrategyArgs']]
+        strategy: NotRequired[pulumi.Input['pulumi_kubernetes.apps.v1.DeploymentStrategyArgsDict']]
         timeout_seconds: NotRequired[pulumi.Input[int]]
-        tolerations: NotRequired[pulumi.Input[Sequence[pulumi.Input['pulumi_kubernetes.core.v1.TolerationArgs']]]]
+        tolerations: NotRequired[pulumi.Input[Sequence[pulumi.Input['pulumi_kubernetes.core.v1.TolerationArgsDict']]]]
         url: NotRequired[pulumi.Input['CertManagerWebhookURLArgsDict']]
         """
         Overrides the mutating webhook and validating webhook so they reach the webhook service using the `url` field instead of a service.
