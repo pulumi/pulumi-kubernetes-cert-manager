@@ -118,7 +118,7 @@ type CertManagerGlobalPodSecurityPolicy struct {
 
 type CertManagerGlobalLeaderElection struct {
 	// Override the namespace used to store the ConfigMap for leader election.
-	Namespace *string `pulumi:"namespace"`
+	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
 	// The duration that non-leader candidates will wait after observing a
 	// leadership renewal until attempting to acquire leadership of a led but
 	// unrenewed leader slot. This is effectively the maximum duration that a

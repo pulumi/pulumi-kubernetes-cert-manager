@@ -1,0 +1,3 @@
+name: gke-auto-pilot-cert-manager
+runtime: nodejs
+description: A CertManager installation for GKE AutoPilot
