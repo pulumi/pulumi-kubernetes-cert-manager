@@ -137,7 +137,7 @@ type CertManagerImage struct {
 	// You can manage a registry with `registry: quay.io`.
 	Registry *string `pulumi:"registry"`
 	// You can manage a registry with `repository: jetstack/cert-manager-controller`.
-	Repository *string `pulumi:"repository"`
+	Repository pulumi.StringPtrInput `pulumi:"repository"`
 	// Override the image tag to deploy by setting this variable.
 	// If no value is set, the chart's appVersion will be used.
 	Tag *string `pulumi:"tag"`
