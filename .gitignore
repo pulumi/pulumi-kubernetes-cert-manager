@@ -17,6 +17,7 @@ nuget/
 
 ci-scripts/
 *.tar.gz
+**/*.out
 
 sdk/dotnet/version.txt
 sdk/java/.gradle
