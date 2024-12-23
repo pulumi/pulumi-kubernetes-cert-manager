@@ -1,12 +1,19 @@
 import * as k8s from "@pulumi/kubernetes";
 import * as certmanager from "@pulumi/kubernetes-cert-manager";
 import * as random from "@pulumi/random";
+import * as pulumi from "@pulumi/pulumi"
 
 const randomString = new random.RandomString("random", {
   length: 16,
-  special: true,
-  overrideSpecial: "/@£$",
+  special: false,
 })
+
+const conf = new pulumi.Config()
+const confRepo = conf.get("repository")
+let repository = randomString.result
+if (confRepo) {
+  repository = pulumi.output(confRepo)
+}
 
 // Create a sandbox namespace.
 const ns = new k8s.core.v1.Namespace("sandbox-ns");
@@ -19,7 +26,7 @@ const manager = new certmanager.CertManager("cert-manager", {
     version: "v1.15.3",
   },
   image: {
-    repository: randomString.result.apply(result => "public.ecr.aws/eks-anywhere-dev/cert-manager/cert-manager-controller"),
+    repository,
     tag: "v1.15.3-eks-a-v0.21.3-dev-build.0"
   },
   cainjector: {
