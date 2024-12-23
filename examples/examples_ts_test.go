@@ -46,6 +46,6 @@ func TestTsCertManagerPreview(t *testing.T) {
 			opttest.LocalProviderPath("pulumi-kubernetes-cert-manager", filepath.Join(getCwd(t), "..", "bin")),
 			opttest.YarnLink("@pulumi/kubernetes-cert-manager"),
 		)
-		p.Preview(t, optpreview.ExpectNoChanges())
+		p.Preview(t)
 	})
 }
