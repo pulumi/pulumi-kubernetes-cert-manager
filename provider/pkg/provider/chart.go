@@ -135,16 +135,16 @@ type CertManagerGlobalLeaderElection struct {
 
 type CertManagerImage struct {
 	// You can manage a registry with `registry: quay.io`.
-	Registry *string `pulumi:"registry"`
+	Registry pulumi.StringPtrInput `pulumi:"registry"`
 	// You can manage a registry with `repository: jetstack/cert-manager-controller`.
-	Repository *string `pulumi:"repository"`
+	Repository pulumi.StringPtrInput `pulumi:"repository"`
 	// Override the image tag to deploy by setting this variable.
 	// If no value is set, the chart's appVersion will be used.
-	Tag *string `pulumi:"tag"`
+	Tag pulumi.StringPtrInput `pulumi:"tag"`
 	// Setting a digest will override any tag, e.g.
 	// `digest: sha256:0e072dddd1f7f8fc8909a2ca6f65e76c5f0d2fcfb8be47935ae3457e8bbceb20`.
-	Digest     *string `pulumi:"digest"`
-	PullPolicy *string `pulumi:"pullPolicy"`
+	Digest     pulumi.StringPtrInput `pulumi:"digest"`
+	PullPolicy pulumi.StringPtrInput `pulumi:"pullPolicy"`
 }
 
 type CertManagerServiceAccount struct {
