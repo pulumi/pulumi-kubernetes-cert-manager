@@ -8,7 +8,7 @@ PACK            := kubernetes-cert-manager
 PROJECT         := github.com/pulumi/pulumi-${PACK}
 
 PROVIDER        := pulumi-resource-${PACK}
-VERSION_PATH    := pkg/version.Version
+VERSION_PATH    := provider/pkg/version.Version
 
 WORKING_DIR     := $(shell pwd)
 SCHEMA_PATH     := ${WORKING_DIR}/provider/cmd/${PROVIDER}/schema.json
