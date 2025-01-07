@@ -17,8 +17,8 @@ package main
 import (
 	_ "embed"
 
-	"github.com/pulumi/pulumi-kubernetes-cert-manager/pkg/provider"
-	"github.com/pulumi/pulumi-kubernetes-cert-manager/pkg/version"
+	"github.com/pulumi/pulumi-kubernetes-cert-manager/provider/pkg/provider"
+	"github.com/pulumi/pulumi-kubernetes-cert-manager/provider/pkg/version"
 )
 
 //go:embed schema.json
