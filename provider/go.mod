@@ -3,7 +3,7 @@ module github.com/pulumi/pulumi-kubernetes-cert-manager/provider
 go 1.22.4
 
 require (
-	github.com/pulumi/pulumi-go-helmbase v0.1.0
+	github.com/pulumi/pulumi-go-helmbase v0.2.0
 	github.com/pulumi/pulumi-kubernetes/sdk/v4 v4.20.0
 	github.com/pulumi/pulumi/pkg/v3 v3.145.0
 	github.com/pulumi/pulumi/sdk/v3 v3.145.0
@@ -33,6 +33,7 @@ require (
 	github.com/go-git/gcfg v1.5.1-0.20230307220236-3a3c6141e376 // indirect
 	github.com/go-git/go-billy/v5 v5.6.1 // indirect
 	github.com/go-git/go-git/v5 v5.13.1 // indirect
+	github.com/go-viper/mapstructure/v2 v2.2.1 // indirect
 	github.com/gogo/protobuf v1.3.2 // indirect
 	github.com/golang/glog v1.2.2 // indirect
 	github.com/golang/groupcache v0.0.0-20210331224755-41bb18bfe9da // indirect
@@ -50,7 +51,6 @@ require (
 	github.com/mattn/go-runewidth v0.0.15 // indirect
 	github.com/mitchellh/go-ps v1.0.0 // indirect
 	github.com/mitchellh/go-wordwrap v1.0.1 // indirect
-	github.com/mitchellh/mapstructure v1.5.0 // indirect
 	github.com/muesli/ansi v0.0.0-20230316100256-276c6243b2f6 // indirect
 	github.com/muesli/cancelreader v0.2.2 // indirect
 	github.com/muesli/reflow v0.3.0 // indirect
