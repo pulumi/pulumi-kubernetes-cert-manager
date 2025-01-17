@@ -39,7 +39,7 @@ type CertManagerArgs struct {
 	Global       *CertManagerGlobal         `pulumi:"global"`
 	InstallCRDs  *bool                      `pulumi:"installCRDs"`
 	ReplicaCount *int                       `pulumi:"replicaCount"`
-	Strategy     *appsv1.DeploymentStrategy `pulumi:"strategy" pschema:"ref=/kubernetes/v4.7.1/schema.json#/types/kubernetes:apps/v1:DeploymentStrategy"`
+	Strategy     *appsv1.DeploymentStrategy `pulumi:"strategy" pschema:"ref=/kubernetes/v4.21.0/schema.json#/types/kubernetes:apps/v1:DeploymentStrategy"`
 	// Comma separated list of feature gates that should be enabled on the controller pod.
 	FeatureGates *string           `pulumi:"featureGates"`
 	Image        *CertManagerImage `pulumi:"image"`
@@ -50,15 +50,15 @@ type CertManagerArgs struct {
 	ServiceAccount           *CertManagerServiceAccount `pulumi:"serviceAccount"`
 	// Optional additional arguments.
 	ExtraArgs *[]string                    `pulumi:"extraArgs"`
-	ExtraEnv  *[]corev1.EnvVar             `pulumi:"extraEnv" pschema:"ref=/kubernetes/v4.7.1/schema.json#/types/kubernetes:core/v1:EnvVar"`
-	Resources *corev1.ResourceRequirements `pulumi:"resources" pschema:"ref=/kubernetes/v4.7.1/schema.json#/types/kubernetes:core/v1:ResourceRequirements"`
+	ExtraEnv  *[]corev1.EnvVar             `pulumi:"extraEnv" pschema:"ref=/kubernetes/v4.21.0/schema.json#/types/kubernetes:core/v1:EnvVar"`
+	Resources *corev1.ResourceRequirements `pulumi:"resources" pschema:"ref=/kubernetes/v4.21.0/schema.json#/types/kubernetes:core/v1:ResourceRequirements"`
 	// Pod Security Context. ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
-	SecurityContext *corev1.PodSecurityContext `pulumi:"securityContext" pschema:"ref=/kubernetes/v4.7.1/schema.json#/types/kubernetes:core/v1:PodSecurityContext"`
+	SecurityContext *corev1.PodSecurityContext `pulumi:"securityContext" pschema:"ref=/kubernetes/v4.21.0/schema.json#/types/kubernetes:core/v1:PodSecurityContext"`
 	// Container Security Context to be set on the controller component container.
 	// ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
-	ContainerSecurityContext *corev1.SecurityContext `pulumi:"containerSecurityContext" pschema:"ref=/kubernetes/v4.7.1/schema.json#/types/kubernetes:core/v1:SecurityContext"`
-	Volumes                  *[]corev1.Volume        `pulumi:"extraVolumes" pschema:"ref=/kubernetes/v4.7.1/schema.json#/types/kubernetes:core/v1:Volume"`
-	VolumeMounts             *[]corev1.VolumeMount   `pulumi:"extraVolumeMounts" pschema:"ref=/kubernetes/v4.7.1/schema.json#/types/kubernetes:core/v1:VolumeMount"`
+	ContainerSecurityContext *corev1.SecurityContext `pulumi:"containerSecurityContext" pschema:"ref=/kubernetes/v4.21.0/schema.json#/types/kubernetes:core/v1:SecurityContext"`
+	Volumes                  *[]corev1.Volume        `pulumi:"extraVolumes" pschema:"ref=/kubernetes/v4.21.0/schema.json#/types/kubernetes:core/v1:Volume"`
+	VolumeMounts             *[]corev1.VolumeMount   `pulumi:"extraVolumeMounts" pschema:"ref=/kubernetes/v4.21.0/schema.json#/types/kubernetes:core/v1:VolumeMount"`
 	// Optional additional annotations to add to the controller Deployment
 	DeploymentAnnotations *map[string]string `pulumi:"deploymentAnnotations"`
 	// Optional additional annotations to add to the controller Pods
@@ -74,15 +74,15 @@ type CertManagerArgs struct {
 	// NOTE: This requires Kubernetes 1.10 or `CustomPodDNS` feature gate enabled for
 	// the cluster to work.
 	PodDnsPolicy    *string                     `pulumi:"podDnsPolicy"`
-	PodDnsConfig    *corev1.PodDNSConfig        `pulumi:"podDnsConfig" pschema:"ref=/kubernetes/v4.7.1/schema.json#/types/kubernetes:core/v1:PodDNSConfig"`
-	NodeSelector    *corev1.NodeSelector        `pulumi:"nodeSelector" pschema:"ref=/kubernetes/v4.7.1/schema.json#/types/kubernetes:core/v1:NodeSelector"`
+	PodDnsConfig    *corev1.PodDNSConfig        `pulumi:"podDnsConfig" pschema:"ref=/kubernetes/v4.21.0/schema.json#/types/kubernetes:core/v1:PodDNSConfig"`
+	NodeSelector    *corev1.NodeSelector        `pulumi:"nodeSelector" pschema:"ref=/kubernetes/v4.21.0/schema.json#/types/kubernetes:core/v1:NodeSelector"`
 	IngressShim     *CertManagerIngressShim     `pulumi:"ingressShim"`
 	Prometheus      *CertManagerPrometheus      `pulumi:"prometheus"`
 	HttpProxy       *string                     `pulumi:"http_proxy"`
 	HttpsProxy      *string                     `pulumi:"https_proxy"`
 	NoProxy         *[]string                   `pulumi:"no_proxy"`
-	Affinity        *corev1.Affinity            `pulumi:"affinity" pschema:"ref=/kubernetes/v4.7.1/schema.json#/types/kubernetes:core/v1:Affinity"`
-	Tolerations     *[]corev1.Toleration        `pulumi:"tolerations" pschema:"ref=/kubernetes/v4.7.1/schema.json#/types/kubernetes:core/v1:Toleration"`
+	Affinity        *corev1.Affinity            `pulumi:"affinity" pschema:"ref=/kubernetes/v4.21.0/schema.json#/types/kubernetes:core/v1:Affinity"`
+	Tolerations     *[]corev1.Toleration        `pulumi:"tolerations" pschema:"ref=/kubernetes/v4.21.0/schema.json#/types/kubernetes:core/v1:Toleration"`
 	Webhook         *CertManagerWebhook         `pulumi:"webhook"`
 	CAInjector      *CertManagerCaInjector      `pulumi:"cainjector"`
 	StartupAPICheck *CertManagerStartupAPICheck `pulumi:"startupapicheck"`
@@ -97,7 +97,7 @@ func (args *CertManagerArgs) R() **helmbase.ReleaseType { return &args.HelmOptio
 type CertManagerGlobal struct {
 	// Reference to one or more secrets to be used when pulling images.
 	// ref: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
-	ImagePullSecrets *[]corev1.LocalObjectReference `pulumi:"imagePullSecrets" pschema:"ref=/kubernetes/v4.7.1/schema.json#/types/kubernetes:core/v1:LocalObjectReference"`
+	ImagePullSecrets *[]corev1.LocalObjectReference `pulumi:"imagePullSecrets" pschema:"ref=/kubernetes/v4.21.0/schema.json#/types/kubernetes:core/v1:LocalObjectReference"`
 	// Optional priority class to be used for the cert-manager pods.
 	PriorityClassName *string                             `pulumi:"priorityClassName"`
 	Rbac              *CertManagerGlobalRbac              `pulumi:"rbac"`
@@ -183,13 +183,13 @@ type CertManagerPrometheusServiceMonitor struct {
 type CertManagerWebhook struct {
 	ReplicaCount   *int                       `pulumi:"replicaCount"`
 	TimeoutSeconds *int                       `pulumi:"timeoutSeconds"`
-	Strategy       *appsv1.DeploymentStrategy `pulumi:"strategy" pschema:"ref=/kubernetes/v4.7.1/schema.json#/types/kubernetes:apps/v1:DeploymentStrategy"`
+	Strategy       *appsv1.DeploymentStrategy `pulumi:"strategy" pschema:"ref=/kubernetes/v4.21.0/schema.json#/types/kubernetes:apps/v1:DeploymentStrategy"`
 	// Pod Security Context to be set on the webhook component Pod.
 	// ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
-	SecurityContext *corev1.PodSecurityContext `pulumi:"securityContext" pschema:"ref=/kubernetes/v4.7.1/schema.json#/types/kubernetes:core/v1:PodSecurityContext"`
+	SecurityContext *corev1.PodSecurityContext `pulumi:"securityContext" pschema:"ref=/kubernetes/v4.21.0/schema.json#/types/kubernetes:core/v1:PodSecurityContext"`
 	// Container Security Context to be set on the webhook component container.
 	// ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
-	ContainerSecurityContext *corev1.SecurityContext `pulumi:"containerSecurityContext" pschema:"ref=/kubernetes/v4.7.1/schema.json#/types/kubernetes:core/v1:SecurityContext"`
+	ContainerSecurityContext *corev1.SecurityContext `pulumi:"containerSecurityContext" pschema:"ref=/kubernetes/v4.21.0/schema.json#/types/kubernetes:core/v1:SecurityContext"`
 	// Optional additional annotations to add to the webhook Deployment
 	DeploymentAnnotations *map[string]string `pulumi:"deploymentAnnotations"`
 	// Optional additional annotations to add to the webhook Pods
@@ -202,16 +202,16 @@ type CertManagerWebhook struct {
 	ServiceAnnotations *map[string]string `pulumi:"serviceAnnotations"`
 	// Optional additional arguments for webhook
 	ExtraArgs *[]string                    `pulumi:"extraArgs"`
-	Resources *corev1.ResourceRequirements `pulumi:"resources" pschema:"ref=/kubernetes/v4.7.1/schema.json#/types/kubernetes:core/v1:ResourceRequirements"`
+	Resources *corev1.ResourceRequirements `pulumi:"resources" pschema:"ref=/kubernetes/v4.21.0/schema.json#/types/kubernetes:core/v1:ResourceRequirements"`
 	// Liveness probe values.
 	// Ref: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-probes
-	LivenessProbe *corev1.Probe `pulumi:"livenessProbe" pschema:"ref=/kubernetes/v4.7.1/schema.json#/types/kubernetes:core/v1:Probe"`
+	LivenessProbe *corev1.Probe `pulumi:"livenessProbe" pschema:"ref=/kubernetes/v4.21.0/schema.json#/types/kubernetes:core/v1:Probe"`
 	// Readiness probe values.
 	// Ref: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-probes
-	ReadinessProbe *corev1.Probe        `pulumi:"readinessProbe" pschema:"ref=/kubernetes/v4.7.1/schema.json#/types/kubernetes:core/v1:Probe"`
+	ReadinessProbe *corev1.Probe        `pulumi:"readinessProbe" pschema:"ref=/kubernetes/v4.21.0/schema.json#/types/kubernetes:core/v1:Probe"`
 	NodeSelector   *map[string]string   `pulumi:"nodeSelector"`
-	Affinity       *corev1.Affinity     `pulumi:"affinity" pschema:"ref=/kubernetes/v4.7.1/schema.json#/types/kubernetes:core/v1:Affinity"`
-	Tolerations    *[]corev1.Toleration `pulumi:"tolerations" pschema:"ref=/kubernetes/v4.7.1/schema.json#/types/kubernetes:core/v1:Toleration"`
+	Affinity       *corev1.Affinity     `pulumi:"affinity" pschema:"ref=/kubernetes/v4.21.0/schema.json#/types/kubernetes:core/v1:Affinity"`
+	Tolerations    *[]corev1.Toleration `pulumi:"tolerations" pschema:"ref=/kubernetes/v4.21.0/schema.json#/types/kubernetes:core/v1:Toleration"`
 	// Optional additional labels to add to the Webhook Pods
 	PodLabels *map[string]string `pulumi:"podLabels"`
 	// Optional additional labels to add to the Webhook Service
@@ -249,23 +249,23 @@ type CertManagerWebhookURL struct {
 type CertManagerCaInjector struct {
 	ReplicaCount   *int                       `pulumi:"replicaCount"`
 	TimeoutSeconds *int                       `pulumi:"timeoutSeconds"`
-	Strategy       *appsv1.DeploymentStrategy `pulumi:"strategy" pschema:"ref=/kubernetes/v4.7.1/schema.json#/types/kubernetes:apps/v1:DeploymentStrategy"`
+	Strategy       *appsv1.DeploymentStrategy `pulumi:"strategy" pschema:"ref=/kubernetes/v4.21.0/schema.json#/types/kubernetes:apps/v1:DeploymentStrategy"`
 	// Pod Security Context to be set on the cainjector component Pod.
 	// ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
-	SecurityContext *corev1.PodSecurityContext `pulumi:"podSecurityContext" pschema:"ref=/kubernetes/v4.7.1/schema.json#/types/kubernetes:core/v1:PodSecurityContext"`
+	SecurityContext *corev1.PodSecurityContext `pulumi:"podSecurityContext" pschema:"ref=/kubernetes/v4.21.0/schema.json#/types/kubernetes:core/v1:PodSecurityContext"`
 	// Container Security Context to be set on the cainjector component container.
 	// ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
-	ContainerSecurityContext *corev1.SecurityContext `pulumi:"containerSecurityContext" pschema:"ref=/kubernetes/v4.7.1/schema.json#/types/kubernetes:core/v1:SecurityContext"`
+	ContainerSecurityContext *corev1.SecurityContext `pulumi:"containerSecurityContext" pschema:"ref=/kubernetes/v4.21.0/schema.json#/types/kubernetes:core/v1:SecurityContext"`
 	// Optional additional annotations to add to the cainjector Deployment
 	DeploymentAnnotations *map[string]string `pulumi:"deploymentAnnotations"`
 	// Optional additional annotations to add to the cainjector Pods
 	PodAnnotations *map[string]string `pulumi:"podAnnotations"`
 	// Optional additional arguments for cainjector
 	ExtraArgs    *[]string                    `pulumi:"extraArgs"`
-	Resources    *corev1.ResourceRequirements `pulumi:"resources" pschema:"ref=/kubernetes/v4.7.1/schema.json#/types/kubernetes:core/v1:ResourceRequirements"`
+	Resources    *corev1.ResourceRequirements `pulumi:"resources" pschema:"ref=/kubernetes/v4.21.0/schema.json#/types/kubernetes:core/v1:ResourceRequirements"`
 	NodeSelector *map[string]string           `pulumi:"nodeSelector"`
-	Affinity     *corev1.Affinity             `pulumi:"affinity" pschema:"ref=/kubernetes/v4.7.1/schema.json#/types/kubernetes:core/v1:Affinity"`
-	Tolerations  *[]corev1.Toleration         `pulumi:"tolerations" pschema:"ref=/kubernetes/v4.7.1/schema.json#/types/kubernetes:core/v1:Toleration"`
+	Affinity     *corev1.Affinity             `pulumi:"affinity" pschema:"ref=/kubernetes/v4.21.0/schema.json#/types/kubernetes:core/v1:Affinity"`
+	Tolerations  *[]corev1.Toleration         `pulumi:"tolerations" pschema:"ref=/kubernetes/v4.21.0/schema.json#/types/kubernetes:core/v1:Toleration"`
 	// Optional additional labels to add to the Webhook Pods
 	PodLabels      *map[string]string         `pulumi:"podLabels"`
 	Image          *CertManagerImage          `pulumi:"image"`
@@ -276,7 +276,7 @@ type CertManagerStartupAPICheck struct {
 	Enabled *bool `pulumi:"enabled"`
 	// Pod Security Context to be set on the startupapicheck component Pod.
 	// ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
-	SecurityContext *corev1.PodSecurityContext `pulumi:"securityContext" pschema:"ref=/kubernetes/v4.7.1/schema.json#/types/kubernetes:core/v1:PodSecurityContext"`
+	SecurityContext *corev1.PodSecurityContext `pulumi:"securityContext" pschema:"ref=/kubernetes/v4.21.0/schema.json#/types/kubernetes:core/v1:PodSecurityContext"`
 	// Timeout for 'kubectl check api' command
 	Timeout *string `pulumi:"timeout"`
 	// Job backoffLimit
@@ -287,10 +287,10 @@ type CertManagerStartupAPICheck struct {
 	PodAnnotations *map[string]string `pulumi:"podAnnotations"`
 	// Optional additional arguments for startupapicheck
 	ExtraArgs    *[]string                    `pulumi:"extraArgs"`
-	Resources    *corev1.ResourceRequirements `pulumi:"resources" pschema:"ref=/kubernetes/v4.7.1/schema.json#/types/kubernetes:core/v1:ResourceRequirements"`
+	Resources    *corev1.ResourceRequirements `pulumi:"resources" pschema:"ref=/kubernetes/v4.21.0/schema.json#/types/kubernetes:core/v1:ResourceRequirements"`
 	NodeSelector *map[string]string           `pulumi:"nodeSelector"`
-	Affinity     *corev1.Affinity             `pulumi:"affinity" pschema:"ref=/kubernetes/v4.7.1/schema.json#/types/kubernetes:core/v1:Affinity"`
-	Tolerations  *[]corev1.Toleration         `pulumi:"tolerations" pschema:"ref=/kubernetes/v4.7.1/schema.json#/types/kubernetes:core/v1:Toleration"`
+	Affinity     *corev1.Affinity             `pulumi:"affinity" pschema:"ref=/kubernetes/v4.21.0/schema.json#/types/kubernetes:core/v1:Affinity"`
+	Tolerations  *[]corev1.Toleration         `pulumi:"tolerations" pschema:"ref=/kubernetes/v4.21.0/schema.json#/types/kubernetes:core/v1:Toleration"`
 	// Optional additional labels to add to the startupapicheck Pods
 	PodLabels      *map[string]string              `pulumi:"podLabels"`
 	Image          *CertManagerImage               `pulumi:"image"`

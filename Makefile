@@ -174,3 +174,52 @@ sign-goreleaser-exe-%: bin/jsign-6.0.jar
 			az logout; \
 		fi; \
 	fi
+
+.PHONY: ensure
+ensure:
+	@echo "Ensuring Go module and Pulumi version consistency..."
+
+	@# First tidy and download in provider directory
+	@echo "Updating provider/go.mod..."
+	@cd provider && \
+	go mod tidy && \
+	go mod download
+
+	@# Extract Pulumi SDK version from provider/go.mod
+	@echo "Syncing Pulumi version..."
+	@awk 'BEGIN {p=0} \
+		/^require[ \t]*\(/ {p=1; next} \
+		/^\)/ {p=0} \
+		p==1 && $$1 ~ /^github.com\/pulumi\/pulumi\/(sdk|pkg)\/v3/ && !(/\/\//) {print $$1 " " $$2}' provider/go.mod > /tmp/pulumi_deps.txt
+
+	@# Extract all other direct dependencies from provider/go.mod
+	@awk 'BEGIN {p=0} \
+		/^require[ \t]*\(/ {p=1; next} \
+		/^\)/ {p=0} \
+		p==1 && $$1 !~ /^github.com\/pulumi\/pulumi\/(sdk|pkg)\/v3/ && !(/\/\//) {print $$1 " " $$2}' provider/go.mod > /tmp/direct_deps.txt
+
+	@# Update sdk/go.mod
+	@echo "Updating sdk/go.mod..."
+	@cd sdk && \
+	while read -r dep version; do \
+		go get "$$dep@$$version"; \
+	done < /tmp/direct_deps.txt && \
+	while read -r dep version; do \
+		go get "$$dep@$$version"; \
+	done < /tmp/pulumi_deps.txt && \
+	go mod tidy
+
+	@# Update examples/go.mod
+	@echo "Updating examples/go.mod..."
+	@cd examples && \
+	while read -r dep version; do \
+		go get "$$dep@$$version"; \
+	done < /tmp/direct_deps.txt && \
+	while read -r dep version; do \
+		go get "$$dep@$$version"; \
+	done < /tmp/pulumi_deps.txt && \
+	go mod tidy
+
+	@# Clean up
+	@rm -f /tmp/direct_deps.txt /tmp/pulumi_deps.txt
+	@echo "Done ensuring Go module and Pulumi version consistency"
