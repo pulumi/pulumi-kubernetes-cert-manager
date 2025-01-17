@@ -1,0 +1,3 @@
+name: simple-cert-manager-dotnet
+description: A minimal C# Pulumi program
+runtime: dotnet
