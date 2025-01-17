@@ -16,10 +16,10 @@ package provider
 
 import (
 	helmbase "github.com/pulumi/pulumi-go-helmbase"
+	kcm "github.com/pulumi/pulumi-kubernetes-cert-manager/sdk/go/kubernetes-cert-manager"
 	appsv1 "github.com/pulumi/pulumi-kubernetes/sdk/v4/go/kubernetes/apps/v1"
 	corev1 "github.com/pulumi/pulumi-kubernetes/sdk/v4/go/kubernetes/core/v1"
 	helmv3 "github.com/pulumi/pulumi-kubernetes/sdk/v4/go/kubernetes/helm/v3"
-
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -36,18 +36,18 @@ func (c *CertManager) DefaultRepoURL() string                    { return "https
 
 // CertManager contains the set of arguments for creating a CertManager component resource.
 type CertManagerArgs struct {
-	Global       *CertManagerGlobal         `pulumi:"global"`
-	InstallCRDs  *bool                      `pulumi:"installCRDs"`
-	ReplicaCount *int                       `pulumi:"replicaCount"`
-	Strategy     *appsv1.DeploymentStrategy `pulumi:"strategy" pschema:"ref=/kubernetes/v4.7.1/schema.json#/types/kubernetes:apps/v1:DeploymentStrategy"`
+	Global       kcm.CertManagerGlobalPtrInput `pulumi:"global"`
+	InstallCRDs  *bool                         `pulumi:"installCRDs"`
+	ReplicaCount *int                          `pulumi:"replicaCount"`
+	Strategy     *appsv1.DeploymentStrategy    `pulumi:"strategy" pschema:"ref=/kubernetes/v4.7.1/schema.json#/types/kubernetes:apps/v1:DeploymentStrategy"`
 	// Comma separated list of feature gates that should be enabled on the controller pod.
-	FeatureGates *string           `pulumi:"featureGates"`
-	Image        *CertManagerImage `pulumi:"image"`
+	FeatureGates *string                      `pulumi:"featureGates"`
+	Image        kcm.CertManagerImagePtrInput `pulumi:"image"`
 	// Override the namespace used to store DNS provider credentials etc. for ClusterIssuer
 	// resources. By default, the same namespace as cert-manager is deployed within is
 	// used. This namespace will not be automatically created by the Helm chart.
-	ClusterResourceNamespace *string                    `pulumi:"clusterResourceNamespace"`
-	ServiceAccount           *CertManagerServiceAccount `pulumi:"serviceAccount"`
+	ClusterResourceNamespace *string                               `pulumi:"clusterResourceNamespace"`
+	ServiceAccount           kcm.CertManagerServiceAccountPtrInput `pulumi:"serviceAccount"`
 	// Optional additional arguments.
 	ExtraArgs *[]string                    `pulumi:"extraArgs"`
 	ExtraEnv  *[]corev1.EnvVar             `pulumi:"extraEnv" pschema:"ref=/kubernetes/v4.7.1/schema.json#/types/kubernetes:core/v1:EnvVar"`
@@ -73,19 +73,19 @@ type CertManagerArgs struct {
 	// cert-manager can access an ingress or DNS TXT records at all times.
 	// NOTE: This requires Kubernetes 1.10 or `CustomPodDNS` feature gate enabled for
 	// the cluster to work.
-	PodDnsPolicy    *string                     `pulumi:"podDnsPolicy"`
-	PodDnsConfig    *corev1.PodDNSConfig        `pulumi:"podDnsConfig" pschema:"ref=/kubernetes/v4.7.1/schema.json#/types/kubernetes:core/v1:PodDNSConfig"`
-	NodeSelector    *corev1.NodeSelector        `pulumi:"nodeSelector" pschema:"ref=/kubernetes/v4.7.1/schema.json#/types/kubernetes:core/v1:NodeSelector"`
-	IngressShim     *CertManagerIngressShim     `pulumi:"ingressShim"`
-	Prometheus      *CertManagerPrometheus      `pulumi:"prometheus"`
-	HttpProxy       *string                     `pulumi:"http_proxy"`
-	HttpsProxy      *string                     `pulumi:"https_proxy"`
-	NoProxy         *[]string                   `pulumi:"no_proxy"`
-	Affinity        *corev1.Affinity            `pulumi:"affinity" pschema:"ref=/kubernetes/v4.7.1/schema.json#/types/kubernetes:core/v1:Affinity"`
-	Tolerations     *[]corev1.Toleration        `pulumi:"tolerations" pschema:"ref=/kubernetes/v4.7.1/schema.json#/types/kubernetes:core/v1:Toleration"`
-	Webhook         *CertManagerWebhook         `pulumi:"webhook"`
-	CAInjector      *CertManagerCaInjector      `pulumi:"cainjector"`
-	StartupAPICheck *CertManagerStartupAPICheck `pulumi:"startupapicheck"`
+	PodDnsPolicy    *string                                `pulumi:"podDnsPolicy"`
+	PodDnsConfig    *corev1.PodDNSConfig                   `pulumi:"podDnsConfig" pschema:"ref=/kubernetes/v4.7.1/schema.json#/types/kubernetes:core/v1:PodDNSConfig"`
+	NodeSelector    *corev1.NodeSelector                   `pulumi:"nodeSelector" pschema:"ref=/kubernetes/v4.7.1/schema.json#/types/kubernetes:core/v1:NodeSelector"`
+	IngressShim     kcm.CertManagerIngressShimPtrInput     `pulumi:"ingressShim"`
+	Prometheus      kcm.CertManagerPrometheusPtrInput      `pulumi:"prometheus"`
+	HttpProxy       *string                                `pulumi:"http_proxy"`
+	HttpsProxy      *string                                `pulumi:"https_proxy"`
+	NoProxy         *[]string                              `pulumi:"no_proxy"`
+	Affinity        *corev1.Affinity                       `pulumi:"affinity" pschema:"ref=/kubernetes/v4.7.1/schema.json#/types/kubernetes:core/v1:Affinity"`
+	Tolerations     *[]corev1.Toleration                   `pulumi:"tolerations" pschema:"ref=/kubernetes/v4.7.1/schema.json#/types/kubernetes:core/v1:Toleration"`
+	Webhook         kcm.CertManagerWebhookPtrInput         `pulumi:"webhook"`
+	CAInjector      kcm.CertManagerCaInjectorPtrInput      `pulumi:"cainjector"`
+	StartupAPICheck kcm.CertManagerStartupAPICheckPtrInput `pulumi:"startupapicheck"`
 
 	// HelmOptions is an escape hatch that lets the end user control any aspect of the
 	// Helm deployment. This exposes the entirety of the underlying Helm Release component args.
@@ -99,12 +99,12 @@ type CertManagerGlobal struct {
 	// ref: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
 	ImagePullSecrets *[]corev1.LocalObjectReference `pulumi:"imagePullSecrets" pschema:"ref=/kubernetes/v4.7.1/schema.json#/types/kubernetes:core/v1:LocalObjectReference"`
 	// Optional priority class to be used for the cert-manager pods.
-	PriorityClassName *string                             `pulumi:"priorityClassName"`
-	Rbac              *CertManagerGlobalRbac              `pulumi:"rbac"`
-	PodSecurityPolicy *CertManagerGlobalPodSecurityPolicy `pulumi:"podSecurityPolicy"`
+	PriorityClassName *string                                        `pulumi:"priorityClassName"`
+	Rbac              kcm.CertManagerGlobalRbacPtrInput              `pulumi:"rbac"`
+	PodSecurityPolicy kcm.CertManagerGlobalPodSecurityPolicyPtrInput `pulumi:"podSecurityPolicy"`
 	// Set the verbosity of cert-manager. Range of 0 - 6 with 6 being the most verbose.
-	LogLevel       *int                             `pulumi:"logLevel"`
-	LeaderElection *CertManagerGlobalLeaderElection `pulumi:"leaderElection"`
+	LogLevel       *int                                        `pulumi:"logLevel"`
+	LeaderElection kcm.CertManagerGlobalLeaderElectionPtrInput `pulumi:"leaderElection"`
 }
 
 type CertManagerGlobalRbac struct {
@@ -166,8 +166,8 @@ type CertManagerIngressShim struct {
 }
 
 type CertManagerPrometheus struct {
-	Enabled        *bool                                `pulumi:"enabled"`
-	ServiceMonitor *CertManagerPrometheusServiceMonitor `pulumi:"serviceMonitor"`
+	Enabled        *bool                                           `pulumi:"enabled"`
+	ServiceMonitor kcm.CertManagerPrometheusServiceMonitorPtrInput `pulumi:"serviceMonitor"`
 }
 
 type CertManagerPrometheusServiceMonitor struct {
@@ -215,9 +215,9 @@ type CertManagerWebhook struct {
 	// Optional additional labels to add to the Webhook Pods
 	PodLabels *map[string]string `pulumi:"podLabels"`
 	// Optional additional labels to add to the Webhook Service
-	ServiceLabels  *map[string]string         `pulumi:"serviceLabels"`
-	Image          *CertManagerImage          `pulumi:"image"`
-	ServiceAccount *CertManagerServiceAccount `pulumi:"serviceAccount"`
+	ServiceLabels  *map[string]string                    `pulumi:"serviceLabels"`
+	Image          kcm.CertManagerImagePtrInput          `pulumi:"image"`
+	ServiceAccount kcm.CertManagerServiceAccountPtrInput `pulumi:"serviceAccount"`
 	// The port that the webhook should listen on for requests.
 	// In GKE private clusters, by default kubernetes apiservers are allowed to
 	// talk to the cluster nodes only on 443 and 10250. so configuring
@@ -239,7 +239,7 @@ type CertManagerWebhook struct {
 	LoadBalancerIP *string `pulumi:"loadBalancerIP"`
 	// Overrides the mutating webhook and validating webhook so they reach the webhook
 	// service using the `url` field instead of a service.
-	URL *CertManagerWebhookURL `pulumi:"url"`
+	URL kcm.CertManagerWebhookURLPtrInput `pulumi:"url"`
 }
 
 type CertManagerWebhookURL struct {
@@ -267,9 +267,9 @@ type CertManagerCaInjector struct {
 	Affinity     *corev1.Affinity             `pulumi:"affinity" pschema:"ref=/kubernetes/v4.7.1/schema.json#/types/kubernetes:core/v1:Affinity"`
 	Tolerations  *[]corev1.Toleration         `pulumi:"tolerations" pschema:"ref=/kubernetes/v4.7.1/schema.json#/types/kubernetes:core/v1:Toleration"`
 	// Optional additional labels to add to the Webhook Pods
-	PodLabels      *map[string]string         `pulumi:"podLabels"`
-	Image          *CertManagerImage          `pulumi:"image"`
-	ServiceAccount *CertManagerServiceAccount `pulumi:"serviceAccount"`
+	PodLabels      *map[string]string                    `pulumi:"podLabels"`
+	Image          kcm.CertManagerImagePtrInput          `pulumi:"image"`
+	ServiceAccount kcm.CertManagerServiceAccountPtrInput `pulumi:"serviceAccount"`
 }
 
 type CertManagerStartupAPICheck struct {
@@ -292,10 +292,10 @@ type CertManagerStartupAPICheck struct {
 	Affinity     *corev1.Affinity             `pulumi:"affinity" pschema:"ref=/kubernetes/v4.7.1/schema.json#/types/kubernetes:core/v1:Affinity"`
 	Tolerations  *[]corev1.Toleration         `pulumi:"tolerations" pschema:"ref=/kubernetes/v4.7.1/schema.json#/types/kubernetes:core/v1:Toleration"`
 	// Optional additional labels to add to the startupapicheck Pods
-	PodLabels      *map[string]string              `pulumi:"podLabels"`
-	Image          *CertManagerImage               `pulumi:"image"`
-	RBAC           *CertManagerStartupAPICheckRBAC `pulumi:"rbac"`
-	ServiceAccount *CertManagerServiceAccount      `pulumi:"serviceAccount"`
+	PodLabels      *map[string]string                         `pulumi:"podLabels"`
+	Image          kcm.CertManagerImagePtrInput               `pulumi:"image"`
+	RBAC           kcm.CertManagerStartupAPICheckRBACPtrInput `pulumi:"rbac"`
+	ServiceAccount kcm.CertManagerServiceAccountPtrInput      `pulumi:"serviceAccount"`
 }
 
 type CertManagerStartupAPICheckRBAC struct {

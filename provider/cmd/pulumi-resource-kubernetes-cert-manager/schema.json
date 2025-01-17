@@ -72,6 +72,7 @@
                     "$ref": "#/types/kubernetes-cert-manager:index:CertManagerGlobal"
                 },
                 "helmOptions": {
+                    "plain": true,
                     "$ref": "#/types/kubernetes-cert-manager:index:Release",
                     "description": "HelmOptions is an escape hatch that lets the end user control any aspect of the Helm deployment. This exposes the entirety of the underlying Helm Release component args."
                 },
@@ -895,6 +896,7 @@
         "go": {
             "generateResourceContainerTypes": true,
             "importBasePath": "github.com/pulumi/pulumi-kubernetes-cert-manager/sdk/go/kubernetes-cert-manager",
+            "generateExtraInputTypes": true,
             "respectSchemaVersion": true
         },
         "java": {
@@ -904,7 +906,7 @@
                 "com.google.code.findbugs:jsr305": "3.0.2",
                 "com.google.code.gson:gson": "2.8.9",
                 "com.pulumi:pulumi": "0.20.0",
-                "com.pulumi:kubernetes": "4.19.0"
+                "com.pulumi:kubernetes": "4.21.0"
             },
             "gradleNexusPublishPluginVersion": "1.1.0",
             "gradleTest": ""
