@@ -25,10 +25,12 @@ const manager = new certmanager.CertManager("cert-manager", {
     namespace: ns.metadata.name,
     version: "v1.15.3",
   },
-  image: {
-    repository,
-    tag: "v1.15.3-eks-a-v0.21.3-dev-build.0"
-  },
+  image: pulumi.all([repository, "v1.15.3-eks-a-v0.21.3-dev-build.0"]).apply(([repository, tag]) => {
+    return {
+      repository,
+      tag: tag,
+    }
+  }),
   cainjector: {
     "image": {
       repository: "public.ecr.aws/eks-anywhere-dev/cert-manager/cert-manager-cainjector",
