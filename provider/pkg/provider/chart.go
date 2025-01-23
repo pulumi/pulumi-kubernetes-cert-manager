@@ -89,10 +89,10 @@ type CertManagerArgs struct {
 
 	// HelmOptions is an escape hatch that lets the end user control any aspect of the
 	// Helm deployment. This exposes the entirety of the underlying Helm Release component args.
-	HelmOptions *helmbase.ReleaseType `pulumi:"helmOptions" pschema:"ref=#/types/chart-cert-manager:index:Release" json:"-"`
+	HelmOptions *helmbase.ReleaseTypeInput, `pulumi:"helmOptions" pschema:"ref=#/types/chart-cert-manager:index:Release" json:"-"`
 }
 
-func (args *CertManagerArgs) R() **helmbase.ReleaseType { return &args.HelmOptions }
+func (args *CertManagerArgs) R() **helmbase.ReleaseTypeInput { return &args.HelmOptions }
 
 type CertManagerGlobal struct {
 	// Reference to one or more secrets to be used when pulling images.
