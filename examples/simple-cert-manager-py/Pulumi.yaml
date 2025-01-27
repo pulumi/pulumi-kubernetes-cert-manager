@@ -1,6 +1,0 @@
-name: simple-cert-manager-py
-runtime:
-  name: python
-  options:
-    virtualenv: venv
-description: A simple Kubernetes CertManager installation
