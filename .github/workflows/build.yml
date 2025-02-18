@@ -484,7 +484,7 @@ jobs:
       with:
         pulumi-version-file: .pulumi.version
     - name: Configure AWS Credentials
-      uses: aws-actions/configure-aws-credentials@4fc4975a852c8cd99761e2de1f4ba73402e44dd9 # v4.0.3
+      uses: aws-actions/configure-aws-credentials@ececac1a45f3b08a01d2dd070d28d111c5fe6722 # v4.1.0
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-region: us-east-2
@@ -607,7 +607,7 @@ jobs:
       run: git grep -l 'go:embed' -- provider | xargs --no-run-if-empty sed -i
         's/go:embed/ goembed/g'
     - name: golangci-lint provider pkg
-      uses: golangci/golangci-lint-action@2e788936b09dd82dc280e845628a40d2ba6b204c # v6.3.1
+      uses: golangci/golangci-lint-action@051d91933864810ecd5e2ea2cfd98f6a5bca5347 # v6.3.2
       with:
         version: ${{ env.GOLANGCI_LINT_VERSION }}
         args: -c ../.golangci.yml
