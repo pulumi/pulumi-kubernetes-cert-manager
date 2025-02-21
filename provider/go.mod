@@ -5,7 +5,7 @@ go 1.22.4
 require (
 	github.com/pulumi/pulumi-go-helmbase v0.2.0
 	github.com/pulumi/pulumi-kubernetes/sdk/v4 v4.21.1
-	github.com/pulumi/pulumi/pkg/v3 v3.150.0
+	github.com/pulumi/pulumi/pkg/v3 v3.151.0
 	github.com/pulumi/pulumi/sdk/v3 v3.151.0
 )
 
