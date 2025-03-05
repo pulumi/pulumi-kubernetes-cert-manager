@@ -72,6 +72,7 @@
                     "$ref": "#/types/kubernetes-cert-manager:index:CertManagerGlobal"
                 },
                 "helmOptions": {
+                    "plain": true,
                     "$ref": "#/types/kubernetes-cert-manager:index:Release",
                     "description": "HelmOptions is an escape hatch that lets the end user control any aspect of the Helm deployment. This exposes the entirety of the underlying Helm Release component args."
                 },

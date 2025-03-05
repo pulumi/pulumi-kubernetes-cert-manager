@@ -185,8 +185,21 @@ ensure:
 	go mod tidy && \
 	go mod download
 
-	@# Extract Pulumi SDK version from provider/go.mod
+	@# Extract Pulumi SDK version from provider/go.mod and set .pulumi.version
 	@echo "Syncing Pulumi version..."
+	@awk 'BEGIN {p=0} \
+		/^require[ \t]*\(/ {p=1; next} \
+		/^\)/ {p=0} \
+		p==1 && $$1 == "github.com/pulumi/pulumi/sdk/v3" && !(/\/\//) {print $$2}' provider/go.mod | sed 's/^v//' > /tmp/pulumi_version.txt
+	@if [ -s /tmp/pulumi_version.txt ]; then \
+		echo "Found Pulumi version: $$(cat /tmp/pulumi_version.txt)"; \
+		echo "$$(cat /tmp/pulumi_version.txt)" > .pulumi.version; \
+	else \
+		echo "Error: Could not find github.com/pulumi/pulumi/sdk/v3 version in provider/go.mod"; \
+		exit 1; \
+	fi
+
+	@# Extract Pulumi SDK version from provider/go.mod
 	@awk 'BEGIN {p=0} \
 		/^require[ \t]*\(/ {p=1; next} \
 		/^\)/ {p=0} \
@@ -221,5 +234,5 @@ ensure:
 	go mod tidy
 
 	@# Clean up
-	@rm -f /tmp/direct_deps.txt /tmp/pulumi_deps.txt
+	@rm -f /tmp/direct_deps.txt /tmp/pulumi_deps.txt /tmp/pulumi_version.txt
 	@echo "Done ensuring Go module and Pulumi version consistency"
