@@ -104,7 +104,7 @@ type CertManagerArgs struct {
 	FeatureGates pulumi.StringPtrInput
 	Global       CertManagerGlobalPtrInput
 	// HelmOptions is an escape hatch that lets the end user control any aspect of the Helm deployment. This exposes the entirety of the underlying Helm Release component args.
-	HelmOptions  ReleasePtrInput
+	HelmOptions  *ReleaseArgs
 	Http_proxy   pulumi.StringPtrInput
 	Https_proxy  pulumi.StringPtrInput
 	Image        CertManagerImagePtrInput
