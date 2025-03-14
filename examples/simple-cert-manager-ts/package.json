@@ -4,7 +4,7 @@
         "@types/node": "22.13.4"
     },
     "dependencies": {
-        "@pulumi/kubernetes": "4.21.1",
+        "@pulumi/kubernetes": "4.22.0",
         "@pulumi/pulumi": "3.156.0",
         "@pulumi/kubernetes-cert-manager": "latest",
         "@pulumi/random": "4.18.0",
