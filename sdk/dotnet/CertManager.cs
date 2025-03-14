@@ -128,7 +128,7 @@ namespace Pulumi.KubernetesCertManager
         /// HelmOptions is an escape hatch that lets the end user control any aspect of the Helm deployment. This exposes the entirety of the underlying Helm Release component args.
         /// </summary>
         [Input("helmOptions")]
-        public Input<Inputs.ReleaseArgs>? HelmOptions { get; set; }
+        public Inputs.ReleaseArgs? HelmOptions { get; set; }
 
         [Input("http_proxy")]
         public Input<string>? Http_proxy { get; set; }

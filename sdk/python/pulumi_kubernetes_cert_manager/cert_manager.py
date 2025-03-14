@@ -33,7 +33,7 @@ class CertManagerArgs:
                  extra_volumes: Optional[pulumi.Input[Sequence[pulumi.Input['pulumi_kubernetes.core.v1.VolumeArgs']]]] = None,
                  feature_gates: Optional[pulumi.Input[str]] = None,
                  global_: Optional[pulumi.Input['CertManagerGlobalArgs']] = None,
-                 helm_options: Optional[pulumi.Input['ReleaseArgs']] = None,
+                 helm_options: Optional['ReleaseArgs'] = None,
                  http_proxy: Optional[pulumi.Input[str]] = None,
                  https_proxy: Optional[pulumi.Input[str]] = None,
                  image: Optional[pulumi.Input['CertManagerImageArgs']] = None,
@@ -63,7 +63,7 @@ class CertManagerArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] deployment_annotations: Optional additional annotations to add to the controller Deployment
         :param pulumi.Input[Sequence[pulumi.Input[str]]] extra_args: Optional additional arguments.
         :param pulumi.Input[str] feature_gates: Comma separated list of feature gates that should be enabled on the controller pod.
-        :param pulumi.Input['ReleaseArgs'] helm_options: HelmOptions is an escape hatch that lets the end user control any aspect of the Helm deployment. This exposes the entirety of the underlying Helm Release component args.
+        :param 'ReleaseArgs' helm_options: HelmOptions is an escape hatch that lets the end user control any aspect of the Helm deployment. This exposes the entirety of the underlying Helm Release component args.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] pod_annotations: Optional additional annotations to add to the controller Pods
         :param pulumi.Input[str] pod_dns_policy: Optional DNS settings, useful if you have a public and private DNS zone for the same domain on Route 53. What follows is an example of ensuring cert-manager can access an ingress or DNS TXT records at all times. NOTE: This requires Kubernetes 1.10 or `CustomPodDNS` feature gate enabled for the cluster to work.
         :param pulumi.Input['pulumi_kubernetes.core.v1.PodSecurityContextArgs'] security_context: Pod Security Context. ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
@@ -255,14 +255,14 @@ class CertManagerArgs:
 
     @property
     @pulumi.getter(name="helmOptions")
-    def helm_options(self) -> Optional[pulumi.Input['ReleaseArgs']]:
+    def helm_options(self) -> Optional['ReleaseArgs']:
         """
         HelmOptions is an escape hatch that lets the end user control any aspect of the Helm deployment. This exposes the entirety of the underlying Helm Release component args.
         """
         return pulumi.get(self, "helm_options")
 
     @helm_options.setter
-    def helm_options(self, value: Optional[pulumi.Input['ReleaseArgs']]):
+    def helm_options(self, value: Optional['ReleaseArgs']):
         pulumi.set(self, "helm_options", value)
 
     @property
@@ -495,7 +495,7 @@ class CertManager(pulumi.ComponentResource):
                  extra_volumes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['pulumi_kubernetes.core.v1.VolumeArgs']]]]] = None,
                  feature_gates: Optional[pulumi.Input[str]] = None,
                  global_: Optional[pulumi.Input[Union['CertManagerGlobalArgs', 'CertManagerGlobalArgsDict']]] = None,
-                 helm_options: Optional[pulumi.Input[Union['ReleaseArgs', 'ReleaseArgsDict']]] = None,
+                 helm_options: Optional[Union['ReleaseArgs', 'ReleaseArgsDict']] = None,
                  http_proxy: Optional[pulumi.Input[str]] = None,
                  https_proxy: Optional[pulumi.Input[str]] = None,
                  image: Optional[pulumi.Input[Union['CertManagerImageArgs', 'CertManagerImageArgsDict']]] = None,
@@ -529,7 +529,7 @@ class CertManager(pulumi.ComponentResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] deployment_annotations: Optional additional annotations to add to the controller Deployment
         :param pulumi.Input[Sequence[pulumi.Input[str]]] extra_args: Optional additional arguments.
         :param pulumi.Input[str] feature_gates: Comma separated list of feature gates that should be enabled on the controller pod.
-        :param pulumi.Input[Union['ReleaseArgs', 'ReleaseArgsDict']] helm_options: HelmOptions is an escape hatch that lets the end user control any aspect of the Helm deployment. This exposes the entirety of the underlying Helm Release component args.
+        :param Union['ReleaseArgs', 'ReleaseArgsDict'] helm_options: HelmOptions is an escape hatch that lets the end user control any aspect of the Helm deployment. This exposes the entirety of the underlying Helm Release component args.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] pod_annotations: Optional additional annotations to add to the controller Pods
         :param pulumi.Input[str] pod_dns_policy: Optional DNS settings, useful if you have a public and private DNS zone for the same domain on Route 53. What follows is an example of ensuring cert-manager can access an ingress or DNS TXT records at all times. NOTE: This requires Kubernetes 1.10 or `CustomPodDNS` feature gate enabled for the cluster to work.
         :param pulumi.Input[pulumi.InputType['pulumi_kubernetes.core.v1.PodSecurityContextArgs']] security_context: Pod Security Context. ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
@@ -571,7 +571,7 @@ class CertManager(pulumi.ComponentResource):
                  extra_volumes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['pulumi_kubernetes.core.v1.VolumeArgs']]]]] = None,
                  feature_gates: Optional[pulumi.Input[str]] = None,
                  global_: Optional[pulumi.Input[Union['CertManagerGlobalArgs', 'CertManagerGlobalArgsDict']]] = None,
-                 helm_options: Optional[pulumi.Input[Union['ReleaseArgs', 'ReleaseArgsDict']]] = None,
+                 helm_options: Optional[Union['ReleaseArgs', 'ReleaseArgsDict']] = None,
                  http_proxy: Optional[pulumi.Input[str]] = None,
                  https_proxy: Optional[pulumi.Input[str]] = None,
                  image: Optional[pulumi.Input[Union['CertManagerImageArgs', 'CertManagerImageArgsDict']]] = None,
