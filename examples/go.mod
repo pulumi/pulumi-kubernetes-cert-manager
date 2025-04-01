@@ -7,7 +7,7 @@ toolchain go1.23.6
 require (
 	github.com/pulumi/providertest v0.2.0
 	github.com/pulumi/pulumi/pkg/v3 v3.159.0
-	github.com/pulumi/pulumi/sdk/v3 v3.159.0
+	github.com/pulumi/pulumi/sdk/v3 v3.160.0
 )
 
 require (
