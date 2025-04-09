@@ -236,3 +236,13 @@ ensure:
 	@# Clean up
 	@rm -f /tmp/direct_deps.txt /tmp/pulumi_deps.txt /tmp/pulumi_version.txt
 	@echo "Done ensuring Go module and Pulumi version consistency"
+
+# To make an immediately observable change to .ci-mgmt.yaml:
+#
+# - Edit .ci-mgmt.yaml
+# - Run make ci-mgmt to apply the change locally.
+#
+ci-mgmt: .ci-mgmt.yaml
+	go run github.com/pulumi/ci-mgmt/provider-ci@master generate
+.PHONY: ci-mgmt
+	fi
