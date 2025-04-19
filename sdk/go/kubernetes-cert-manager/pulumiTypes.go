@@ -382,6 +382,162 @@ func (o CertManagerCaInjectorPtrOutput) Tolerations() corev1.TolerationArrayOutp
 	}).(corev1.TolerationArrayOutput)
 }
 
+type CertManagerCrds struct {
+	// Enable CRDs installation
+	Enabled *bool `pulumi:"enabled"`
+	// Keep CRDs after chart uninstall
+	Keep *bool `pulumi:"keep"`
+}
+
+// CertManagerCrdsInput is an input type that accepts CertManagerCrdsArgs and CertManagerCrdsOutput values.
+// You can construct a concrete instance of `CertManagerCrdsInput` via:
+//
+//	CertManagerCrdsArgs{...}
+type CertManagerCrdsInput interface {
+	pulumi.Input
+
+	ToCertManagerCrdsOutput() CertManagerCrdsOutput
+	ToCertManagerCrdsOutputWithContext(context.Context) CertManagerCrdsOutput
+}
+
+type CertManagerCrdsArgs struct {
+	// Enable CRDs installation
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// Keep CRDs after chart uninstall
+	Keep pulumi.BoolPtrInput `pulumi:"keep"`
+}
+
+func (CertManagerCrdsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertManagerCrds)(nil)).Elem()
+}
+
+func (i CertManagerCrdsArgs) ToCertManagerCrdsOutput() CertManagerCrdsOutput {
+	return i.ToCertManagerCrdsOutputWithContext(context.Background())
+}
+
+func (i CertManagerCrdsArgs) ToCertManagerCrdsOutputWithContext(ctx context.Context) CertManagerCrdsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertManagerCrdsOutput)
+}
+
+func (i CertManagerCrdsArgs) ToCertManagerCrdsPtrOutput() CertManagerCrdsPtrOutput {
+	return i.ToCertManagerCrdsPtrOutputWithContext(context.Background())
+}
+
+func (i CertManagerCrdsArgs) ToCertManagerCrdsPtrOutputWithContext(ctx context.Context) CertManagerCrdsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertManagerCrdsOutput).ToCertManagerCrdsPtrOutputWithContext(ctx)
+}
+
+// CertManagerCrdsPtrInput is an input type that accepts CertManagerCrdsArgs, CertManagerCrdsPtr and CertManagerCrdsPtrOutput values.
+// You can construct a concrete instance of `CertManagerCrdsPtrInput` via:
+//
+//	        CertManagerCrdsArgs{...}
+//
+//	or:
+//
+//	        nil
+type CertManagerCrdsPtrInput interface {
+	pulumi.Input
+
+	ToCertManagerCrdsPtrOutput() CertManagerCrdsPtrOutput
+	ToCertManagerCrdsPtrOutputWithContext(context.Context) CertManagerCrdsPtrOutput
+}
+
+type certManagerCrdsPtrType CertManagerCrdsArgs
+
+func CertManagerCrdsPtr(v *CertManagerCrdsArgs) CertManagerCrdsPtrInput {
+	return (*certManagerCrdsPtrType)(v)
+}
+
+func (*certManagerCrdsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CertManagerCrds)(nil)).Elem()
+}
+
+func (i *certManagerCrdsPtrType) ToCertManagerCrdsPtrOutput() CertManagerCrdsPtrOutput {
+	return i.ToCertManagerCrdsPtrOutputWithContext(context.Background())
+}
+
+func (i *certManagerCrdsPtrType) ToCertManagerCrdsPtrOutputWithContext(ctx context.Context) CertManagerCrdsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertManagerCrdsPtrOutput)
+}
+
+type CertManagerCrdsOutput struct{ *pulumi.OutputState }
+
+func (CertManagerCrdsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertManagerCrds)(nil)).Elem()
+}
+
+func (o CertManagerCrdsOutput) ToCertManagerCrdsOutput() CertManagerCrdsOutput {
+	return o
+}
+
+func (o CertManagerCrdsOutput) ToCertManagerCrdsOutputWithContext(ctx context.Context) CertManagerCrdsOutput {
+	return o
+}
+
+func (o CertManagerCrdsOutput) ToCertManagerCrdsPtrOutput() CertManagerCrdsPtrOutput {
+	return o.ToCertManagerCrdsPtrOutputWithContext(context.Background())
+}
+
+func (o CertManagerCrdsOutput) ToCertManagerCrdsPtrOutputWithContext(ctx context.Context) CertManagerCrdsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertManagerCrds) *CertManagerCrds {
+		return &v
+	}).(CertManagerCrdsPtrOutput)
+}
+
+// Enable CRDs installation
+func (o CertManagerCrdsOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CertManagerCrds) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// Keep CRDs after chart uninstall
+func (o CertManagerCrdsOutput) Keep() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CertManagerCrds) *bool { return v.Keep }).(pulumi.BoolPtrOutput)
+}
+
+type CertManagerCrdsPtrOutput struct{ *pulumi.OutputState }
+
+func (CertManagerCrdsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CertManagerCrds)(nil)).Elem()
+}
+
+func (o CertManagerCrdsPtrOutput) ToCertManagerCrdsPtrOutput() CertManagerCrdsPtrOutput {
+	return o
+}
+
+func (o CertManagerCrdsPtrOutput) ToCertManagerCrdsPtrOutputWithContext(ctx context.Context) CertManagerCrdsPtrOutput {
+	return o
+}
+
+func (o CertManagerCrdsPtrOutput) Elem() CertManagerCrdsOutput {
+	return o.ApplyT(func(v *CertManagerCrds) CertManagerCrds {
+		if v != nil {
+			return *v
+		}
+		var ret CertManagerCrds
+		return ret
+	}).(CertManagerCrdsOutput)
+}
+
+// Enable CRDs installation
+func (o CertManagerCrdsPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CertManagerCrds) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Keep CRDs after chart uninstall
+func (o CertManagerCrdsPtrOutput) Keep() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CertManagerCrds) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Keep
+	}).(pulumi.BoolPtrOutput)
+}
+
 type CertManagerGlobal struct {
 	// Reference to one or more secrets to be used when pulling images. ref: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
 	ImagePullSecrets []corev1.LocalObjectReference    `pulumi:"imagePullSecrets"`
@@ -4306,6 +4462,8 @@ func (o RepositoryOptsPtrOutput) Username() pulumi.StringPtrOutput {
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CertManagerCaInjectorInput)(nil)).Elem(), CertManagerCaInjectorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CertManagerCaInjectorPtrInput)(nil)).Elem(), CertManagerCaInjectorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CertManagerCrdsInput)(nil)).Elem(), CertManagerCrdsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CertManagerCrdsPtrInput)(nil)).Elem(), CertManagerCrdsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CertManagerGlobalInput)(nil)).Elem(), CertManagerGlobalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CertManagerGlobalPtrInput)(nil)).Elem(), CertManagerGlobalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CertManagerGlobalLeaderElectionInput)(nil)).Elem(), CertManagerGlobalLeaderElectionArgs{})
@@ -4339,6 +4497,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryOptsPtrInput)(nil)).Elem(), RepositoryOptsArgs{})
 	pulumi.RegisterOutputType(CertManagerCaInjectorOutput{})
 	pulumi.RegisterOutputType(CertManagerCaInjectorPtrOutput{})
+	pulumi.RegisterOutputType(CertManagerCrdsOutput{})
+	pulumi.RegisterOutputType(CertManagerCrdsPtrOutput{})
 	pulumi.RegisterOutputType(CertManagerGlobalOutput{})
 	pulumi.RegisterOutputType(CertManagerGlobalPtrOutput{})
 	pulumi.RegisterOutputType(CertManagerGlobalLeaderElectionOutput{})

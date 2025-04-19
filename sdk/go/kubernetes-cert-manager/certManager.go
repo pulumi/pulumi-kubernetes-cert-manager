@@ -44,6 +44,8 @@ type certManagerArgs struct {
 	ClusterResourceNamespace *string `pulumi:"clusterResourceNamespace"`
 	// Container Security Context to be set on the controller component container. ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
 	ContainerSecurityContext *corev1.SecurityContext `pulumi:"containerSecurityContext"`
+	// Control CRDs installation and lifecycle
+	Crds *CertManagerCrds `pulumi:"crds"`
 	// Optional additional annotations to add to the controller Deployment
 	DeploymentAnnotations map[string]string `pulumi:"deploymentAnnotations"`
 	// Optional additional arguments.
@@ -55,14 +57,15 @@ type certManagerArgs struct {
 	FeatureGates *string            `pulumi:"featureGates"`
 	Global       *CertManagerGlobal `pulumi:"global"`
 	// HelmOptions is an escape hatch that lets the end user control any aspect of the Helm deployment. This exposes the entirety of the underlying Helm Release component args.
-	HelmOptions  *Release                `pulumi:"helmOptions"`
-	Http_proxy   *string                 `pulumi:"http_proxy"`
-	Https_proxy  *string                 `pulumi:"https_proxy"`
-	Image        *CertManagerImage       `pulumi:"image"`
-	IngressShim  *CertManagerIngressShim `pulumi:"ingressShim"`
-	InstallCRDs  *bool                   `pulumi:"installCRDs"`
-	No_proxy     []string                `pulumi:"no_proxy"`
-	NodeSelector *corev1.NodeSelector    `pulumi:"nodeSelector"`
+	HelmOptions *Release                `pulumi:"helmOptions"`
+	Http_proxy  *string                 `pulumi:"http_proxy"`
+	Https_proxy *string                 `pulumi:"https_proxy"`
+	Image       *CertManagerImage       `pulumi:"image"`
+	IngressShim *CertManagerIngressShim `pulumi:"ingressShim"`
+	// ⚠️ Deprecated: Use crds.enabled instead.
+	InstallCRDs  *bool                `pulumi:"installCRDs"`
+	No_proxy     []string             `pulumi:"no_proxy"`
+	NodeSelector *corev1.NodeSelector `pulumi:"nodeSelector"`
 	// Optional additional annotations to add to the controller Pods
 	PodAnnotations map[string]string    `pulumi:"podAnnotations"`
 	PodDnsConfig   *corev1.PodDNSConfig `pulumi:"podDnsConfig"`
@@ -93,6 +96,8 @@ type CertManagerArgs struct {
 	ClusterResourceNamespace pulumi.StringPtrInput
 	// Container Security Context to be set on the controller component container. ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
 	ContainerSecurityContext corev1.SecurityContextPtrInput
+	// Control CRDs installation and lifecycle
+	Crds CertManagerCrdsPtrInput
 	// Optional additional annotations to add to the controller Deployment
 	DeploymentAnnotations pulumi.StringMapInput
 	// Optional additional arguments.
@@ -104,11 +109,12 @@ type CertManagerArgs struct {
 	FeatureGates pulumi.StringPtrInput
 	Global       CertManagerGlobalPtrInput
 	// HelmOptions is an escape hatch that lets the end user control any aspect of the Helm deployment. This exposes the entirety of the underlying Helm Release component args.
-	HelmOptions  *ReleaseArgs
-	Http_proxy   pulumi.StringPtrInput
-	Https_proxy  pulumi.StringPtrInput
-	Image        CertManagerImagePtrInput
-	IngressShim  CertManagerIngressShimPtrInput
+	HelmOptions *ReleaseArgs
+	Http_proxy  pulumi.StringPtrInput
+	Https_proxy pulumi.StringPtrInput
+	Image       CertManagerImagePtrInput
+	IngressShim CertManagerIngressShimPtrInput
+	// ⚠️ Deprecated: Use crds.enabled instead.
 	InstallCRDs  pulumi.BoolPtrInput
 	No_proxy     pulumi.StringArrayInput
 	NodeSelector corev1.NodeSelectorPtrInput

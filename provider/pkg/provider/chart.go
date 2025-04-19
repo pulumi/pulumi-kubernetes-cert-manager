@@ -38,6 +38,7 @@ func (c *CertManager) DefaultRepoURL() string                    { return "https
 type CertManagerArgs struct {
 	Global       kcm.CertManagerGlobalPtrInput `pulumi:"global"`
 	InstallCRDs  *bool                         `pulumi:"installCRDs"`
+	Crds         kcm.CertManagerCrdsPtrInput   `pulumi:"crds"`
 	ReplicaCount *int                          `pulumi:"replicaCount"`
 	Strategy     *appsv1.DeploymentStrategy    `pulumi:"strategy" pschema:"ref=/kubernetes/v4.21.0/schema.json#/types/kubernetes:apps/v1:DeploymentStrategy"`
 	// Comma separated list of feature gates that should be enabled on the controller pod.
@@ -301,4 +302,11 @@ type CertManagerStartupAPICheck struct {
 type CertManagerStartupAPICheckRBAC struct {
 	// annotations for the startup API Check job RBAC and PSP resources
 	Annotations *map[string]string `pulumi:"annotations"`
+}
+
+type CertManagerCrds struct {
+	// Enable CRDs installation
+	Enabled *bool `pulumi:"enabled"`
+	// Keep CRDs after chart uninstall
+	Keep *bool `pulumi:"keep"`
 }

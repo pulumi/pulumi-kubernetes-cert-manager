@@ -67,6 +67,12 @@ namespace Pulumi.KubernetesCertManager
         [Input("containerSecurityContext")]
         public Input<Pulumi.Kubernetes.Types.Inputs.Core.V1.SecurityContextArgs>? ContainerSecurityContext { get; set; }
 
+        /// <summary>
+        /// Control CRDs installation and lifecycle
+        /// </summary>
+        [Input("crds")]
+        public Input<Inputs.CertManagerCrdsArgs>? Crds { get; set; }
+
         [Input("deploymentAnnotations")]
         private InputMap<string>? _deploymentAnnotations;
 
@@ -142,6 +148,9 @@ namespace Pulumi.KubernetesCertManager
         [Input("ingressShim")]
         public Input<Inputs.CertManagerIngressShimArgs>? IngressShim { get; set; }
 
+        /// <summary>
+        /// ⚠️ Deprecated: Use crds.enabled instead.
+        /// </summary>
         [Input("installCRDs")]
         public Input<bool>? InstallCRDs { get; set; }
 
