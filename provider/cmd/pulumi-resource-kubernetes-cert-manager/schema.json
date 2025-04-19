@@ -89,7 +89,12 @@
                     "$ref": "#/types/kubernetes-cert-manager:index:CertManagerIngressShim"
                 },
                 "installCRDs": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "description": "⚠️ Deprecated: Use crds.enabled instead."
+                },
+                "crds": {
+                    "$ref": "#/types/kubernetes-cert-manager:index:CertManagerCrds",
+                    "description": "Control CRDs installation and lifecycle"
                 },
                 "no_proxy": {
                     "items": {
@@ -877,6 +882,19 @@
             "properties": {
                 "host": {
                     "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "kubernetes-cert-manager:index:CertManagerCrds": {
+            "properties": {
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Enable CRDs installation"
+                },
+                "keep": {
+                    "type": "boolean",
+                    "description": "Keep CRDs after chart uninstall"
                 }
             },
             "type": "object"

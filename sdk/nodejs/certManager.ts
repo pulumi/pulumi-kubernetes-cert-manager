@@ -46,6 +46,7 @@ export class CertManager extends pulumi.ComponentResource {
             resourceInputs["cainjector"] = args ? args.cainjector : undefined;
             resourceInputs["clusterResourceNamespace"] = args ? args.clusterResourceNamespace : undefined;
             resourceInputs["containerSecurityContext"] = args ? args.containerSecurityContext : undefined;
+            resourceInputs["crds"] = args ? args.crds : undefined;
             resourceInputs["deploymentAnnotations"] = args ? args.deploymentAnnotations : undefined;
             resourceInputs["extraArgs"] = args ? args.extraArgs : undefined;
             resourceInputs["extraEnv"] = args ? args.extraEnv : undefined;
@@ -100,6 +101,10 @@ export interface CertManagerArgs {
      */
     containerSecurityContext?: pulumi.Input<pulumiKubernetes.types.input.core.v1.SecurityContext>;
     /**
+     * Control CRDs installation and lifecycle
+     */
+    crds?: pulumi.Input<inputs.CertManagerCrdsArgs>;
+    /**
      * Optional additional annotations to add to the controller Deployment
      */
     deploymentAnnotations?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -123,6 +128,9 @@ export interface CertManagerArgs {
     https_proxy?: pulumi.Input<string>;
     image?: pulumi.Input<inputs.CertManagerImageArgs>;
     ingressShim?: pulumi.Input<inputs.CertManagerIngressShimArgs>;
+    /**
+     * ⚠️ Deprecated: Use crds.enabled instead.
+     */
     installCRDs?: pulumi.Input<boolean>;
     no_proxy?: pulumi.Input<pulumi.Input<string>[]>;
     nodeSelector?: pulumi.Input<pulumiKubernetes.types.input.core.v1.NodeSelector>;

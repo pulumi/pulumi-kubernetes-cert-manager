@@ -17,6 +17,7 @@ import com.pulumi.kubernetes.core.v1.inputs.TolerationArgs;
 import com.pulumi.kubernetes.core.v1.inputs.VolumeArgs;
 import com.pulumi.kubernetes.core.v1.inputs.VolumeMountArgs;
 import com.pulumi.kubernetescertmanager.inputs.CertManagerCaInjectorArgs;
+import com.pulumi.kubernetescertmanager.inputs.CertManagerCrdsArgs;
 import com.pulumi.kubernetescertmanager.inputs.CertManagerGlobalArgs;
 import com.pulumi.kubernetescertmanager.inputs.CertManagerImageArgs;
 import com.pulumi.kubernetescertmanager.inputs.CertManagerIngressShimArgs;
@@ -81,6 +82,21 @@ public final class CertManagerArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<SecurityContextArgs>> containerSecurityContext() {
         return Optional.ofNullable(this.containerSecurityContext);
+    }
+
+    /**
+     * Control CRDs installation and lifecycle
+     * 
+     */
+    @Import(name="crds")
+    private @Nullable Output<CertManagerCrdsArgs> crds;
+
+    /**
+     * @return Control CRDs installation and lifecycle
+     * 
+     */
+    public Optional<Output<CertManagerCrdsArgs>> crds() {
+        return Optional.ofNullable(this.crds);
     }
 
     /**
@@ -199,9 +215,17 @@ public final class CertManagerArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.ingressShim);
     }
 
+    /**
+     * ⚠️ Deprecated: Use crds.enabled instead.
+     * 
+     */
     @Import(name="installCRDs")
     private @Nullable Output<Boolean> installCRDs;
 
+    /**
+     * @return ⚠️ Deprecated: Use crds.enabled instead.
+     * 
+     */
     public Optional<Output<Boolean>> installCRDs() {
         return Optional.ofNullable(this.installCRDs);
     }
@@ -372,6 +396,7 @@ public final class CertManagerArgs extends com.pulumi.resources.ResourceArgs {
         this.cainjector = $.cainjector;
         this.clusterResourceNamespace = $.clusterResourceNamespace;
         this.containerSecurityContext = $.containerSecurityContext;
+        this.crds = $.crds;
         this.deploymentAnnotations = $.deploymentAnnotations;
         this.extraArgs = $.extraArgs;
         this.extraEnv = $.extraEnv;
@@ -480,6 +505,27 @@ public final class CertManagerArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder containerSecurityContext(SecurityContextArgs containerSecurityContext) {
             return containerSecurityContext(Output.of(containerSecurityContext));
+        }
+
+        /**
+         * @param crds Control CRDs installation and lifecycle
+         * 
+         * @return builder
+         * 
+         */
+        public Builder crds(@Nullable Output<CertManagerCrdsArgs> crds) {
+            $.crds = crds;
+            return this;
+        }
+
+        /**
+         * @param crds Control CRDs installation and lifecycle
+         * 
+         * @return builder
+         * 
+         */
+        public Builder crds(CertManagerCrdsArgs crds) {
+            return crds(Output.of(crds));
         }
 
         /**
@@ -650,11 +696,23 @@ public final class CertManagerArgs extends com.pulumi.resources.ResourceArgs {
             return ingressShim(Output.of(ingressShim));
         }
 
+        /**
+         * @param installCRDs ⚠️ Deprecated: Use crds.enabled instead.
+         * 
+         * @return builder
+         * 
+         */
         public Builder installCRDs(@Nullable Output<Boolean> installCRDs) {
             $.installCRDs = installCRDs;
             return this;
         }
 
+        /**
+         * @param installCRDs ⚠️ Deprecated: Use crds.enabled instead.
+         * 
+         * @return builder
+         * 
+         */
         public Builder installCRDs(Boolean installCRDs) {
             return installCRDs(Output.of(installCRDs));
         }

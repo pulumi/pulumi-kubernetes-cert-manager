@@ -19,6 +19,8 @@ import pulumi_kubernetes
 __all__ = [
     'CertManagerCaInjectorArgs',
     'CertManagerCaInjectorArgsDict',
+    'CertManagerCrdsArgs',
+    'CertManagerCrdsArgsDict',
     'CertManagerGlobalLeaderElectionArgs',
     'CertManagerGlobalLeaderElectionArgsDict',
     'CertManagerGlobalPodSecurityPolicyArgs',
@@ -300,6 +302,58 @@ class CertManagerCaInjectorArgs:
     @tolerations.setter
     def tolerations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['pulumi_kubernetes.core.v1.TolerationArgs']]]]):
         pulumi.set(self, "tolerations", value)
+
+
+if not MYPY:
+    class CertManagerCrdsArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[builtins.bool]]
+        """
+        Enable CRDs installation
+        """
+        keep: NotRequired[pulumi.Input[builtins.bool]]
+        """
+        Keep CRDs after chart uninstall
+        """
+elif False:
+    CertManagerCrdsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CertManagerCrdsArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[builtins.bool]] = None,
+                 keep: Optional[pulumi.Input[builtins.bool]] = None):
+        """
+        :param pulumi.Input[builtins.bool] enabled: Enable CRDs installation
+        :param pulumi.Input[builtins.bool] keep: Keep CRDs after chart uninstall
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if keep is not None:
+            pulumi.set(__self__, "keep", keep)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Enable CRDs installation
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter
+    def keep(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Keep CRDs after chart uninstall
+        """
+        return pulumi.get(self, "keep")
+
+    @keep.setter
+    def keep(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "keep", value)
 
 
 if not MYPY:

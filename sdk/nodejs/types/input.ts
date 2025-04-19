@@ -43,6 +43,17 @@ export interface CertManagerCaInjectorArgs {
     tolerations?: pulumi.Input<pulumi.Input<pulumiKubernetes.types.input.core.v1.Toleration>[]>;
 }
 
+export interface CertManagerCrdsArgs {
+    /**
+     * Enable CRDs installation
+     */
+    enabled?: pulumi.Input<boolean>;
+    /**
+     * Keep CRDs after chart uninstall
+     */
+    keep?: pulumi.Input<boolean>;
+}
+
 export interface CertManagerGlobalArgs {
     /**
      * Reference to one or more secrets to be used when pulling images. ref: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/

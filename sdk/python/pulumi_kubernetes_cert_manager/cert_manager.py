@@ -27,6 +27,7 @@ class CertManagerArgs:
                  cainjector: Optional[pulumi.Input['CertManagerCaInjectorArgs']] = None,
                  cluster_resource_namespace: Optional[pulumi.Input[builtins.str]] = None,
                  container_security_context: Optional[pulumi.Input['pulumi_kubernetes.core.v1.SecurityContextArgs']] = None,
+                 crds: Optional[pulumi.Input['CertManagerCrdsArgs']] = None,
                  deployment_annotations: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  extra_args: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  extra_env: Optional[pulumi.Input[Sequence[pulumi.Input['pulumi_kubernetes.core.v1.EnvVarArgs']]]] = None,
@@ -61,10 +62,12 @@ class CertManagerArgs:
         The set of arguments for constructing a CertManager resource.
         :param pulumi.Input[builtins.str] cluster_resource_namespace: Override the namespace used to store DNS provider credentials etc. for ClusterIssuer resources. By default, the same namespace as cert-manager is deployed within is used. This namespace will not be automatically created by the Helm chart.
         :param pulumi.Input['pulumi_kubernetes.core.v1.SecurityContextArgs'] container_security_context: Container Security Context to be set on the controller component container. ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
+        :param pulumi.Input['CertManagerCrdsArgs'] crds: Control CRDs installation and lifecycle
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] deployment_annotations: Optional additional annotations to add to the controller Deployment
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] extra_args: Optional additional arguments.
         :param pulumi.Input[builtins.str] feature_gates: Comma separated list of feature gates that should be enabled on the controller pod.
         :param 'ReleaseArgs' helm_options: HelmOptions is an escape hatch that lets the end user control any aspect of the Helm deployment. This exposes the entirety of the underlying Helm Release component args.
+        :param pulumi.Input[builtins.bool] install_crds: ⚠️ Deprecated: Use crds.enabled instead.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] pod_annotations: Optional additional annotations to add to the controller Pods
         :param pulumi.Input[builtins.str] pod_dns_policy: Optional DNS settings, useful if you have a public and private DNS zone for the same domain on Route 53. What follows is an example of ensuring cert-manager can access an ingress or DNS TXT records at all times. NOTE: This requires Kubernetes 1.10 or `CustomPodDNS` feature gate enabled for the cluster to work.
         :param pulumi.Input['pulumi_kubernetes.core.v1.PodSecurityContextArgs'] security_context: Pod Security Context. ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
@@ -79,6 +82,8 @@ class CertManagerArgs:
             pulumi.set(__self__, "cluster_resource_namespace", cluster_resource_namespace)
         if container_security_context is not None:
             pulumi.set(__self__, "container_security_context", container_security_context)
+        if crds is not None:
+            pulumi.set(__self__, "crds", crds)
         if deployment_annotations is not None:
             pulumi.set(__self__, "deployment_annotations", deployment_annotations)
         if extra_args is not None:
@@ -181,6 +186,18 @@ class CertManagerArgs:
     @container_security_context.setter
     def container_security_context(self, value: Optional[pulumi.Input['pulumi_kubernetes.core.v1.SecurityContextArgs']]):
         pulumi.set(self, "container_security_context", value)
+
+    @property
+    @pulumi.getter
+    def crds(self) -> Optional[pulumi.Input['CertManagerCrdsArgs']]:
+        """
+        Control CRDs installation and lifecycle
+        """
+        return pulumi.get(self, "crds")
+
+    @crds.setter
+    def crds(self, value: Optional[pulumi.Input['CertManagerCrdsArgs']]):
+        pulumi.set(self, "crds", value)
 
     @property
     @pulumi.getter(name="deploymentAnnotations")
@@ -305,6 +322,9 @@ class CertManagerArgs:
     @property
     @pulumi.getter(name="installCRDs")
     def install_crds(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        ⚠️ Deprecated: Use crds.enabled instead.
+        """
         return pulumi.get(self, "install_crds")
 
     @install_crds.setter
@@ -492,6 +512,7 @@ class CertManager(pulumi.ComponentResource):
                  cainjector: Optional[pulumi.Input[Union['CertManagerCaInjectorArgs', 'CertManagerCaInjectorArgsDict']]] = None,
                  cluster_resource_namespace: Optional[pulumi.Input[builtins.str]] = None,
                  container_security_context: Optional[pulumi.Input[pulumi.InputType['pulumi_kubernetes.core.v1.SecurityContextArgs']]] = None,
+                 crds: Optional[pulumi.Input[Union['CertManagerCrdsArgs', 'CertManagerCrdsArgsDict']]] = None,
                  deployment_annotations: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  extra_args: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  extra_env: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['pulumi_kubernetes.core.v1.EnvVarArgs']]]]] = None,
@@ -530,10 +551,12 @@ class CertManager(pulumi.ComponentResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] cluster_resource_namespace: Override the namespace used to store DNS provider credentials etc. for ClusterIssuer resources. By default, the same namespace as cert-manager is deployed within is used. This namespace will not be automatically created by the Helm chart.
         :param pulumi.Input[pulumi.InputType['pulumi_kubernetes.core.v1.SecurityContextArgs']] container_security_context: Container Security Context to be set on the controller component container. ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
+        :param pulumi.Input[Union['CertManagerCrdsArgs', 'CertManagerCrdsArgsDict']] crds: Control CRDs installation and lifecycle
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] deployment_annotations: Optional additional annotations to add to the controller Deployment
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] extra_args: Optional additional arguments.
         :param pulumi.Input[builtins.str] feature_gates: Comma separated list of feature gates that should be enabled on the controller pod.
         :param Union['ReleaseArgs', 'ReleaseArgsDict'] helm_options: HelmOptions is an escape hatch that lets the end user control any aspect of the Helm deployment. This exposes the entirety of the underlying Helm Release component args.
+        :param pulumi.Input[builtins.bool] install_crds: ⚠️ Deprecated: Use crds.enabled instead.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] pod_annotations: Optional additional annotations to add to the controller Pods
         :param pulumi.Input[builtins.str] pod_dns_policy: Optional DNS settings, useful if you have a public and private DNS zone for the same domain on Route 53. What follows is an example of ensuring cert-manager can access an ingress or DNS TXT records at all times. NOTE: This requires Kubernetes 1.10 or `CustomPodDNS` feature gate enabled for the cluster to work.
         :param pulumi.Input[pulumi.InputType['pulumi_kubernetes.core.v1.PodSecurityContextArgs']] security_context: Pod Security Context. ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
@@ -568,6 +591,7 @@ class CertManager(pulumi.ComponentResource):
                  cainjector: Optional[pulumi.Input[Union['CertManagerCaInjectorArgs', 'CertManagerCaInjectorArgsDict']]] = None,
                  cluster_resource_namespace: Optional[pulumi.Input[builtins.str]] = None,
                  container_security_context: Optional[pulumi.Input[pulumi.InputType['pulumi_kubernetes.core.v1.SecurityContextArgs']]] = None,
+                 crds: Optional[pulumi.Input[Union['CertManagerCrdsArgs', 'CertManagerCrdsArgsDict']]] = None,
                  deployment_annotations: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  extra_args: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  extra_env: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['pulumi_kubernetes.core.v1.EnvVarArgs']]]]] = None,
@@ -613,6 +637,7 @@ class CertManager(pulumi.ComponentResource):
             __props__.__dict__["cainjector"] = cainjector
             __props__.__dict__["cluster_resource_namespace"] = cluster_resource_namespace
             __props__.__dict__["container_security_context"] = container_security_context
+            __props__.__dict__["crds"] = crds
             __props__.__dict__["deployment_annotations"] = deployment_annotations
             __props__.__dict__["extra_args"] = extra_args
             __props__.__dict__["extra_env"] = extra_env
