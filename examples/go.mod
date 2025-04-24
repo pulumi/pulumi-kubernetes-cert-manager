@@ -5,7 +5,7 @@ go 1.23.0
 toolchain go1.23.6
 
 require (
-	github.com/pulumi/providertest v0.3.0
+	github.com/pulumi/providertest v0.3.1
 	github.com/pulumi/pulumi/pkg/v3 v3.163.0
 	github.com/pulumi/pulumi/sdk/v3 v3.163.0
 )
