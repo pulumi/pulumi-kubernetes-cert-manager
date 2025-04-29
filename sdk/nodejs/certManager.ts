@@ -46,6 +46,7 @@ export class CertManager extends pulumi.ComponentResource {
             resourceInputs["cainjector"] = args ? args.cainjector : undefined;
             resourceInputs["clusterResourceNamespace"] = args ? args.clusterResourceNamespace : undefined;
             resourceInputs["containerSecurityContext"] = args ? args.containerSecurityContext : undefined;
+            resourceInputs["crds"] = args ? (args.crds ? pulumi.output(args.crds).apply(inputs.certManagerCrdsArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["deploymentAnnotations"] = args ? args.deploymentAnnotations : undefined;
             resourceInputs["extraArgs"] = args ? args.extraArgs : undefined;
             resourceInputs["extraEnv"] = args ? args.extraEnv : undefined;
@@ -99,6 +100,7 @@ export interface CertManagerArgs {
      * Container Security Context to be set on the controller component container. ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
      */
     containerSecurityContext?: pulumi.Input<pulumiKubernetes.types.input.core.v1.SecurityContext>;
+    crds?: pulumi.Input<inputs.CertManagerCrdsArgs>;
     /**
      * Optional additional annotations to add to the controller Deployment
      */

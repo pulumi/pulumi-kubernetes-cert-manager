@@ -93,7 +93,27 @@ type CertManagerArgs struct {
 	HelmOptions *helmbase.ReleaseType `pulumi:"helmOptions" pschema:"ref=#/types/chart-cert-manager:index:Release" json:"-"`
 }
 
-func (args *CertManagerArgs) R() **helmbase.ReleaseType { return &args.HelmOptions }
+func (args *CertManagerArgs) R() **helmbase.ReleaseType {
+	// If installCRDs is true and crds.enabled is not set, set crds.enabled to true
+	if args.InstallCRDs != nil && *args.InstallCRDs {
+		if args.Crds == nil {
+			keepFalse := false
+			enabledTrue := true
+			args.Crds = &CertManagerCrds{
+				Enabled: &enabledTrue,
+				Keep:    &keepFalse,
+			}
+		} else if args.Crds.Enabled == nil {
+			enabledTrue := true
+			args.Crds.Enabled = &enabledTrue
+		}
+
+		// Setting both installCRDs=true and crds.enabled=true is an error in the Helm chart
+		// Set installCRDs to nil to avoid the conflict
+		args.InstallCRDs = nil
+	}
+	return &args.HelmOptions
+}
 
 type CertManagerGlobal struct {
 	// Reference to one or more secrets to be used when pulling images.
