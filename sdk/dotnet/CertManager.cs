@@ -67,6 +67,9 @@ namespace Pulumi.KubernetesCertManager
         [Input("containerSecurityContext")]
         public Input<Pulumi.Kubernetes.Types.Inputs.Core.V1.SecurityContextArgs>? ContainerSecurityContext { get; set; }
 
+        [Input("crds")]
+        public Input<Inputs.CertManagerCrdsArgs>? Crds { get; set; }
+
         [Input("deploymentAnnotations")]
         private InputMap<string>? _deploymentAnnotations;
 
