@@ -6,6 +6,7 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 
 import * as pulumiKubernetes from "@pulumi/kubernetes";
+import * as utilities from "../utilities";
 
 export interface ReleaseStatus {
     /**
