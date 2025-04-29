@@ -26,10 +26,8 @@ class ProviderArgs:
         pass
 
 
+@pulumi.type_token("pulumi:providers:kubernetes-cert-manager")
 class Provider(pulumi.ProviderResource):
-
-    pulumi_type = "pulumi:providers:kubernetes-cert-manager"
-
     @overload
     def __init__(__self__,
                  resource_name: str,
