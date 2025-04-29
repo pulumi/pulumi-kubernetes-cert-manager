@@ -40,17 +40,47 @@ func Serve(version string, schema []byte) {
 func Construct(ctx *pulumi.Context, typ, name string, inputs pp.ConstructInputs,
 	opts pulumi.ResourceOption) (*pp.ConstructResult, error) {
 	args := &CertManagerArgs{}
-	
-	// Set default values
-	if args.Crds == nil {
-		keepFalse := false
-		args.Crds = &CertManagerCrds{
-			Keep: &keepFalse,
-		}
-	} else if args.Crds.Keep == nil {
-		keepFalse := false
-		args.Crds.Keep = &keepFalse
+	if err := inputs.CopyTo(args); err != nil {
+		return nil, err
 	}
-	
+
+	// Set default values for the Crds configuration
+	// The cert-manager Helm chart is transitioning from using installCRDs (boolean)
+	// to a structured object crds: { enabled: boolean, keep: boolean }
+	//
+	// This section handles both formats and ensures proper defaults are set.
+	// For the structured format:
+	// - crds.enabled (default: false) - Whether to install CRDs
+	// - crds.keep (default: false) - Whether to keep CRDs after chart uninstall
+	keepFalse := false
+	enabledFalse := false
+
+	// Initialize the Crds object if it doesn't exist
+	if args.Crds == nil {
+		args.Crds = &CertManagerCrds{
+			Keep:    &keepFalse,    // Default: don't keep CRDs after uninstall
+			Enabled: &enabledFalse, // Default: don't install CRDs
+		}
+	} else {
+		// Ensure all fields have proper defaults set
+		if args.Crds.Keep == nil {
+			args.Crds.Keep = &keepFalse
+		}
+		if args.Crds.Enabled == nil {
+			args.Crds.Enabled = &enabledFalse
+		}
+	}
+
+	// Handle legacy installCRDs parameter for backward compatibility
+	// For background: In the Helm chart, setting both installCRDs=true and crds.enabled=true
+	// causes a conflict, so we need to handle this case specifically.
+	if args.InstallCRDs != nil && *args.InstallCRDs {
+		// If installCRDs is true, we set crds.enabled=true and clear installCRDs
+		// to avoid sending conflicting configuration to the Helm chart
+		enabledTrue := true
+		args.Crds.Enabled = &enabledTrue
+		args.InstallCRDs = nil
+	}
+
 	return helmbase.Construct(ctx, &CertManager{}, typ, name, args, inputs, opts)
 }
