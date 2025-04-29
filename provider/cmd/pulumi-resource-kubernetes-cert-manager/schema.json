@@ -91,6 +91,9 @@
                 "installCRDs": {
                     "type": "boolean"
                 },
+                "crds": {
+                    "$ref": "#/types/kubernetes-cert-manager:index:CertManagerCrds"
+                },
                 "no_proxy": {
                     "items": {
                         "type": "string"
@@ -877,6 +880,20 @@
             "properties": {
                 "host": {
                     "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "kubernetes-cert-manager:index:CertManagerCrds": {
+            "properties": {
+                "enabled": {
+                    "description": "Enable customization of the installation of CRDs. Cannot be enabled with installCRDs.",
+                    "type": "boolean"
+                },
+                "keep": {
+                    "description": "Keep CRDs on chart uninstall. Setting to false will remove CRDs when the chart is removed.",
+                    "type": "boolean",
+                    "default": false
                 }
             },
             "type": "object"
