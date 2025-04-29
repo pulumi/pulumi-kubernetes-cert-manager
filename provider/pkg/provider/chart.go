@@ -38,6 +38,7 @@ func (c *CertManager) DefaultRepoURL() string                    { return "https
 type CertManagerArgs struct {
 	Global       kcm.CertManagerGlobalPtrInput `pulumi:"global"`
 	InstallCRDs  *bool                         `pulumi:"installCRDs"`
+	Crds         *CertManagerCrds              `pulumi:"crds"`
 	ReplicaCount *int                          `pulumi:"replicaCount"`
 	Strategy     *appsv1.DeploymentStrategy    `pulumi:"strategy" pschema:"ref=/kubernetes/v4.21.0/schema.json#/types/kubernetes:apps/v1:DeploymentStrategy"`
 	// Comma separated list of feature gates that should be enabled on the controller pod.
@@ -244,6 +245,13 @@ type CertManagerWebhook struct {
 
 type CertManagerWebhookURL struct {
 	Host *string `pulumi:"host"`
+}
+
+type CertManagerCrds struct {
+	// Enable customization of the installation of CRDs. Cannot be enabled with installCRDs.
+	Enabled *bool `pulumi:"enabled"`
+	// Keep CRDs on chart uninstall. Setting to false will remove CRDs when the chart is removed.
+	Keep *bool `pulumi:"keep"`
 }
 
 type CertManagerCaInjector struct {
