@@ -28,6 +28,9 @@ func NewCertManager(ctx *pulumi.Context,
 		args = &CertManagerArgs{}
 	}
 
+	if args.Crds != nil {
+		args.Crds = args.Crds.ToCertManagerCrdsPtrOutput().ApplyT(func(v *CertManagerCrds) *CertManagerCrds { return v.Defaults() }).(CertManagerCrdsPtrOutput)
+	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CertManager
 	err := ctx.RegisterRemoteComponentResource("kubernetes-cert-manager:index:CertManager", name, args, &resource, opts...)
@@ -44,6 +47,7 @@ type certManagerArgs struct {
 	ClusterResourceNamespace *string `pulumi:"clusterResourceNamespace"`
 	// Container Security Context to be set on the controller component container. ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
 	ContainerSecurityContext *corev1.SecurityContext `pulumi:"containerSecurityContext"`
+	Crds                     *CertManagerCrds        `pulumi:"crds"`
 	// Optional additional annotations to add to the controller Deployment
 	DeploymentAnnotations map[string]string `pulumi:"deploymentAnnotations"`
 	// Optional additional arguments.
@@ -93,6 +97,7 @@ type CertManagerArgs struct {
 	ClusterResourceNamespace pulumi.StringPtrInput
 	// Container Security Context to be set on the controller component container. ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
 	ContainerSecurityContext corev1.SecurityContextPtrInput
+	Crds                     CertManagerCrdsPtrInput
 	// Optional additional annotations to add to the controller Deployment
 	DeploymentAnnotations pulumi.StringMapInput
 	// Optional additional arguments.

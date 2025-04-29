@@ -6,6 +6,7 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 
 import * as pulumiKubernetes from "@pulumi/kubernetes";
+import * as utilities from "../utilities";
 
 export interface CertManagerCaInjectorArgs {
     affinity?: pulumi.Input<pulumiKubernetes.types.input.core.v1.Affinity>;
@@ -41,6 +42,26 @@ export interface CertManagerCaInjectorArgs {
     strategy?: pulumi.Input<pulumiKubernetes.types.input.apps.v1.DeploymentStrategy>;
     timeoutSeconds?: pulumi.Input<number>;
     tolerations?: pulumi.Input<pulumi.Input<pulumiKubernetes.types.input.core.v1.Toleration>[]>;
+}
+
+export interface CertManagerCrdsArgs {
+    /**
+     * Enable customization of the installation of CRDs. Cannot be enabled with installCRDs.
+     */
+    enabled?: pulumi.Input<boolean>;
+    /**
+     * Keep CRDs on chart uninstall. Setting to false will remove CRDs when the chart is removed.
+     */
+    keep?: pulumi.Input<boolean>;
+}
+/**
+ * certManagerCrdsArgsProvideDefaults sets the appropriate defaults for CertManagerCrdsArgs
+ */
+export function certManagerCrdsArgsProvideDefaults(val: CertManagerCrdsArgs): CertManagerCrdsArgs {
+    return {
+        ...val,
+        keep: (val.keep) ?? false,
+    };
 }
 
 export interface CertManagerGlobalArgs {

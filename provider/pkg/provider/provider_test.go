@@ -28,7 +28,7 @@ func TestFindAndAdoptCertManagerCRDs(t *testing.T) {
 
 func TestCertManagerCrdsDefaults(t *testing.T) {
 	args := &CertManagerArgs{}
-	
+
 	// Set default values
 	if args.Crds == nil {
 		keepFalse := false
@@ -39,10 +39,10 @@ func TestCertManagerCrdsDefaults(t *testing.T) {
 		keepFalse := false
 		args.Crds.Keep = &keepFalse
 	}
-	
+
 	// Verify that Crds is initialized
 	assert.NotNil(t, args.Crds)
-	
+
 	// Verify that Keep defaults to false
 	assert.NotNil(t, args.Crds.Keep)
 	assert.False(t, *args.Crds.Keep)
@@ -56,7 +56,7 @@ func TestCertManagerCrdsWithCustomValues(t *testing.T) {
 			Keep: &keepTrue,
 		},
 	}
-	
+
 	// Set default values (should not change our custom setting)
 	if args.Crds == nil {
 		keepFalse := false
@@ -67,10 +67,10 @@ func TestCertManagerCrdsWithCustomValues(t *testing.T) {
 		keepFalse := false
 		args.Crds.Keep = &keepFalse
 	}
-	
+
 	// Verify that Crds is initialized
 	assert.NotNil(t, args.Crds)
-	
+
 	// Verify that Keep value is preserved
 	assert.NotNil(t, args.Crds.Keep)
 	assert.True(t, *args.Crds.Keep)

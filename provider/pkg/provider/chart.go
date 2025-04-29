@@ -93,7 +93,51 @@ type CertManagerArgs struct {
 	HelmOptions *helmbase.ReleaseType `pulumi:"helmOptions" pschema:"ref=#/types/chart-cert-manager:index:Release" json:"-"`
 }
 
-func (args *CertManagerArgs) R() **helmbase.ReleaseType { return &args.HelmOptions }
+func (args *CertManagerArgs) R() **helmbase.ReleaseType {
+	// This function prepares the HelmOptions for the cert-manager release
+	// by ensuring proper handling of CRDs configuration.
+
+	// Initialize default values for CRDs configuration
+	// The cert-manager Helm chart provides two mechanisms for managing CRDs:
+	// 1. Legacy: installCRDs boolean flag (deprecated)
+	// 2. Modern: structured crds object with enabled and keep properties
+	keepFalse := false
+	enabledFalse := false
+
+	// Ensure Crds object exists with proper defaults
+	// This guarantees that we always have a valid crds configuration
+	// to pass to the Helm chart, preventing potential nil pointer issues
+	if args.Crds == nil {
+		args.Crds = &CertManagerCrds{
+			Enabled: &enabledFalse, // Default: don't install CRDs
+			Keep:    &keepFalse,    // Default: don't keep CRDs after uninstall
+		}
+	} else {
+		// Set defaults for any unspecified fields within the crds object
+		// This handles cases where users specify a partial crds configuration
+		if args.Crds.Enabled == nil {
+			args.Crds.Enabled = &enabledFalse
+		}
+		if args.Crds.Keep == nil {
+			args.Crds.Keep = &keepFalse
+		}
+	}
+
+	// Handle the legacy installCRDs parameter
+	// Note: Setting both installCRDs=true AND crds.enabled=true in the Helm chart
+	// will cause an error, so we need to convert installCRDs to the modern format
+	if args.InstallCRDs != nil && *args.InstallCRDs {
+		// Convert legacy format to modern format:
+		// 1. Set crds.enabled=true to enable CRD installation
+		// 2. Clear installCRDs to avoid conflict with the Helm chart
+		enabledTrue := true
+		args.Crds.Enabled = &enabledTrue
+		args.InstallCRDs = nil
+	}
+
+	// Return the prepared HelmOptions
+	return &args.HelmOptions
+}
 
 type CertManagerGlobal struct {
 	// Reference to one or more secrets to be used when pulling images.
@@ -249,8 +293,15 @@ type CertManagerWebhookURL struct {
 
 type CertManagerCrds struct {
 	// Enable customization of the installation of CRDs. Cannot be enabled with installCRDs.
+	// Default: false - CRDs are not installed by default
 	Enabled *bool `pulumi:"enabled"`
+
 	// Keep CRDs on chart uninstall. Setting to false will remove CRDs when the chart is removed.
+	// Default: false - CRDs are removed when the chart is uninstalled
+	//
+	// IMPORTANT: Setting this to false can cause data loss if CRDs are removed while custom
+	// resources still exist. Only set this to false if you're certain there are no cert-manager
+	// resources in your cluster or if you intend to delete them before uninstalling.
 	Keep *bool `pulumi:"keep"`
 }
 
