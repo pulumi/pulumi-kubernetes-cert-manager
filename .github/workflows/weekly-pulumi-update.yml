@@ -23,10 +23,10 @@ env:
   SIGNING_KEY_ID: ${{ secrets.JAVA_SIGNING_KEY_ID }}
   SIGNING_KEY: ${{ secrets.JAVA_SIGNING_KEY }}
   SIGNING_PASSWORD: ${{ secrets.JAVA_SIGNING_PASSWORD }}
-  GOVERSION: 1.21.x
-  NODEVERSION: 20.x
-  PYTHONVERSION: "3.11"
-  DOTNETVERSION: 8.0.x
+  GOVERSION: "1.21.x"
+  NODEVERSION: "20.x"
+  PYTHONVERSION: "3.11.8"
+  DOTNETVERSION: "8.0.x"
   JAVAVERSION: "11"
   AWS_REGION: us-west-2
   GOLANGCI_LINT_VERSION: v1.61.0
@@ -49,7 +49,7 @@ jobs:
         go-version: ${{ env.GOVERSION }}
         cache-dependency-path: "**/*.sum"
     - name: Install pulumictl
-      uses: jaxxstorm/action-install-gh-release@4304621e8c48d66093a8a214af5d5b5bc3b3d943 # v2.0.0
+      uses: jaxxstorm/action-install-gh-release@6096f2a2bbfee498ced520b6922ac2c06e990ed2 # v2.1.0
       with:
         repo: pulumi/pulumictl
     - name: Install Pulumi CLI
