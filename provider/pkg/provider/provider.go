@@ -39,5 +39,33 @@ func Serve(version string, schema []byte) {
 // creates, registers, and returns the resulting object.
 func Construct(ctx *pulumi.Context, typ, name string, inputs pp.ConstructInputs,
 	opts pulumi.ResourceOption) (*pp.ConstructResult, error) {
-	return helmbase.Construct(ctx, &CertManager{}, typ, name, &CertManagerArgs{}, inputs, opts)
+	args := &CertManagerArgs{}
+	if err := inputs.CopyTo(args); err != nil {
+		return nil, err
+	}
+
+	// Set default values for Crds
+	if args.Crds == nil {
+		keepFalse := false
+		args.Crds = &CertManagerCrds{
+			Keep: &keepFalse,
+		}
+	} else if args.Crds.Keep == nil {
+		keepFalse := false
+		args.Crds.Keep = &keepFalse
+	}
+
+	// Handle the case when installCRDs is provided but crds.enabled is not
+	if args.InstallCRDs != nil && *args.InstallCRDs {
+		if args.Crds.Enabled == nil {
+			enabledTrue := true
+			args.Crds.Enabled = &enabledTrue
+		}
+
+		// Setting both installCRDs=true and crds.enabled=true is an error in the Helm chart
+		// Set installCRDs to nil to avoid the conflict
+		args.InstallCRDs = nil
+	}
+
+	return helmbase.Construct(ctx, &CertManager{}, typ, name, args, inputs, opts)
 }
