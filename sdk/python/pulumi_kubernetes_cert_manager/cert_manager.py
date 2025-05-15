@@ -480,10 +480,8 @@ class CertManagerArgs:
         pulumi.set(self, "webhook", value)
 
 
+@pulumi.type_token("kubernetes-cert-manager:index:CertManager")
 class CertManager(pulumi.ComponentResource):
-
-    pulumi_type = "kubernetes-cert-manager:index:CertManager"
-
     @overload
     def __init__(__self__,
                  resource_name: str,
