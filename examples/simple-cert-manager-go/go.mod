@@ -7,7 +7,7 @@ toolchain go1.24.1
 require (
 	github.com/pulumi/pulumi-kubernetes-cert-manager/sdk v0.2.0
 	github.com/pulumi/pulumi-kubernetes/sdk/v4 v4.23.0
-	github.com/pulumi/pulumi/sdk/v3 v3.171.0
+	github.com/pulumi/pulumi/sdk/v3 v3.176.0
 )
 
 require (
