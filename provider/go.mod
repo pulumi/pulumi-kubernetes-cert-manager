@@ -8,8 +8,8 @@ require (
 	github.com/pulumi/pulumi-go-helmbase v0.2.0
 	github.com/pulumi/pulumi-kubernetes-cert-manager/sdk v0.2.0
 	github.com/pulumi/pulumi-kubernetes/sdk/v4 v4.23.0
-	github.com/pulumi/pulumi/pkg/v3 v3.176.0
-	github.com/pulumi/pulumi/sdk/v3 v3.176.0
+	github.com/pulumi/pulumi/pkg/v3 v3.177.0
+	github.com/pulumi/pulumi/sdk/v3 v3.177.0
 )
 
 replace github.com/pulumi/pulumi-kubernetes-cert-manager/sdk => ../sdk
@@ -30,7 +30,7 @@ require (
 	github.com/charmbracelet/bubbletea v0.25.0 // indirect
 	github.com/charmbracelet/lipgloss v0.7.1 // indirect
 	github.com/cheggaaa/pb v1.0.29 // indirect
-	github.com/cloudflare/circl v1.3.7 // indirect
+	github.com/cloudflare/circl v1.6.1 // indirect
 	github.com/containerd/console v1.0.4-0.20230313162750-1ae8d489ac81 // indirect
 	github.com/cyphar/filepath-securejoin v0.3.6 // indirect
 	github.com/djherbis/times v1.5.0 // indirect
