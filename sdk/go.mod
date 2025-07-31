@@ -1,13 +1,11 @@
 module github.com/pulumi/pulumi-kubernetes-cert-manager/sdk
 
-go 1.23.0
-
-toolchain go1.23.6
+go 1.23.11
 
 require (
 	github.com/blang/semver v3.5.1+incompatible
 	github.com/pulumi/pulumi-kubernetes/sdk/v4 v4.22.0
-	github.com/pulumi/pulumi/sdk/v3 v3.183.0
+	github.com/pulumi/pulumi/sdk/v3 v3.186.0
 )
 
 require (
