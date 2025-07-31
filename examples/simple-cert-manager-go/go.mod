@@ -1,13 +1,13 @@
 module simple-cert-manager-go
 
-go 1.23.0
+go 1.23.11
 
 toolchain go1.24.1
 
 require (
 	github.com/pulumi/pulumi-kubernetes-cert-manager/sdk v0.2.0
 	github.com/pulumi/pulumi-kubernetes/sdk/v4 v4.23.0
-	github.com/pulumi/pulumi/sdk/v3 v3.183.0
+	github.com/pulumi/pulumi/sdk/v3 v3.186.0
 )
 
 require (
