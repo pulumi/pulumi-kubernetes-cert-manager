@@ -29,7 +29,7 @@ export class CertManager extends pulumi.ComponentResource {
     /**
      * Detailed information about the status of the underlying Helm deployment.
      */
-    public /*out*/ readonly status!: pulumi.Output<outputs.ReleaseStatus>;
+    declare public /*out*/ readonly status: pulumi.Output<outputs.ReleaseStatus>;
 
     /**
      * Create a CertManager resource with the given unique name, arguments, and options.
@@ -42,40 +42,40 @@ export class CertManager extends pulumi.ComponentResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["affinity"] = args ? args.affinity : undefined;
-            resourceInputs["cainjector"] = args ? args.cainjector : undefined;
-            resourceInputs["clusterResourceNamespace"] = args ? args.clusterResourceNamespace : undefined;
-            resourceInputs["containerSecurityContext"] = args ? args.containerSecurityContext : undefined;
-            resourceInputs["deploymentAnnotations"] = args ? args.deploymentAnnotations : undefined;
-            resourceInputs["extraArgs"] = args ? args.extraArgs : undefined;
-            resourceInputs["extraEnv"] = args ? args.extraEnv : undefined;
-            resourceInputs["extraVolumeMounts"] = args ? args.extraVolumeMounts : undefined;
-            resourceInputs["extraVolumes"] = args ? args.extraVolumes : undefined;
-            resourceInputs["featureGates"] = args ? args.featureGates : undefined;
-            resourceInputs["global"] = args ? args.global : undefined;
-            resourceInputs["helmOptions"] = args ? args.helmOptions : undefined;
-            resourceInputs["http_proxy"] = args ? args.http_proxy : undefined;
-            resourceInputs["https_proxy"] = args ? args.https_proxy : undefined;
-            resourceInputs["image"] = args ? args.image : undefined;
-            resourceInputs["ingressShim"] = args ? args.ingressShim : undefined;
-            resourceInputs["installCRDs"] = args ? args.installCRDs : undefined;
-            resourceInputs["no_proxy"] = args ? args.no_proxy : undefined;
-            resourceInputs["nodeSelector"] = args ? args.nodeSelector : undefined;
-            resourceInputs["podAnnotations"] = args ? args.podAnnotations : undefined;
-            resourceInputs["podDnsConfig"] = args ? args.podDnsConfig : undefined;
-            resourceInputs["podDnsPolicy"] = args ? args.podDnsPolicy : undefined;
-            resourceInputs["podLabels"] = args ? args.podLabels : undefined;
-            resourceInputs["prometheus"] = args ? args.prometheus : undefined;
-            resourceInputs["replicaCount"] = args ? args.replicaCount : undefined;
-            resourceInputs["resources"] = args ? args.resources : undefined;
-            resourceInputs["securityContext"] = args ? args.securityContext : undefined;
-            resourceInputs["serviceAccount"] = args ? args.serviceAccount : undefined;
-            resourceInputs["serviceAnnotations"] = args ? args.serviceAnnotations : undefined;
-            resourceInputs["serviceLabels"] = args ? args.serviceLabels : undefined;
-            resourceInputs["startupapicheck"] = args ? args.startupapicheck : undefined;
-            resourceInputs["strategy"] = args ? args.strategy : undefined;
-            resourceInputs["tolerations"] = args ? args.tolerations : undefined;
-            resourceInputs["webhook"] = args ? args.webhook : undefined;
+            resourceInputs["affinity"] = args?.affinity;
+            resourceInputs["cainjector"] = args?.cainjector;
+            resourceInputs["clusterResourceNamespace"] = args?.clusterResourceNamespace;
+            resourceInputs["containerSecurityContext"] = args?.containerSecurityContext;
+            resourceInputs["deploymentAnnotations"] = args?.deploymentAnnotations;
+            resourceInputs["extraArgs"] = args?.extraArgs;
+            resourceInputs["extraEnv"] = args?.extraEnv;
+            resourceInputs["extraVolumeMounts"] = args?.extraVolumeMounts;
+            resourceInputs["extraVolumes"] = args?.extraVolumes;
+            resourceInputs["featureGates"] = args?.featureGates;
+            resourceInputs["global"] = args?.global;
+            resourceInputs["helmOptions"] = args?.helmOptions;
+            resourceInputs["http_proxy"] = args?.http_proxy;
+            resourceInputs["https_proxy"] = args?.https_proxy;
+            resourceInputs["image"] = args?.image;
+            resourceInputs["ingressShim"] = args?.ingressShim;
+            resourceInputs["installCRDs"] = args?.installCRDs;
+            resourceInputs["no_proxy"] = args?.no_proxy;
+            resourceInputs["nodeSelector"] = args?.nodeSelector;
+            resourceInputs["podAnnotations"] = args?.podAnnotations;
+            resourceInputs["podDnsConfig"] = args?.podDnsConfig;
+            resourceInputs["podDnsPolicy"] = args?.podDnsPolicy;
+            resourceInputs["podLabels"] = args?.podLabels;
+            resourceInputs["prometheus"] = args?.prometheus;
+            resourceInputs["replicaCount"] = args?.replicaCount;
+            resourceInputs["resources"] = args?.resources;
+            resourceInputs["securityContext"] = args?.securityContext;
+            resourceInputs["serviceAccount"] = args?.serviceAccount;
+            resourceInputs["serviceAnnotations"] = args?.serviceAnnotations;
+            resourceInputs["serviceLabels"] = args?.serviceLabels;
+            resourceInputs["startupapicheck"] = args?.startupapicheck;
+            resourceInputs["strategy"] = args?.strategy;
+            resourceInputs["tolerations"] = args?.tolerations;
+            resourceInputs["webhook"] = args?.webhook;
             resourceInputs["status"] = undefined /*out*/;
         } else {
             resourceInputs["status"] = undefined /*out*/;
