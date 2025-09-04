@@ -18,6 +18,8 @@ import pulumi_kubernetes
 __all__ = [
     'CertManagerCaInjectorArgs',
     'CertManagerCaInjectorArgsDict',
+    'CertManagerCrdsArgs',
+    'CertManagerCrdsArgsDict',
     'CertManagerGlobalLeaderElectionArgs',
     'CertManagerGlobalLeaderElectionArgsDict',
     'CertManagerGlobalPodSecurityPolicyArgs',
@@ -299,6 +301,60 @@ class CertManagerCaInjectorArgs:
     @tolerations.setter
     def tolerations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['pulumi_kubernetes.core.v1.TolerationArgs']]]]):
         pulumi.set(self, "tolerations", value)
+
+
+if not MYPY:
+    class CertManagerCrdsArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        Enable customization of the installation of CRDs. Cannot be enabled with installCRDs.
+        """
+        keep: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        Keep CRDs on chart uninstall. Setting to false will remove CRDs when the chart is removed.
+        """
+elif False:
+    CertManagerCrdsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CertManagerCrdsArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 keep: Optional[pulumi.Input[_builtins.bool]] = None):
+        """
+        :param pulumi.Input[_builtins.bool] enabled: Enable customization of the installation of CRDs. Cannot be enabled with installCRDs.
+        :param pulumi.Input[_builtins.bool] keep: Keep CRDs on chart uninstall. Setting to false will remove CRDs when the chart is removed.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if keep is None:
+            keep = False
+        if keep is not None:
+            pulumi.set(__self__, "keep", keep)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Enable customization of the installation of CRDs. Cannot be enabled with installCRDs.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def keep(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Keep CRDs on chart uninstall. Setting to false will remove CRDs when the chart is removed.
+        """
+        return pulumi.get(self, "keep")
+
+    @keep.setter
+    def keep(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "keep", value)
 
 
 if not MYPY:

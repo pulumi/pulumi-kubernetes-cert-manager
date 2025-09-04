@@ -26,6 +26,7 @@ class CertManagerArgs:
                  cainjector: Optional[pulumi.Input['CertManagerCaInjectorArgs']] = None,
                  cluster_resource_namespace: Optional[pulumi.Input[_builtins.str]] = None,
                  container_security_context: Optional[pulumi.Input['pulumi_kubernetes.core.v1.SecurityContextArgs']] = None,
+                 crds: Optional[pulumi.Input['CertManagerCrdsArgs']] = None,
                  deployment_annotations: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  extra_args: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  extra_env: Optional[pulumi.Input[Sequence[pulumi.Input['pulumi_kubernetes.core.v1.EnvVarArgs']]]] = None,
@@ -78,6 +79,8 @@ class CertManagerArgs:
             pulumi.set(__self__, "cluster_resource_namespace", cluster_resource_namespace)
         if container_security_context is not None:
             pulumi.set(__self__, "container_security_context", container_security_context)
+        if crds is not None:
+            pulumi.set(__self__, "crds", crds)
         if deployment_annotations is not None:
             pulumi.set(__self__, "deployment_annotations", deployment_annotations)
         if extra_args is not None:
@@ -180,6 +183,15 @@ class CertManagerArgs:
     @container_security_context.setter
     def container_security_context(self, value: Optional[pulumi.Input['pulumi_kubernetes.core.v1.SecurityContextArgs']]):
         pulumi.set(self, "container_security_context", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def crds(self) -> Optional[pulumi.Input['CertManagerCrdsArgs']]:
+        return pulumi.get(self, "crds")
+
+    @crds.setter
+    def crds(self, value: Optional[pulumi.Input['CertManagerCrdsArgs']]):
+        pulumi.set(self, "crds", value)
 
     @_builtins.property
     @pulumi.getter(name="deploymentAnnotations")
@@ -489,6 +501,7 @@ class CertManager(pulumi.ComponentResource):
                  cainjector: Optional[pulumi.Input[Union['CertManagerCaInjectorArgs', 'CertManagerCaInjectorArgsDict']]] = None,
                  cluster_resource_namespace: Optional[pulumi.Input[_builtins.str]] = None,
                  container_security_context: Optional[pulumi.Input[pulumi.InputType['pulumi_kubernetes.core.v1.SecurityContextArgs']]] = None,
+                 crds: Optional[pulumi.Input[Union['CertManagerCrdsArgs', 'CertManagerCrdsArgsDict']]] = None,
                  deployment_annotations: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  extra_args: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  extra_env: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['pulumi_kubernetes.core.v1.EnvVarArgs']]]]] = None,
@@ -565,6 +578,7 @@ class CertManager(pulumi.ComponentResource):
                  cainjector: Optional[pulumi.Input[Union['CertManagerCaInjectorArgs', 'CertManagerCaInjectorArgsDict']]] = None,
                  cluster_resource_namespace: Optional[pulumi.Input[_builtins.str]] = None,
                  container_security_context: Optional[pulumi.Input[pulumi.InputType['pulumi_kubernetes.core.v1.SecurityContextArgs']]] = None,
+                 crds: Optional[pulumi.Input[Union['CertManagerCrdsArgs', 'CertManagerCrdsArgsDict']]] = None,
                  deployment_annotations: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  extra_args: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  extra_env: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['pulumi_kubernetes.core.v1.EnvVarArgs']]]]] = None,
@@ -610,6 +624,7 @@ class CertManager(pulumi.ComponentResource):
             __props__.__dict__["cainjector"] = cainjector
             __props__.__dict__["cluster_resource_namespace"] = cluster_resource_namespace
             __props__.__dict__["container_security_context"] = container_security_context
+            __props__.__dict__["crds"] = crds
             __props__.__dict__["deployment_annotations"] = deployment_annotations
             __props__.__dict__["extra_args"] = extra_args
             __props__.__dict__["extra_env"] = extra_env
