@@ -23,6 +23,33 @@ This component supports all of the configuration options of the [official Helm c
 https://github.com/jetstack/cert-manager/tree/master/deploy/charts/cert-manager), except that these
 are strongly typed so you will get IDE support and static error checking.
 
+### CRDs Configuration
+
+The component handles Custom Resource Definitions (CRDs) for cert-manager in two ways:
+
+1. **Modern approach (recommended)**: Use the structured `crds` object:
+   ```typescript
+   const manager = new certmanager.CertManager("cert-manager", {
+     crds: {
+       enabled: true,  // Whether to install CRDs (default: false)
+       keep: false,    // Whether to keep CRDs after uninstall (default: false)
+     },
+     // Other configuration...
+   });
+   ```
+
+2. **Legacy approach (deprecated)**: Use the boolean `installCRDs` parameter:
+   ```typescript
+   const manager = new certmanager.CertManager("cert-manager", {
+     installCRDs: true,
+     // Other configuration...
+   });
+   ```
+
+The component handles both approaches correctly, but the structured `crds` object is preferred for new deployments as it offers more fine-grained control.
+
+### Other Configuration
+
 The Helm deployment uses reasonable defaults, including the chart name and repo URL, however,
 if you need to override them, you may do so using the `helmOptions` parameter. Refer to
 [the API docs for the `kubernetes:helm/v3:Release` Pulumi type](

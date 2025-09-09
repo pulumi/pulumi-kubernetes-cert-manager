@@ -49,3 +49,17 @@ func TestTsCertManagerPreview(t *testing.T) {
 		p.Preview(t)
 	})
 }
+
+// This tests the Output being passed to repository to fix #133
+func TestTsCertManagerCrdsNotKept(t *testing.T) {
+	t.Run("TestSimpleCertManagerTsCrdsNotKept", func(t *testing.T) {
+		p := pulumitest.NewPulumiTest(t, "simple-cert-manager-ts",
+			opttest.LocalProviderPath("pulumi-kubernetes-cert-manager", filepath.Join(getCwd(t), "..", "bin")),
+			opttest.YarnLink("@pulumi/kubernetes-cert-manager"),
+		)
+		p.SetConfig(t, "repository", "public.ecr.aws/eks-anywhere-dev/cert-manager/cert-manager-controller")
+		p.Up(t)
+		p.Destroy(t)
+		p.Up(t)
+	})
+}
