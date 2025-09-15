@@ -6,8 +6,8 @@ require (
 	github.com/pulumi/pulumi-go-helmbase v0.2.0
 	github.com/pulumi/pulumi-kubernetes-cert-manager/sdk v0.2.0
 	github.com/pulumi/pulumi-kubernetes/sdk/v4 v4.23.0
-	github.com/pulumi/pulumi/pkg/v3 v3.195.0
-	github.com/pulumi/pulumi/sdk/v3 v3.195.0
+	github.com/pulumi/pulumi/pkg/v3 v3.196.0
+	github.com/pulumi/pulumi/sdk/v3 v3.196.0
 )
 
 replace github.com/pulumi/pulumi-kubernetes-cert-manager/sdk => ../sdk
