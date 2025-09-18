@@ -4,8 +4,8 @@ go 1.23.11
 
 require (
 	github.com/pulumi/providertest v0.3.1
-	github.com/pulumi/pulumi/pkg/v3 v3.196.0
-	github.com/pulumi/pulumi/sdk/v3 v3.196.0
+	github.com/pulumi/pulumi/pkg/v3 v3.197.0
+	github.com/pulumi/pulumi/sdk/v3 v3.197.0
 )
 
 require (
