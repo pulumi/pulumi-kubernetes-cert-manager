@@ -4,12 +4,12 @@ pulumiVersionFile: .pulumi.version
 major-version: 0
 parallel: 3
 esc:
-  enabled: true
+    enabled: true
 envOverride:
-  AWS_REGION: us-west-2
-  PULUMI_TEST_OWNER: moolumi
-  GOLANGCI_LINT_VERSION: v1.61.0
-  GOOGLE_CI_SERVICE_ACCOUNT_EMAIL: pulumi-ci@pulumi-k8s-provider.iam.gserviceaccount.com
-  GOOGLE_CI_WORKLOAD_IDENTITY_POOL: pulumi-ci
-  GOOGLE_CI_WORKLOAD_IDENTITY_PROVIDER: pulumi-ci
-  GOOGLE_PROJECT_NUMBER: 637339343727
+    AWS_REGION: us-west-2
+    PULUMI_TEST_OWNER: moolumi
+    GOLANGCI_LINT_VERSION: v1.61.0
+    GOOGLE_CI_SERVICE_ACCOUNT_EMAIL: pulumi-ci@pulumi-k8s-provider.iam.gserviceaccount.com
+    GOOGLE_CI_WORKLOAD_IDENTITY_POOL: pulumi-ci
+    GOOGLE_CI_WORKLOAD_IDENTITY_PROVIDER: pulumi-ci
+    GOOGLE_PROJECT_NUMBER: 637339343727
