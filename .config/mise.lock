@@ -25,13 +25,13 @@ url = "https://github.com/pulumi/schema-tools/releases/download/v0.6.0/schema-to
 url_api = "https://api.github.com/repos/pulumi/schema-tools/releases/assets/118725905"
 
 [[tools.go]]
-version = "1.23.11"
+version = "1.24.10"
 backend = "core:go"
 
-[tools.go.platforms.linux-x64]
-checksum = "sha256:80899df77459e0b551d2eb8800ad6eb47023b99cccbf8129e7b5786770b948c5"
-size = 73665098
-url = "https://dl.google.com/go/go1.23.11.linux-amd64.tar.gz"
+[tools.go.platforms.macos-arm64]
+checksum = "sha256:71c70841bcdadf4b5d2f7c0f099952907969f25235663622a47d6f2233ad39aa"
+size = 76432098
+url = "https://dl.google.com/go/go1.24.10.darwin-arm64.tar.gz"
 
 [[tools.golangci-lint]]
 version = "1.64.8"
@@ -74,13 +74,13 @@ version = "1.22.22"
 backend = "npm:yarn"
 
 [[tools.pulumi]]
-version = "3.198.0"
+version = "3.206.0"
 backend = "aqua:pulumi/pulumi"
 
-[tools.pulumi.platforms.linux-x64]
-checksum = "sha256:567717654a8944ab1ce1a19d9a0d1f5d111145cb4182b6cede11337fd0115f1f"
-size = 93850453
-url = "https://github.com/pulumi/pulumi/releases/download/v3.198.0/pulumi-v3.198.0-linux-x64.tar.gz"
+[tools.pulumi.platforms.macos-arm64]
+checksum = "sha256:bd0db01d82d9092c9408d2ebe8862cf37c75b00bc2d205757d02f7e4a1813f7a"
+size = 86039751
+url = "https://github.com/pulumi/pulumi/releases/download/v3.206.0/pulumi-v3.206.0-darwin-arm64.tar.gz"
 
 [[tools.python]]
 version = "3.11.8"

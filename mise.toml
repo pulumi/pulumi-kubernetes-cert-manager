@@ -1,0 +1,5 @@
+[tools]
+golangci-lint = "2.5.0"
+
+[settings]
+experimental = true
