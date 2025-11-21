@@ -16,7 +16,9 @@ on:
   workflow_dispatch: {}
 env:
   PROVIDER: kubernetes-cert-manager
+  PULUMI_LOCAL_NUGET: ${{ github.workspace }}/nuget
   TRAVIS_OS_NAME: linux
+  PULUMI_GO_DEP_ROOT: ${{ github.workspace }}/..
   GOVERSION: "1.21.x"
   NODEVERSION: "20.x"
   PYTHONVERSION: "3.11.8"
@@ -61,6 +63,7 @@ jobs:
       uses: ./.github/actions/setup-tools
       with:
         cache: 'true'
+        github_token: ${{ secrets.GITHUB_TOKEN }}
     - if: github.event_name == 'pull_request'
       name: Install Schema Tools
       uses: jaxxstorm/action-install-gh-release@6096f2a2bbfee498ced520b6922ac2c06e990ed2 # v2.1.0
@@ -112,10 +115,6 @@ jobs:
           sdk/nodejs/package.json
           sdk/python/pyproject.toml
           sdk/java/build.gradle
-          **/mise.lock
-          **/.config/mise.lock
-          **/mise.*.lock
-          **/.config/mise.*.lock
     - name: Commit SDK changes for Renovate
       if: failure() && steps.worktreeClean.outcome == 'failure' &&
         contains(github.actor, 'renovate') && github.event_name ==
@@ -230,6 +229,8 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Setup Tools
       uses: ./.github/actions/setup-tools
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
     - name: Download Provider Binary
       uses: ./.github/actions/download-provider
     - name: Generate SDK
@@ -248,10 +249,6 @@ jobs:
           sdk/nodejs/package.json
           sdk/python/pyproject.toml
           sdk/java/build.gradle
-          **/mise.lock
-          **/.config/mise.lock
-          **/mise.*.lock
-          **/.config/mise.*.lock
     - name: Commit SDK changes for Renovate
       if: failure() && steps.worktreeClean.outcome == 'failure' &&
         contains(github.actor, 'renovate') && github.event_name ==
@@ -394,6 +391,8 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Setup Tools
       uses: ./.github/actions/setup-tools
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
     - name: Download Provider Binary
       uses: ./.github/actions/download-provider
     - name: Download SDK
@@ -469,6 +468,8 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Setup Tools
       uses: ./.github/actions/setup-tools
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
     - name: Clear GitHub Actions Ubuntu runner disk space
       uses: jlumbroso/free-disk-space@54081f138730dfa15788a46383842cd2f914a1be # v1.3.1
       with:
@@ -546,6 +547,8 @@ jobs:
     - run: echo "ci-scripts" >> .git/info/exclude
     - name: Setup Tools
       uses: ./.github/actions/setup-tools
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
     - name: Download python SDK
       uses: actions/download-artifact@018cc2cf5baa6db3ef3c5f8a56943fffe632ef53 # v6.0.0
       with:
@@ -605,6 +608,8 @@ jobs:
         ref: ${{ env.PR_COMMIT_SHA }}
     - name: Setup Tools
       uses: ./.github/actions/setup-tools
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
     - name: Disarm go:embed directives to enable linters that compile source code
       run: git grep -l 'go:embed' -- provider | xargs --no-run-if-empty sed -i
         's/go:embed/ goembed/g'
