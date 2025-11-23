@@ -5,22 +5,23 @@ inputs:
   cache:
     description: Enable caching
     required: false
-    default: 'false'
+    default: "false"
+  github_token:
+    description: GitHub token
+    required: true
 
 runs:
   using: "composite"
   steps:
     - name: Setup mise
-      uses: jdx/mise-action@be3be2260bc02bc3fbf94c5e2fed8b7964baf074 # v3
+      uses: jdx/mise-action@d16887ba50704baed7de72bd1e82e04391e4457a # v3
       with:
-        # Latest working version. See https://github.com/jdx/mise/discussions/6781
-        version: 2025.10.16
-        github_token: ${{ github.token }}
-        cache_key: "mise-{{platform}}-{{file_hash}}"
+        version: 2025.11.6
         cache_save: ${{ inputs.cache }}
+        github_token: ${{ inputs.github_token }}
 
     - name: Setup Go Cache
-      uses: actions/setup-go@d35c59abb061a4a6fb18e82ac0862c26744d6ab5 # v5.5.0
+      uses: actions/setup-go@44694675825211faa026b3c33043df3e48a5fa00 # v6.0.0
       with:
         cache: ${{ inputs.cache }}
         cache-dependency-path: |
