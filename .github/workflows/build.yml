@@ -16,7 +16,9 @@ on:
   workflow_dispatch: {}
 env:
   PROVIDER: kubernetes-cert-manager
+  PULUMI_LOCAL_NUGET: ${{ github.workspace }}/nuget
   TRAVIS_OS_NAME: linux
+  PULUMI_GO_DEP_ROOT: ${{ github.workspace }}/..
   GOVERSION: "1.21.x"
   NODEVERSION: "20.x"
   PYTHONVERSION: "3.11.8"
@@ -38,7 +40,7 @@ jobs:
       pull-requests: write # For schema check comment.
     steps:
     - name: Checkout Repo
-      uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+      uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
       with:
         lfs: true    
     - env:
@@ -61,6 +63,7 @@ jobs:
       uses: ./.github/actions/setup-tools
       with:
         cache: 'true'
+        github_token: ${{ secrets.GITHUB_TOKEN }}
     - if: github.event_name == 'pull_request'
       name: Install Schema Tools
       uses: jaxxstorm/action-install-gh-release@6096f2a2bbfee498ced520b6922ac2c06e990ed2 # v2.1.0
@@ -112,58 +115,6 @@ jobs:
           sdk/nodejs/package.json
           sdk/python/pyproject.toml
           sdk/java/build.gradle
-          **/mise.lock
-          **/.config/mise.lock
-          **/mise.*.lock
-          **/.config/mise.*.lock
-    - name: Commit SDK changes for Renovate
-      if: failure() && steps.worktreeClean.outcome == 'failure' &&
-        contains(github.actor, 'renovate') && github.event_name ==
-        'pull_request'
-      shell: bash
-      run: >
-        git diff --quiet -- sdk && echo "no changes to sdk" && exit
-
-        git config --global user.email "bot@pulumi.com"
-
-        git config --global user.name "pulumi-bot"
-
-        # Stash local changes and check out the PR's branch directly.
-
-        git stash
-
-        git fetch
-
-        git checkout "origin/$HEAD_REF"
-
-
-        # Apply and add our changes, but don't commit any files we expect to
-
-        # always change due to versioning.
-
-        git stash pop
-
-        git add sdk
-
-        git reset sdk/python/*/pulumi-plugin.json \
-            sdk/python/pyproject.toml \
-            sdk/dotnet/pulumi-plugin.json \
-            sdk/dotnet/*.*.csproj \
-            sdk/dotnet/version.txt \
-            sdk/go/*/pulumi-plugin.json \
-            sdk/go/*/internal/pulumiUtilities.go \
-            sdk/nodejs/package.json
-
-        git commit -m 'Commit SDK for Renovate'
-
-
-        # Push with pulumi-bot credentials to trigger a re-run of the
-
-        # workflow. https://github.com/orgs/community/discussions/25702
-
-        git push https://pulumi-bot:${{ steps.esc-secrets.outputs.PULUMI_BOT_TOKEN }}@github.com/${{ github.repository }}     "HEAD:$HEAD_REF"
-      env:
-        HEAD_REF: ${{ github.head_ref }}
     - run: git status --porcelain
     - name: Tar provider binaries
       run: tar -zcf ${{ github.workspace }}/bin/provider.tar.gz -C ${{
@@ -209,7 +160,7 @@ jobs:
       id-token: write # For ESC secrets.
     steps:
     - name: Checkout Repo
-      uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+      uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
       with:
         lfs: true    
     - env:
@@ -230,6 +181,8 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Setup Tools
       uses: ./.github/actions/setup-tools
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
     - name: Download Provider Binary
       uses: ./.github/actions/download-provider
     - name: Generate SDK
@@ -248,58 +201,6 @@ jobs:
           sdk/nodejs/package.json
           sdk/python/pyproject.toml
           sdk/java/build.gradle
-          **/mise.lock
-          **/.config/mise.lock
-          **/mise.*.lock
-          **/.config/mise.*.lock
-    - name: Commit SDK changes for Renovate
-      if: failure() && steps.worktreeClean.outcome == 'failure' &&
-        contains(github.actor, 'renovate') && github.event_name ==
-        'pull_request'
-      shell: bash
-      run: >
-        git diff --quiet -- sdk && echo "no changes to sdk" && exit
-
-        git config --global user.email "bot@pulumi.com"
-
-        git config --global user.name "pulumi-bot"
-
-        # Stash local changes and check out the PR's branch directly.
-
-        git stash
-
-        git fetch
-
-        git checkout "origin/$HEAD_REF"
-
-
-        # Apply and add our changes, but don't commit any files we expect to
-
-        # always change due to versioning.
-
-        git stash pop
-
-        git add sdk
-
-        git reset sdk/python/*/pulumi-plugin.json \
-            sdk/python/pyproject.toml \
-            sdk/dotnet/pulumi-plugin.json \
-            sdk/dotnet/*.*.csproj \
-            sdk/dotnet/version.txt \
-            sdk/go/*/pulumi-plugin.json \
-            sdk/go/*/internal/pulumiUtilities.go \
-            sdk/nodejs/package.json
-
-        git commit -m 'Commit SDK for Renovate'
-
-
-        # Push with pulumi-bot credentials to trigger a re-run of the
-
-        # workflow. https://github.com/orgs/community/discussions/25702
-
-        git push https://pulumi-bot:${{ steps.esc-secrets.outputs.PULUMI_BOT_TOKEN }}@github.com/${{ github.repository }}     "HEAD:$HEAD_REF"
-      env:
-        HEAD_REF: ${{ github.head_ref }}
     - run: git status --porcelain
     - name: Tar SDK folder
       run: tar -zcf sdk/${{ matrix.language }}.tar.gz -C sdk/${{ matrix.language }} .
@@ -328,7 +229,7 @@ jobs:
       id-token: write # For ESC secrets.
     steps:
     - name: Checkout Repo
-      uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+      uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
       with:
         lfs: true    
     - env:
@@ -373,7 +274,7 @@ jobs:
       id-token: write # For ESC secrets and Pulumi access token OIDC.
     steps:
     - name: Checkout Repo
-      uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+      uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
       with:
         lfs: true    
     - env:
@@ -394,6 +295,8 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Setup Tools
       uses: ./.github/actions/setup-tools
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
     - name: Download Provider Binary
       uses: ./.github/actions/download-provider
     - name: Download SDK
@@ -448,7 +351,7 @@ jobs:
       id-token: write # For ESC secrets.
     steps:
     - name: Checkout Repo
-      uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+      uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
       with:
         lfs: true    
     - env:
@@ -469,6 +372,8 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Setup Tools
       uses: ./.github/actions/setup-tools
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
     - name: Clear GitHub Actions Ubuntu runner disk space
       uses: jlumbroso/free-disk-space@54081f138730dfa15788a46383842cd2f914a1be # v1.3.1
       with:
@@ -479,7 +384,7 @@ jobs:
         swap-storage: true
         large-packages: false
     - name: Configure AWS Credentials
-      uses: aws-actions/configure-aws-credentials@00943011d9042930efac3dcd3a170e4273319bc8 # v5.1.0
+      uses: aws-actions/configure-aws-credentials@61815dcd50bd041e203e49132bacad1fd04d2708 # v5.1.1
       with:
         aws-access-key-id: ${{ steps.esc-secrets.outputs.AWS_ACCESS_KEY_ID }}
         aws-region: us-east-2
@@ -519,7 +424,7 @@ jobs:
       id-token: write # For ESC secrets.
     steps:
     - name: Checkout Repo
-      uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+      uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
       with:
         lfs: true    
     - env:
@@ -539,13 +444,15 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Checkout Scripts Repo
-      uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+      uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
       with:
         path: ci-scripts
         repository: pulumi/scripts
     - run: echo "ci-scripts" >> .git/info/exclude
     - name: Setup Tools
       uses: ./.github/actions/setup-tools
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
     - name: Download python SDK
       uses: actions/download-artifact@018cc2cf5baa6db3ef3c5f8a56943fffe632ef53 # v6.0.0
       with:
@@ -598,13 +505,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout Repo
-      uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+      uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
       with:
         lfs: true
         persist-credentials: false
         ref: ${{ env.PR_COMMIT_SHA }}
     - name: Setup Tools
       uses: ./.github/actions/setup-tools
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
     - name: Disarm go:embed directives to enable linters that compile source code
       run: git grep -l 'go:embed' -- provider | xargs --no-run-if-empty sed -i
         's/go:embed/ goembed/g'
