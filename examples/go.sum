@@ -356,8 +356,8 @@ github.com/pulumi/appdash v0.0.0-20231130102222-75f619a67231 h1:vkHw5I/plNdTr435
 github.com/pulumi/appdash v0.0.0-20231130102222-75f619a67231/go.mod h1:murToZ2N9hNJzewjHBgfFdXhZKjY3z5cYC1VXk+lbFE=
 github.com/pulumi/esc v0.20.0 h1:LZn4sjAsI76x10ZuZXXyh2ExGcP7AHmjOzCi/p3/fpQ=
 github.com/pulumi/esc v0.20.0/go.mod h1:h1VjdedI0K84MhMzaR9ZKbEpU6SfZMOZF4ZrVgQyNLY=
-github.com/pulumi/providertest v0.4.1 h1:Wb938Qh+Iv5XOSqN0TV52NgPe0L41QDoLEF3AtmxNX4=
-github.com/pulumi/providertest v0.4.1/go.mod h1:OBpIGSQrw1FW9VNaHBtKCRxEoTISvx8JsxECmRqRgRQ=
+github.com/pulumi/providertest v0.6.0 h1:ZnefsbhkPE+BpKienHgb38P/6SEtXjjOXGGdMEUIOgk=
+github.com/pulumi/providertest v0.6.0/go.mod h1:OBpIGSQrw1FW9VNaHBtKCRxEoTISvx8JsxECmRqRgRQ=
 github.com/pulumi/pulumi/pkg/v3 v3.212.0 h1:bAfZp6LAkQpVsoSivzGnPjzaTO8HYs1XLmJ0RyZKvUA=
 github.com/pulumi/pulumi/pkg/v3 v3.212.0/go.mod h1:nZ4ErhkPhrs5RKgNljJzipNMlNLcXyDZVjTuPVMabTw=
 github.com/pulumi/pulumi/sdk/v3 v3.212.0 h1:YQKFamkd+3sqcbFUi+sq50DejdymayYbqaz+OQnSvug=
