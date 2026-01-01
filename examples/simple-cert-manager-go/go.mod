@@ -7,7 +7,7 @@ toolchain go1.24.10
 require (
 	github.com/pulumi/pulumi-kubernetes-cert-manager/sdk v0.2.0
 	github.com/pulumi/pulumi-kubernetes/sdk/v4 v4.24.0
-	github.com/pulumi/pulumi/sdk/v3 v3.209.0
+	github.com/pulumi/pulumi/sdk/v3 v3.214.0
 )
 
 require (
@@ -69,7 +69,7 @@ require (
 	github.com/sergi/go-diff v1.4.0 // indirect
 	github.com/skeema/knownhosts v1.3.0 // indirect
 	github.com/spf13/cobra v1.10.1 // indirect
-	github.com/spf13/pflag v1.0.9 // indirect
+	github.com/spf13/pflag v1.0.10 // indirect
 	github.com/stretchr/objx v0.5.0 // indirect
 	github.com/texttheater/golang-levenshtein v1.0.1 // indirect
 	github.com/uber/jaeger-client-go v2.30.0+incompatible // indirect
