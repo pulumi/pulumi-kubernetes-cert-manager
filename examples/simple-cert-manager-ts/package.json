@@ -5,7 +5,7 @@
     },
     "dependencies": {
         "@pulumi/kubernetes": "4.25.0",
-        "@pulumi/pulumi": "3.217.1",
+        "@pulumi/pulumi": "3.218.0",
         "@pulumi/kubernetes-cert-manager": "latest",
         "@pulumi/random": "4.19.1",
         "google-protobuf": "3.21.4"
