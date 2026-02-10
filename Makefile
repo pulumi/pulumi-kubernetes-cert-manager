@@ -32,6 +32,8 @@ build:: build_provider build_dotnet_sdk build_nodejs_sdk build_python_sdk
 
 install:: install_provider install_dotnet_sdk install_nodejs_sdk
 
+lint:
+	cd provider && golangci-lint run --config ../.golangci.yml
 
 # Provider
 
