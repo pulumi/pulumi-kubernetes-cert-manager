@@ -50,45 +50,40 @@ __all__ = [
     'RepositoryOptsArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class CertManagerCaInjectorArgsDict(TypedDict):
-        affinity: NotRequired[pulumi.Input['pulumi_kubernetes.core.v1.AffinityArgsDict']]
-        container_security_context: NotRequired[pulumi.Input['pulumi_kubernetes.core.v1.SecurityContextArgsDict']]
-        """
-        Container Security Context to be set on the cainjector component container. ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
-        """
-        deployment_annotations: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Optional additional annotations to add to the cainjector Deployment
-        """
-        extra_args: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Optional additional arguments for cainjector
-        """
-        image: NotRequired[pulumi.Input['CertManagerImageArgsDict']]
-        node_selector: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        pod_annotations: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Optional additional annotations to add to the cainjector Pods
-        """
-        pod_labels: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Optional additional labels to add to the Webhook Pods
-        """
-        pod_security_context: NotRequired[pulumi.Input['pulumi_kubernetes.core.v1.PodSecurityContextArgsDict']]
-        """
-        Pod Security Context to be set on the cainjector component Pod. ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
-        """
-        replica_count: NotRequired[pulumi.Input[_builtins.int]]
-        resources: NotRequired[pulumi.Input['pulumi_kubernetes.core.v1.ResourceRequirementsArgsDict']]
-        service_account: NotRequired[pulumi.Input['CertManagerServiceAccountArgsDict']]
-        strategy: NotRequired[pulumi.Input['pulumi_kubernetes.apps.v1.DeploymentStrategyArgsDict']]
-        timeout_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        tolerations: NotRequired[pulumi.Input[Sequence[pulumi.Input['pulumi_kubernetes.core.v1.TolerationArgsDict']]]]
-elif False:
-    CertManagerCaInjectorArgsDict: TypeAlias = Mapping[str, Any]
+class CertManagerCaInjectorArgsDict(TypedDict):
+    affinity: NotRequired[pulumi.Input['pulumi_kubernetes.core.v1.AffinityArgsDict']]
+    container_security_context: NotRequired[pulumi.Input['pulumi_kubernetes.core.v1.SecurityContextArgsDict']]
+    """
+    Container Security Context to be set on the cainjector component container. ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
+    """
+    deployment_annotations: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Optional additional annotations to add to the cainjector Deployment
+    """
+    extra_args: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Optional additional arguments for cainjector
+    """
+    image: NotRequired[pulumi.Input['CertManagerImageArgsDict']]
+    node_selector: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    pod_annotations: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Optional additional annotations to add to the cainjector Pods
+    """
+    pod_labels: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Optional additional labels to add to the Webhook Pods
+    """
+    pod_security_context: NotRequired[pulumi.Input['pulumi_kubernetes.core.v1.PodSecurityContextArgsDict']]
+    """
+    Pod Security Context to be set on the cainjector component Pod. ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
+    """
+    replica_count: NotRequired[pulumi.Input[_builtins.int]]
+    resources: NotRequired[pulumi.Input['pulumi_kubernetes.core.v1.ResourceRequirementsArgsDict']]
+    service_account: NotRequired[pulumi.Input['CertManagerServiceAccountArgsDict']]
+    strategy: NotRequired[pulumi.Input['pulumi_kubernetes.apps.v1.DeploymentStrategyArgsDict']]
+    timeout_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    tolerations: NotRequired[pulumi.Input[Sequence[pulumi.Input['pulumi_kubernetes.core.v1.TolerationArgsDict']]]]
 
 @pulumi.input_type
 class CertManagerCaInjectorArgs:
@@ -301,22 +296,19 @@ class CertManagerCaInjectorArgs:
         pulumi.set(self, "tolerations", value)
 
 
-if not MYPY:
-    class CertManagerGlobalLeaderElectionArgsDict(TypedDict):
-        lease_duration: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The duration that non-leader candidates will wait after observing a leadership renewal until attempting to acquire leadership of a led but unrenewed leader slot. This is effectively the maximum duration that a leader can be stopped before it is replaced by another candidate.
-        """
-        namespace: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Override the namespace used to store the ConfigMap for leader election.
-        """
-        renew_deadline: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The interval between attempts by the acting master to renew a leadership slot before it stops leading. This must be less than or equal to the lease duration.
-        """
-elif False:
-    CertManagerGlobalLeaderElectionArgsDict: TypeAlias = Mapping[str, Any]
+class CertManagerGlobalLeaderElectionArgsDict(TypedDict):
+    lease_duration: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The duration that non-leader candidates will wait after observing a leadership renewal until attempting to acquire leadership of a led but unrenewed leader slot. This is effectively the maximum duration that a leader can be stopped before it is replaced by another candidate.
+    """
+    namespace: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Override the namespace used to store the ConfigMap for leader election.
+    """
+    renew_deadline: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The interval between attempts by the acting master to renew a leadership slot before it stops leading. This must be less than or equal to the lease duration.
+    """
 
 @pulumi.input_type
 class CertManagerGlobalLeaderElectionArgs:
@@ -373,12 +365,9 @@ class CertManagerGlobalLeaderElectionArgs:
         pulumi.set(self, "renew_deadline", value)
 
 
-if not MYPY:
-    class CertManagerGlobalPodSecurityPolicyArgsDict(TypedDict):
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        use_app_armor: NotRequired[pulumi.Input[_builtins.bool]]
-elif False:
-    CertManagerGlobalPodSecurityPolicyArgsDict: TypeAlias = Mapping[str, Any]
+class CertManagerGlobalPodSecurityPolicyArgsDict(TypedDict):
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    use_app_armor: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
 class CertManagerGlobalPodSecurityPolicyArgs:
@@ -409,11 +398,8 @@ class CertManagerGlobalPodSecurityPolicyArgs:
         pulumi.set(self, "use_app_armor", value)
 
 
-if not MYPY:
-    class CertManagerGlobalRbacArgsDict(TypedDict):
-        create: NotRequired[pulumi.Input[_builtins.bool]]
-elif False:
-    CertManagerGlobalRbacArgsDict: TypeAlias = Mapping[str, Any]
+class CertManagerGlobalRbacArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
 class CertManagerGlobalRbacArgs:
@@ -432,25 +418,22 @@ class CertManagerGlobalRbacArgs:
         pulumi.set(self, "create", value)
 
 
-if not MYPY:
-    class CertManagerGlobalArgsDict(TypedDict):
-        image_pull_secrets: NotRequired[pulumi.Input[Sequence[pulumi.Input['pulumi_kubernetes.core.v1.LocalObjectReferenceArgsDict']]]]
-        """
-        Reference to one or more secrets to be used when pulling images. ref: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
-        """
-        leader_election: NotRequired[pulumi.Input['CertManagerGlobalLeaderElectionArgsDict']]
-        log_level: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Set the verbosity of cert-manager. Range of 0 - 6 with 6 being the most verbose.
-        """
-        pod_security_policy: NotRequired[pulumi.Input['CertManagerGlobalPodSecurityPolicyArgsDict']]
-        priority_class_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Optional priority class to be used for the cert-manager pods.
-        """
-        rbac: NotRequired[pulumi.Input['CertManagerGlobalRbacArgsDict']]
-elif False:
-    CertManagerGlobalArgsDict: TypeAlias = Mapping[str, Any]
+class CertManagerGlobalArgsDict(TypedDict):
+    image_pull_secrets: NotRequired[pulumi.Input[Sequence[pulumi.Input['pulumi_kubernetes.core.v1.LocalObjectReferenceArgsDict']]]]
+    """
+    Reference to one or more secrets to be used when pulling images. ref: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
+    """
+    leader_election: NotRequired[pulumi.Input['CertManagerGlobalLeaderElectionArgsDict']]
+    log_level: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Set the verbosity of cert-manager. Range of 0 - 6 with 6 being the most verbose.
+    """
+    pod_security_policy: NotRequired[pulumi.Input['CertManagerGlobalPodSecurityPolicyArgsDict']]
+    priority_class_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Optional priority class to be used for the cert-manager pods.
+    """
+    rbac: NotRequired[pulumi.Input['CertManagerGlobalRbacArgsDict']]
 
 @pulumi.input_type
 class CertManagerGlobalArgs:
@@ -543,27 +526,24 @@ class CertManagerGlobalArgs:
         pulumi.set(self, "rbac", value)
 
 
-if not MYPY:
-    class CertManagerImageArgsDict(TypedDict):
-        digest: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Setting a digest will override any tag, e.g. `digest: sha256:0e072dddd1f7f8fc8909a2ca6f65e76c5f0d2fcfb8be47935ae3457e8bbceb20`.
-        """
-        pull_policy: NotRequired[pulumi.Input[_builtins.str]]
-        registry: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        You can manage a registry with `registry: quay.io`.
-        """
-        repository: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        You can manage a registry with `repository: jetstack/cert-manager-controller`.
-        """
-        tag: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Override the image tag to deploy by setting this variable. If no value is set, the chart's appVersion will be used.
-        """
-elif False:
-    CertManagerImageArgsDict: TypeAlias = Mapping[str, Any]
+class CertManagerImageArgsDict(TypedDict):
+    digest: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Setting a digest will override any tag, e.g. `digest: sha256:0e072dddd1f7f8fc8909a2ca6f65e76c5f0d2fcfb8be47935ae3457e8bbceb20`.
+    """
+    pull_policy: NotRequired[pulumi.Input[_builtins.str]]
+    registry: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    You can manage a registry with `registry: quay.io`.
+    """
+    repository: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    You can manage a registry with `repository: jetstack/cert-manager-controller`.
+    """
+    tag: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Override the image tag to deploy by setting this variable. If no value is set, the chart's appVersion will be used.
+    """
 
 @pulumi.input_type
 class CertManagerImageArgs:
@@ -648,13 +628,10 @@ class CertManagerImageArgs:
         pulumi.set(self, "tag", value)
 
 
-if not MYPY:
-    class CertManagerIngressShimArgsDict(TypedDict):
-        default_issuer_group: NotRequired[pulumi.Input[_builtins.str]]
-        default_issuer_kind: NotRequired[pulumi.Input[_builtins.str]]
-        default_issuer_name: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    CertManagerIngressShimArgsDict: TypeAlias = Mapping[str, Any]
+class CertManagerIngressShimArgsDict(TypedDict):
+    default_issuer_group: NotRequired[pulumi.Input[_builtins.str]]
+    default_issuer_kind: NotRequired[pulumi.Input[_builtins.str]]
+    default_issuer_name: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class CertManagerIngressShimArgs:
@@ -697,17 +674,14 @@ class CertManagerIngressShimArgs:
         pulumi.set(self, "default_issuer_name", value)
 
 
-if not MYPY:
-    class CertManagerPrometheusServiceMonitorArgsDict(TypedDict):
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        interval: NotRequired[pulumi.Input[_builtins.str]]
-        labels: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        path: NotRequired[pulumi.Input[_builtins.str]]
-        prometheus_instance: NotRequired[pulumi.Input[_builtins.str]]
-        string: NotRequired[pulumi.Input[_builtins.str]]
-        target_port: NotRequired[pulumi.Input[_builtins.int]]
-elif False:
-    CertManagerPrometheusServiceMonitorArgsDict: TypeAlias = Mapping[str, Any]
+class CertManagerPrometheusServiceMonitorArgsDict(TypedDict):
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    interval: NotRequired[pulumi.Input[_builtins.str]]
+    labels: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    path: NotRequired[pulumi.Input[_builtins.str]]
+    prometheus_instance: NotRequired[pulumi.Input[_builtins.str]]
+    string: NotRequired[pulumi.Input[_builtins.str]]
+    target_port: NotRequired[pulumi.Input[_builtins.int]]
 
 @pulumi.input_type
 class CertManagerPrometheusServiceMonitorArgs:
@@ -798,12 +772,9 @@ class CertManagerPrometheusServiceMonitorArgs:
         pulumi.set(self, "target_port", value)
 
 
-if not MYPY:
-    class CertManagerPrometheusArgsDict(TypedDict):
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        service_monitor: NotRequired[pulumi.Input['CertManagerPrometheusServiceMonitorArgsDict']]
-elif False:
-    CertManagerPrometheusArgsDict: TypeAlias = Mapping[str, Any]
+class CertManagerPrometheusArgsDict(TypedDict):
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    service_monitor: NotRequired[pulumi.Input['CertManagerPrometheusServiceMonitorArgsDict']]
 
 @pulumi.input_type
 class CertManagerPrometheusArgs:
@@ -834,26 +805,23 @@ class CertManagerPrometheusArgs:
         pulumi.set(self, "service_monitor", value)
 
 
-if not MYPY:
-    class CertManagerServiceAccountArgsDict(TypedDict):
-        annotations: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Optional additional annotations to add to the controller's ServiceAccount.
-        """
-        automount_service_account_token: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Automount API credentials for a Service Account.
-        """
-        create: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether a service account should be created
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the service account to use. If not set and create is true, a name is generated using the fullname template.
-        """
-elif False:
-    CertManagerServiceAccountArgsDict: TypeAlias = Mapping[str, Any]
+class CertManagerServiceAccountArgsDict(TypedDict):
+    annotations: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Optional additional annotations to add to the controller's ServiceAccount.
+    """
+    automount_service_account_token: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Automount API credentials for a Service Account.
+    """
+    create: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether a service account should be created
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the service account to use. If not set and create is true, a name is generated using the fullname template.
+    """
 
 @pulumi.input_type
 class CertManagerServiceAccountArgs:
@@ -926,14 +894,11 @@ class CertManagerServiceAccountArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class CertManagerStartupAPICheckRBACArgsDict(TypedDict):
-        annotations: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        annotations for the startup API Check job RBAC and PSP resources
-        """
-elif False:
-    CertManagerStartupAPICheckRBACArgsDict: TypeAlias = Mapping[str, Any]
+class CertManagerStartupAPICheckRBACArgsDict(TypedDict):
+    annotations: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    annotations for the startup API Check job RBAC and PSP resources
+    """
 
 @pulumi.input_type
 class CertManagerStartupAPICheckRBACArgs:
@@ -958,46 +923,43 @@ class CertManagerStartupAPICheckRBACArgs:
         pulumi.set(self, "annotations", value)
 
 
-if not MYPY:
-    class CertManagerStartupAPICheckArgsDict(TypedDict):
-        affinity: NotRequired[pulumi.Input['pulumi_kubernetes.core.v1.AffinityArgsDict']]
-        backoff_limit: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Job backoffLimit
-        """
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        extra_args: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Optional additional arguments for startupapicheck
-        """
-        image: NotRequired[pulumi.Input['CertManagerImageArgsDict']]
-        job_annotations: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Optional additional annotations to add to the startupapicheck Job
-        """
-        node_selector: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        pod_annotations: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Optional additional annotations to add to the startupapicheck Pods
-        """
-        pod_labels: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Optional additional labels to add to the startupapicheck Pods
-        """
-        rbac: NotRequired[pulumi.Input['CertManagerStartupAPICheckRBACArgsDict']]
-        resources: NotRequired[pulumi.Input['pulumi_kubernetes.core.v1.ResourceRequirementsArgsDict']]
-        security_context: NotRequired[pulumi.Input['pulumi_kubernetes.core.v1.PodSecurityContextArgsDict']]
-        """
-        Pod Security Context to be set on the startupapicheck component Pod. ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
-        """
-        service_account: NotRequired[pulumi.Input['CertManagerServiceAccountArgsDict']]
-        timeout: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Timeout for 'kubectl check api' command
-        """
-        tolerations: NotRequired[pulumi.Input[Sequence[pulumi.Input['pulumi_kubernetes.core.v1.TolerationArgsDict']]]]
-elif False:
-    CertManagerStartupAPICheckArgsDict: TypeAlias = Mapping[str, Any]
+class CertManagerStartupAPICheckArgsDict(TypedDict):
+    affinity: NotRequired[pulumi.Input['pulumi_kubernetes.core.v1.AffinityArgsDict']]
+    backoff_limit: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Job backoffLimit
+    """
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    extra_args: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Optional additional arguments for startupapicheck
+    """
+    image: NotRequired[pulumi.Input['CertManagerImageArgsDict']]
+    job_annotations: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Optional additional annotations to add to the startupapicheck Job
+    """
+    node_selector: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    pod_annotations: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Optional additional annotations to add to the startupapicheck Pods
+    """
+    pod_labels: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Optional additional labels to add to the startupapicheck Pods
+    """
+    rbac: NotRequired[pulumi.Input['CertManagerStartupAPICheckRBACArgsDict']]
+    resources: NotRequired[pulumi.Input['pulumi_kubernetes.core.v1.ResourceRequirementsArgsDict']]
+    security_context: NotRequired[pulumi.Input['pulumi_kubernetes.core.v1.PodSecurityContextArgsDict']]
+    """
+    Pod Security Context to be set on the startupapicheck component Pod. ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
+    """
+    service_account: NotRequired[pulumi.Input['CertManagerServiceAccountArgsDict']]
+    timeout: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Timeout for 'kubectl check api' command
+    """
+    tolerations: NotRequired[pulumi.Input[Sequence[pulumi.Input['pulumi_kubernetes.core.v1.TolerationArgsDict']]]]
 
 @pulumi.input_type
 class CertManagerStartupAPICheckArgs:
@@ -1214,11 +1176,8 @@ class CertManagerStartupAPICheckArgs:
         pulumi.set(self, "tolerations", value)
 
 
-if not MYPY:
-    class CertManagerWebhookURLArgsDict(TypedDict):
-        host: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    CertManagerWebhookURLArgsDict: TypeAlias = Mapping[str, Any]
+class CertManagerWebhookURLArgsDict(TypedDict):
+    host: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class CertManagerWebhookURLArgs:
@@ -1237,84 +1196,81 @@ class CertManagerWebhookURLArgs:
         pulumi.set(self, "host", value)
 
 
-if not MYPY:
-    class CertManagerWebhookArgsDict(TypedDict):
-        affinity: NotRequired[pulumi.Input['pulumi_kubernetes.core.v1.AffinityArgsDict']]
-        container_security_context: NotRequired[pulumi.Input['pulumi_kubernetes.core.v1.SecurityContextArgsDict']]
-        """
-        Container Security Context to be set on the webhook component container. ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
-        """
-        deployment_annotations: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Optional additional annotations to add to the webhook Deployment
-        """
-        extra_args: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Optional additional arguments for webhook
-        """
-        host_network: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies if the webhook should be started in hostNetwork mode. Required for use in some managed kubernetes clusters (such as AWS EKS) with custom CNI (such as calico), because control-plane managed by AWS cannot communicate with pods' IP CIDR and admission webhooks are not working Since the default port for the webhook conflicts with kubelet on the host network, `webhook.securePort` should be changed to an available port if running in hostNetwork mode.
-        """
-        image: NotRequired[pulumi.Input['CertManagerImageArgsDict']]
-        liveness_probe: NotRequired[pulumi.Input['pulumi_kubernetes.core.v1.ProbeArgsDict']]
-        """
-        Liveness probe values. Ref: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-probes
-        """
-        load_balancer_ip: NotRequired[pulumi.Input[_builtins.str]]
-        mutating_webhook_configuration_annotations: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Optional additional annotations to add to the webhook MutatingWebhookConfiguration
-        """
-        node_selector: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        pod_annotations: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Optional additional annotations to add to the webhook Pods
-        """
-        pod_labels: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Optional additional labels to add to the Webhook Pods
-        """
-        readiness_probe: NotRequired[pulumi.Input['pulumi_kubernetes.core.v1.ProbeArgsDict']]
-        """
-        Readiness probe values. Ref: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-probes
-        """
-        replica_count: NotRequired[pulumi.Input[_builtins.int]]
-        resources: NotRequired[pulumi.Input['pulumi_kubernetes.core.v1.ResourceRequirementsArgsDict']]
-        secure_port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The port that the webhook should listen on for requests. In GKE private clusters, by default kubernetes apiservers are allowed to talk to the cluster nodes only on 443 and 10250. so configuring securePort: 10250, will work out of the box without needing to add firewall rules or requiring NET_BIND_SERVICE capabilities to bind port numbers <1000
-        """
-        security_context: NotRequired[pulumi.Input['pulumi_kubernetes.core.v1.PodSecurityContextArgsDict']]
-        """
-        Pod Security Context to be set on the webhook component Pod. ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
-        """
-        service_account: NotRequired[pulumi.Input['CertManagerServiceAccountArgsDict']]
-        service_annotations: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Optional additional annotations to add to the webhook service
-        """
-        service_labels: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Optional additional labels to add to the Webhook Service
-        """
-        service_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies how the service should be handled. Useful if you want to expose the webhook to outside of the cluster. In some cases, the control plane cannot reach internal services.
-        """
-        strategy: NotRequired[pulumi.Input['pulumi_kubernetes.apps.v1.DeploymentStrategyArgsDict']]
-        timeout_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        tolerations: NotRequired[pulumi.Input[Sequence[pulumi.Input['pulumi_kubernetes.core.v1.TolerationArgsDict']]]]
-        url: NotRequired[pulumi.Input['CertManagerWebhookURLArgsDict']]
-        """
-        Overrides the mutating webhook and validating webhook so they reach the webhook service using the `url` field instead of a service.
-        """
-        validating_webhook_configuration_annotations: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Optional additional annotations to add to the webhook ValidatingWebhookConfiguration
-        """
-elif False:
-    CertManagerWebhookArgsDict: TypeAlias = Mapping[str, Any]
+class CertManagerWebhookArgsDict(TypedDict):
+    affinity: NotRequired[pulumi.Input['pulumi_kubernetes.core.v1.AffinityArgsDict']]
+    container_security_context: NotRequired[pulumi.Input['pulumi_kubernetes.core.v1.SecurityContextArgsDict']]
+    """
+    Container Security Context to be set on the webhook component container. ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
+    """
+    deployment_annotations: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Optional additional annotations to add to the webhook Deployment
+    """
+    extra_args: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Optional additional arguments for webhook
+    """
+    host_network: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies if the webhook should be started in hostNetwork mode. Required for use in some managed kubernetes clusters (such as AWS EKS) with custom CNI (such as calico), because control-plane managed by AWS cannot communicate with pods' IP CIDR and admission webhooks are not working Since the default port for the webhook conflicts with kubelet on the host network, `webhook.securePort` should be changed to an available port if running in hostNetwork mode.
+    """
+    image: NotRequired[pulumi.Input['CertManagerImageArgsDict']]
+    liveness_probe: NotRequired[pulumi.Input['pulumi_kubernetes.core.v1.ProbeArgsDict']]
+    """
+    Liveness probe values. Ref: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-probes
+    """
+    load_balancer_ip: NotRequired[pulumi.Input[_builtins.str]]
+    mutating_webhook_configuration_annotations: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Optional additional annotations to add to the webhook MutatingWebhookConfiguration
+    """
+    node_selector: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    pod_annotations: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Optional additional annotations to add to the webhook Pods
+    """
+    pod_labels: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Optional additional labels to add to the Webhook Pods
+    """
+    readiness_probe: NotRequired[pulumi.Input['pulumi_kubernetes.core.v1.ProbeArgsDict']]
+    """
+    Readiness probe values. Ref: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-probes
+    """
+    replica_count: NotRequired[pulumi.Input[_builtins.int]]
+    resources: NotRequired[pulumi.Input['pulumi_kubernetes.core.v1.ResourceRequirementsArgsDict']]
+    secure_port: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The port that the webhook should listen on for requests. In GKE private clusters, by default kubernetes apiservers are allowed to talk to the cluster nodes only on 443 and 10250. so configuring securePort: 10250, will work out of the box without needing to add firewall rules or requiring NET_BIND_SERVICE capabilities to bind port numbers <1000
+    """
+    security_context: NotRequired[pulumi.Input['pulumi_kubernetes.core.v1.PodSecurityContextArgsDict']]
+    """
+    Pod Security Context to be set on the webhook component Pod. ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
+    """
+    service_account: NotRequired[pulumi.Input['CertManagerServiceAccountArgsDict']]
+    service_annotations: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Optional additional annotations to add to the webhook service
+    """
+    service_labels: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Optional additional labels to add to the Webhook Service
+    """
+    service_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies how the service should be handled. Useful if you want to expose the webhook to outside of the cluster. In some cases, the control plane cannot reach internal services.
+    """
+    strategy: NotRequired[pulumi.Input['pulumi_kubernetes.apps.v1.DeploymentStrategyArgsDict']]
+    timeout_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    tolerations: NotRequired[pulumi.Input[Sequence[pulumi.Input['pulumi_kubernetes.core.v1.TolerationArgsDict']]]]
+    url: NotRequired[pulumi.Input['CertManagerWebhookURLArgsDict']]
+    """
+    Overrides the mutating webhook and validating webhook so they reach the webhook service using the `url` field instead of a service.
+    """
+    validating_webhook_configuration_annotations: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Optional additional annotations to add to the webhook ValidatingWebhookConfiguration
+    """
 
 @pulumi.input_type
 class CertManagerWebhookArgs:
@@ -1699,147 +1655,144 @@ class CertManagerWebhookArgs:
         pulumi.set(self, "validating_webhook_configuration_annotations", value)
 
 
-if not MYPY:
-    class ReleaseArgsDict(TypedDict):
-        """
-        A Release is an instance of a chart running in a Kubernetes cluster.
-        A Chart is a Helm package. It contains all of the resource definitions necessary to run an application, tool, or service inside of a Kubernetes cluster.
-        Note - Helm Release is currently in BETA and may change. Use in production environment is discouraged.
-        """
-        atomic: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If set, installation process purges chart on fail. `skipAwait` will be disabled automatically if atomic is used.
-        """
-        chart: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Chart name to be installed. A path may be used.
-        """
-        cleanup_on_fail: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Allow deletion of new resources created in this upgrade when upgrade fails.
-        """
-        create_namespace: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Create the namespace if it does not exist.
-        """
-        dependency_update: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Run helm dependency update before installing the chart.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Add a custom description
-        """
-        devel: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Use chart development versions, too. Equivalent to version '>0.0.0-0'. If `version` is set, this is ignored.
-        """
-        disable_crd_hooks: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Prevent CRD hooks from, running, but run other hooks.  See helm install --no-crd-hook
-        """
-        disable_openapi_validation: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If set, the installation process will not validate rendered templates against the Kubernetes OpenAPI Schema
-        """
-        disable_webhooks: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Prevent hooks from running.
-        """
-        force_update: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Force resource update through delete/recreate if needed.
-        """
-        keyring: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Location of public keys used for verification. Used only if `verify` is true
-        """
-        lint: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Run helm lint when planning.
-        """
-        manifest: NotRequired[pulumi.Input[Mapping[str, Any]]]
-        """
-        The rendered manifests as JSON. Not yet supported.
-        """
-        max_history: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Limit the maximum number of revisions saved per release. Use 0 for no limit.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Release name.
-        """
-        namespace: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Namespace to install the release into.
-        """
-        postrender: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Postrender command to run.
-        """
-        recreate_pods: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Perform pods restart during upgrade/rollback.
-        """
-        render_subchart_notes: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If set, render subchart notes along with the parent.
-        """
-        replace: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Re-use the given name, even if that name is already used. This is unsafe in production
-        """
-        repository_opts: NotRequired[pulumi.Input['RepositoryOptsArgsDict']]
-        """
-        Specification defining the Helm chart repository to use.
-        """
-        reset_values: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        When upgrading, reset the values to the ones built into the chart.
-        """
-        resource_names: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]]
-        """
-        Names of resources created by the release grouped by "kind/version".
-        """
-        reuse_values: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        When upgrading, reuse the last release's values and merge in any overrides. If 'resetValues' is specified, this is ignored
-        """
-        skip_await: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        By default, the provider waits until all resources are in a ready state before marking the release as successful. Setting this to true will skip such await logic.
-        """
-        skip_crds: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If set, no CRDs will be installed. By default, CRDs are installed if not already present.
-        """
-        timeout: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Time in seconds to wait for any individual kubernetes operation.
-        """
-        value_yaml_files: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[pulumi.Asset, pulumi.Archive]]]]]
-        """
-        List of assets (raw yaml files). Content is read and merged with values. Not yet supported.
-        """
-        values: NotRequired[pulumi.Input[Mapping[str, Any]]]
-        """
-        Custom values set for the release.
-        """
-        verify: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Verify the package before installing it.
-        """
-        version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specify the exact chart version to install. If this is not specified, the latest version is installed.
-        """
-        wait_for_jobs: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Will wait until all Jobs have been completed before marking the release as successful. This is ignored if `skipAwait` is enabled.
-        """
-elif False:
-    ReleaseArgsDict: TypeAlias = Mapping[str, Any]
+class ReleaseArgsDict(TypedDict):
+    """
+    A Release is an instance of a chart running in a Kubernetes cluster.
+    A Chart is a Helm package. It contains all of the resource definitions necessary to run an application, tool, or service inside of a Kubernetes cluster.
+    Note - Helm Release is currently in BETA and may change. Use in production environment is discouraged.
+    """
+    atomic: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If set, installation process purges chart on fail. `skipAwait` will be disabled automatically if atomic is used.
+    """
+    chart: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Chart name to be installed. A path may be used.
+    """
+    cleanup_on_fail: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Allow deletion of new resources created in this upgrade when upgrade fails.
+    """
+    create_namespace: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Create the namespace if it does not exist.
+    """
+    dependency_update: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Run helm dependency update before installing the chart.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Add a custom description
+    """
+    devel: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Use chart development versions, too. Equivalent to version '>0.0.0-0'. If `version` is set, this is ignored.
+    """
+    disable_crd_hooks: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Prevent CRD hooks from, running, but run other hooks.  See helm install --no-crd-hook
+    """
+    disable_openapi_validation: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If set, the installation process will not validate rendered templates against the Kubernetes OpenAPI Schema
+    """
+    disable_webhooks: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Prevent hooks from running.
+    """
+    force_update: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Force resource update through delete/recreate if needed.
+    """
+    keyring: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Location of public keys used for verification. Used only if `verify` is true
+    """
+    lint: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Run helm lint when planning.
+    """
+    manifest: NotRequired[pulumi.Input[Mapping[str, Any]]]
+    """
+    The rendered manifests as JSON. Not yet supported.
+    """
+    max_history: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Limit the maximum number of revisions saved per release. Use 0 for no limit.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Release name.
+    """
+    namespace: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Namespace to install the release into.
+    """
+    postrender: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Postrender command to run.
+    """
+    recreate_pods: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Perform pods restart during upgrade/rollback.
+    """
+    render_subchart_notes: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If set, render subchart notes along with the parent.
+    """
+    replace: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Re-use the given name, even if that name is already used. This is unsafe in production
+    """
+    repository_opts: NotRequired[pulumi.Input['RepositoryOptsArgsDict']]
+    """
+    Specification defining the Helm chart repository to use.
+    """
+    reset_values: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    When upgrading, reset the values to the ones built into the chart.
+    """
+    resource_names: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]]
+    """
+    Names of resources created by the release grouped by "kind/version".
+    """
+    reuse_values: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    When upgrading, reuse the last release's values and merge in any overrides. If 'resetValues' is specified, this is ignored
+    """
+    skip_await: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    By default, the provider waits until all resources are in a ready state before marking the release as successful. Setting this to true will skip such await logic.
+    """
+    skip_crds: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If set, no CRDs will be installed. By default, CRDs are installed if not already present.
+    """
+    timeout: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Time in seconds to wait for any individual kubernetes operation.
+    """
+    value_yaml_files: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[pulumi.Asset, pulumi.Archive]]]]]
+    """
+    List of assets (raw yaml files). Content is read and merged with values. Not yet supported.
+    """
+    values: NotRequired[pulumi.Input[Mapping[str, Any]]]
+    """
+    Custom values set for the release.
+    """
+    verify: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Verify the package before installing it.
+    """
+    version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specify the exact chart version to install. If this is not specified, the latest version is installed.
+    """
+    wait_for_jobs: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Will wait until all Jobs have been completed before marking the release as successful. This is ignored if `skipAwait` is enabled.
+    """
 
 @pulumi.input_type
 class ReleaseArgs:
@@ -2379,37 +2332,34 @@ class ReleaseArgs:
         pulumi.set(self, "wait_for_jobs", value)
 
 
-if not MYPY:
-    class RepositoryOptsArgsDict(TypedDict):
-        """
-        Specification defining the Helm chart repository to use.
-        """
-        ca_file: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Repository's CA File
-        """
-        cert_file: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The repository's cert file
-        """
-        key_file: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The repository's cert key file
-        """
-        password: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Password for HTTP basic authentication
-        """
-        repo: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Repository where to locate the requested chart. If is a URL the chart is installed without installing the repository.
-        """
-        username: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Username for HTTP basic authentication
-        """
-elif False:
-    RepositoryOptsArgsDict: TypeAlias = Mapping[str, Any]
+class RepositoryOptsArgsDict(TypedDict):
+    """
+    Specification defining the Helm chart repository to use.
+    """
+    ca_file: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Repository's CA File
+    """
+    cert_file: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The repository's cert file
+    """
+    key_file: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The repository's cert key file
+    """
+    password: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Password for HTTP basic authentication
+    """
+    repo: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Repository where to locate the requested chart. If is a URL the chart is installed without installing the repository.
+    """
+    username: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Username for HTTP basic authentication
+    """
 
 @pulumi.input_type
 class RepositoryOptsArgs:
