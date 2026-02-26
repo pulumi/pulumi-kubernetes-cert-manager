@@ -56,15 +56,19 @@ jobs:
           PR_NUMBER: ${{ github.event.pull_request.number || github.event.issue.number }}
         run: gh pr checkout "$PR_NUMBER"
       - name: Setup mise
-        uses: blampe/mise-action@blampe/plugins
+        uses: jdx/mise-action@c1a019b8d2586943b4dbebc456323b516910e310
         env:
           MISE_FETCH_REMOTE_VERSIONS_TIMEOUT: 30s
         with:
-          version: 2026.1.1
+          version: 2026.2.15
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          plugin_install: https://github.com/pulumi/vfox-pulumi
           # only saving the cache in the prerequisites job
           cache_save: false
+      - name: Set git identity
+        run: |-
+          git config user.name "claude[bot]"
+          git config user.email "bot@pulumi.com"
+        shell: bash
       - name: Prepare local workspace
         # this runs install_plugins and upstream
         run: make prepare_local_workspace
@@ -116,7 +120,7 @@ jobs:
             }
           claude_args: |
             --max-turns 50
-            --allowedTools "Skill,Edit,MultiEdit,Write,Read,Glob,Grep,LS,Bash(upgrade-provider *),Bash(./scripts/upstream.sh *),Bash(git *),Bash(GIT_EDITOR=* git *),Bash(make *),Bash(gh *),Bash(mkdir *),Bash(go install *),Bash(ls *),Bash(test *),Bash(cat *),Bash(pwd),Bash(head *),Bash(tail *),Bash(tee *),Bash(rg *),Bash(grep *),Bash(sed *),Bash(awk *),Bash(find *)"
+            --allowedTools "Skill,Edit,MultiEdit,Write,Read,Glob,Grep,LS,Bash(upgrade-provider *),Bash(./scripts/upstream.sh *),Bash(git *),Bash(GIT_EDITOR=* git *),Bash(make *),Bash(gh *),Bash(mkdir *),Bash(go install *),Bash(go mod tidy *),Bash(ls *),Bash(test *),Bash(cat *),Bash(pwd),Bash(head *),Bash(tail *),Bash(tee *),Bash(rg *),Bash(grep *),Bash(sed *),Bash(awk *),Bash(find *)"
         # If the claude action fails you don't get any logs on what claude was doing
         # Uploading the artifact allows you to download the artifact from the UI
       - name: Upload Claude review output on failure
