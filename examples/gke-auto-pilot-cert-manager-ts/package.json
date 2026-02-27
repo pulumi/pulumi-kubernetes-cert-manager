@@ -5,7 +5,7 @@
     },
     "dependencies": {
         "@pulumi/kubernetes": "4.26.0",
-        "@pulumi/pulumi": "3.223.0",
+        "@pulumi/pulumi": "3.224.0",
         "@pulumi/kubernetes-cert-manager": "latest"
     }
 }
