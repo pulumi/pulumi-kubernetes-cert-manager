@@ -58,6 +58,7 @@ class CertManagerArgs:
                  webhook: Optional[pulumi.Input['CertManagerWebhookArgs']] = None):
         """
         The set of arguments for constructing a CertManager resource.
+
         :param pulumi.Input[_builtins.str] cluster_resource_namespace: Override the namespace used to store DNS provider credentials etc. for ClusterIssuer resources. By default, the same namespace as cert-manager is deployed within is used. This namespace will not be automatically created by the Helm chart.
         :param pulumi.Input['pulumi_kubernetes.core.v1.SecurityContextArgs'] container_security_context: Container Security Context to be set on the controller component container. ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] deployment_annotations: Optional additional annotations to add to the controller Deployment
@@ -523,6 +524,7 @@ class CertManager(pulumi.ComponentResource):
         """
         Automates the management and issuance of TLS certificates from various issuing sources within Kubernetes
 
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cluster_resource_namespace: Override the namespace used to store DNS provider credentials etc. for ClusterIssuer resources. By default, the same namespace as cert-manager is deployed within is used. This namespace will not be automatically created by the Helm chart.
@@ -545,6 +547,7 @@ class CertManager(pulumi.ComponentResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Automates the management and issuance of TLS certificates from various issuing sources within Kubernetes
+
 
         :param str resource_name: The name of the resource.
         :param CertManagerArgs args: The arguments to use to populate this resource's properties.
