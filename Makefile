@@ -162,6 +162,9 @@ sign-goreleaser-exe-%: bin/jsign-7.4.jar
 		else \
 			file=dist/build-provider-sign-windows_windows_${GORELEASER_ARCH}/pulumi-resource-kubernetes-cert-manager.exe; \
 			mv $${file} $${file}.unsigned; \
+			AZURE_CONFIG_DIR=$$(mktemp -d); \
+			export AZURE_CONFIG_DIR; \
+			trap 'rm -rf "$${AZURE_CONFIG_DIR}"' EXIT; \
 			az login --service-principal \
 				--username "${AZURE_SIGNING_CLIENT_ID}" \
 				--password "${AZURE_SIGNING_CLIENT_SECRET}" \
@@ -178,7 +181,6 @@ sign-goreleaser-exe-%: bin/jsign-7.4.jar
 				--alias "${AZURE_SIGNING_ACCOUNT_NAME}/${AZURE_SIGNING_CERT_PROFILE_NAME}" \
 				$${file}.unsigned; \
 			mv $${file}.unsigned $${file}; \
-			az logout; \
 		fi; \
 	fi
 
