@@ -185,10 +185,10 @@ github.com/pulumi/pulumi-go-helmbase v0.2.0 h1:QnIbS4RfiaUbmo3SnMF2pAExO2qoOb0aC
 github.com/pulumi/pulumi-go-helmbase v0.2.0/go.mod h1:hK0t8QYmBvB/qYoGayrVumSkkhCydrmSJ4DHtSjc3os=
 github.com/pulumi/pulumi-kubernetes/sdk/v4 v4.30.0 h1:nF0Y1F7fUGL6RYD9EAtHTdDbNFmDaA3xcEiRlvCDV5E=
 github.com/pulumi/pulumi-kubernetes/sdk/v4 v4.30.0/go.mod h1:BAWI9R3JEEGOp1JlXLPSZKwBGANSrPGUWKtMnS5w5qw=
-github.com/pulumi/pulumi/pkg/v3 v3.233.0 h1:uCRn7k+9owbrglbbyNIT9ZhkcoQJCj4wpReFP0oGuO0=
-github.com/pulumi/pulumi/pkg/v3 v3.233.0/go.mod h1:okqdxv8hg9peU4O116drNGXtMqtklAR/vnChw/X/hZg=
-github.com/pulumi/pulumi/sdk/v3 v3.233.0 h1:r2Z1GtGZUM7olY+vF5Av2nqH1iAvSMKx5DJZxDnqrcY=
-github.com/pulumi/pulumi/sdk/v3 v3.233.0/go.mod h1:Eu9QVad1cSPymhTboINPqK6WZMaW7I0NHQcWOmxLYek=
+github.com/pulumi/pulumi/pkg/v3 v3.234.0 h1:He2K8j1xVp1bclK5sY5p4DYQVW5LRyGqe82nhGVDEGU=
+github.com/pulumi/pulumi/pkg/v3 v3.234.0/go.mod h1:Sb+aUoBpEdSunEAr7Q9K7v3FYcwfaaR11hLnPnlJyXA=
+github.com/pulumi/pulumi/sdk/v3 v3.234.0 h1:PoXVM2lJoyqavwPQlVQC6KzhGKNOJpz9OFxyojm8RjA=
+github.com/pulumi/pulumi/sdk/v3 v3.234.0/go.mod h1:Eu9QVad1cSPymhTboINPqK6WZMaW7I0NHQcWOmxLYek=
 github.com/rivo/uniseg v0.4.7 h1:WUdvkW8uEhrYfLC4ZzdpI2ztxP1I582+49Oc5Mq64VQ=
 github.com/rivo/uniseg v0.4.7/go.mod h1:FN3SvrM+Zdj16jyLfmOkMNblXMcoc8DfTHruCPUcx88=
 github.com/rogpeppe/go-internal v1.14.1 h1:UQB4HGPB6osV0SQTLymcB4TgvyWu6ZyliaW0tI/otEQ=
