@@ -181,12 +181,12 @@ github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZb
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
 github.com/pulumi/appdash v0.0.0-20231130102222-75f619a67231 h1:vkHw5I/plNdTr435cARxCW6q9gc0S/Yxz7Mkd38pOb0=
 github.com/pulumi/appdash v0.0.0-20231130102222-75f619a67231/go.mod h1:murToZ2N9hNJzewjHBgfFdXhZKjY3z5cYC1VXk+lbFE=
-github.com/pulumi/esc v0.23.0 h1:5lOXO+5vvXOEQxXw7cTuYhjg9lVng23f9XNLWDR9EP4=
-github.com/pulumi/esc v0.23.0/go.mod h1:mkghIFn/TvN3XnP4jmCB4U5BG1I4UjGluARi39ckrCE=
+github.com/pulumi/esc v0.24.0 h1:sCtiB0qbyrlU1ZNzJn4dTLYiChl8xeCBFbHWl1YoXJg=
+github.com/pulumi/esc v0.24.0/go.mod h1:eCOOkcDJS6eooGwdE4/E0+pOsvUWG254+KBmPCFwJpA=
 github.com/pulumi/pulumi-kubernetes-cert-manager/sdk v0.2.0 h1:/3wU3KzpQJb2j15YdJA62RiN9NiAtnDkGVV7r10jKSs=
 github.com/pulumi/pulumi-kubernetes-cert-manager/sdk v0.2.0/go.mod h1:m4qgBAD6NcvAEoFEhdKi8jzZRV37ne+Mx+n7PWH/btY=
-github.com/pulumi/pulumi-kubernetes/sdk/v4 v4.30.0 h1:nF0Y1F7fUGL6RYD9EAtHTdDbNFmDaA3xcEiRlvCDV5E=
-github.com/pulumi/pulumi-kubernetes/sdk/v4 v4.30.0/go.mod h1:BAWI9R3JEEGOp1JlXLPSZKwBGANSrPGUWKtMnS5w5qw=
+github.com/pulumi/pulumi-kubernetes/sdk/v4 v4.31.0 h1:AEI9aXefZ0Bdd+UJykVCHLiRToJvDUrSIZ2Vca8hwac=
+github.com/pulumi/pulumi-kubernetes/sdk/v4 v4.31.0/go.mod h1:BAWI9R3JEEGOp1JlXLPSZKwBGANSrPGUWKtMnS5w5qw=
 github.com/pulumi/pulumi/sdk/v3 v3.226.0 h1:C24HWnoJSspq/KweSkAAAqWht/5pEkDanoxHe0al/dM=
 github.com/pulumi/pulumi/sdk/v3 v3.226.0/go.mod h1:l88lS+aGRt37BD/nyPMEOYw+RmjG5baSH7eLtmTKpy0=
 github.com/rivo/uniseg v0.4.7 h1:WUdvkW8uEhrYfLC4ZzdpI2ztxP1I582+49Oc5Mq64VQ=
