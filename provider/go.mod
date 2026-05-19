@@ -5,9 +5,9 @@ go 1.25.8
 require (
 	github.com/pulumi/pulumi-go-helmbase v0.2.0
 	github.com/pulumi/pulumi-kubernetes-cert-manager/sdk v0.2.0
-	github.com/pulumi/pulumi-kubernetes/sdk/v4 v4.31.0
-	github.com/pulumi/pulumi/pkg/v3 v3.241.0
-	github.com/pulumi/pulumi/sdk/v3 v3.241.0
+	github.com/pulumi/pulumi-kubernetes/sdk/v4 v4.31.1
+	github.com/pulumi/pulumi/pkg/v3 v3.242.0
+	github.com/pulumi/pulumi/sdk/v3 v3.242.0
 )
 
 replace github.com/pulumi/pulumi-kubernetes-cert-manager/sdk => ../sdk
@@ -115,8 +115,8 @@ require (
 	golang.org/x/term v0.43.0 // indirect
 	golang.org/x/text v0.37.0 // indirect
 	golang.org/x/tools v0.44.0 // indirect
-	google.golang.org/genproto/googleapis/api v0.0.0-20260511170946-3700d4141b60 // indirect
-	google.golang.org/genproto/googleapis/rpc v0.0.0-20260511170946-3700d4141b60 // indirect
+	google.golang.org/genproto/googleapis/api v0.0.0-20260519071638-aa98bba5eb94 // indirect
+	google.golang.org/genproto/googleapis/rpc v0.0.0-20260519071638-aa98bba5eb94 // indirect
 	google.golang.org/grpc v1.81.1 // indirect
 	google.golang.org/protobuf v1.36.11 // indirect
 	gopkg.in/warnings.v0 v0.1.2 // indirect
