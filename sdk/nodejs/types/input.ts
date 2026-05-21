@@ -8,268 +8,268 @@ import * as outputs from "../types/output";
 import * as pulumiKubernetes from "@pulumi/kubernetes";
 
 export interface CertManagerCaInjectorArgs {
-    affinity?: pulumi.Input<pulumiKubernetes.types.input.core.v1.Affinity>;
+    affinity?: pulumi.Input<pulumiKubernetes.types.input.core.v1.Affinity | undefined>;
     /**
      * Container Security Context to be set on the cainjector component container. ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
      */
-    containerSecurityContext?: pulumi.Input<pulumiKubernetes.types.input.core.v1.SecurityContext>;
+    containerSecurityContext?: pulumi.Input<pulumiKubernetes.types.input.core.v1.SecurityContext | undefined>;
     /**
      * Optional additional annotations to add to the cainjector Deployment
      */
-    deploymentAnnotations?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    deploymentAnnotations?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Optional additional arguments for cainjector
      */
-    extraArgs?: pulumi.Input<pulumi.Input<string>[]>;
-    image?: pulumi.Input<inputs.CertManagerImageArgs>;
-    nodeSelector?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    extraArgs?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    image?: pulumi.Input<inputs.CertManagerImageArgs | undefined>;
+    nodeSelector?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Optional additional annotations to add to the cainjector Pods
      */
-    podAnnotations?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    podAnnotations?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Optional additional labels to add to the Webhook Pods
      */
-    podLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    podLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Pod Security Context to be set on the cainjector component Pod. ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
      */
-    podSecurityContext?: pulumi.Input<pulumiKubernetes.types.input.core.v1.PodSecurityContext>;
-    replicaCount?: pulumi.Input<number>;
-    resources?: pulumi.Input<pulumiKubernetes.types.input.core.v1.ResourceRequirements>;
-    serviceAccount?: pulumi.Input<inputs.CertManagerServiceAccountArgs>;
-    strategy?: pulumi.Input<pulumiKubernetes.types.input.apps.v1.DeploymentStrategy>;
-    timeoutSeconds?: pulumi.Input<number>;
-    tolerations?: pulumi.Input<pulumi.Input<pulumiKubernetes.types.input.core.v1.Toleration>[]>;
+    podSecurityContext?: pulumi.Input<pulumiKubernetes.types.input.core.v1.PodSecurityContext | undefined>;
+    replicaCount?: pulumi.Input<number | undefined>;
+    resources?: pulumi.Input<pulumiKubernetes.types.input.core.v1.ResourceRequirements | undefined>;
+    serviceAccount?: pulumi.Input<inputs.CertManagerServiceAccountArgs | undefined>;
+    strategy?: pulumi.Input<pulumiKubernetes.types.input.apps.v1.DeploymentStrategy | undefined>;
+    timeoutSeconds?: pulumi.Input<number | undefined>;
+    tolerations?: pulumi.Input<pulumi.Input<pulumiKubernetes.types.input.core.v1.Toleration>[] | undefined>;
 }
 
 export interface CertManagerGlobalArgs {
     /**
      * Reference to one or more secrets to be used when pulling images. ref: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
      */
-    imagePullSecrets?: pulumi.Input<pulumi.Input<pulumiKubernetes.types.input.core.v1.LocalObjectReference>[]>;
-    leaderElection?: pulumi.Input<inputs.CertManagerGlobalLeaderElectionArgs>;
+    imagePullSecrets?: pulumi.Input<pulumi.Input<pulumiKubernetes.types.input.core.v1.LocalObjectReference>[] | undefined>;
+    leaderElection?: pulumi.Input<inputs.CertManagerGlobalLeaderElectionArgs | undefined>;
     /**
      * Set the verbosity of cert-manager. Range of 0 - 6 with 6 being the most verbose.
      */
-    logLevel?: pulumi.Input<number>;
-    podSecurityPolicy?: pulumi.Input<inputs.CertManagerGlobalPodSecurityPolicyArgs>;
+    logLevel?: pulumi.Input<number | undefined>;
+    podSecurityPolicy?: pulumi.Input<inputs.CertManagerGlobalPodSecurityPolicyArgs | undefined>;
     /**
      * Optional priority class to be used for the cert-manager pods.
      */
-    priorityClassName?: pulumi.Input<string>;
-    rbac?: pulumi.Input<inputs.CertManagerGlobalRbacArgs>;
+    priorityClassName?: pulumi.Input<string | undefined>;
+    rbac?: pulumi.Input<inputs.CertManagerGlobalRbacArgs | undefined>;
 }
 
 export interface CertManagerGlobalLeaderElectionArgs {
     /**
      * The duration that non-leader candidates will wait after observing a leadership renewal until attempting to acquire leadership of a led but unrenewed leader slot. This is effectively the maximum duration that a leader can be stopped before it is replaced by another candidate.
      */
-    leaseDuration?: pulumi.Input<string>;
+    leaseDuration?: pulumi.Input<string | undefined>;
     /**
      * Override the namespace used to store the ConfigMap for leader election.
      */
-    namespace?: pulumi.Input<string>;
+    namespace?: pulumi.Input<string | undefined>;
     /**
      * The interval between attempts by the acting master to renew a leadership slot before it stops leading. This must be less than or equal to the lease duration.
      */
-    renewDeadline?: pulumi.Input<string>;
+    renewDeadline?: pulumi.Input<string | undefined>;
 }
 
 export interface CertManagerGlobalPodSecurityPolicyArgs {
-    enabled?: pulumi.Input<boolean>;
-    useAppArmor?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
+    useAppArmor?: pulumi.Input<boolean | undefined>;
 }
 
 export interface CertManagerGlobalRbacArgs {
-    create?: pulumi.Input<boolean>;
+    create?: pulumi.Input<boolean | undefined>;
 }
 
 export interface CertManagerImageArgs {
     /**
      * Setting a digest will override any tag, e.g. `digest: sha256:0e072dddd1f7f8fc8909a2ca6f65e76c5f0d2fcfb8be47935ae3457e8bbceb20`.
      */
-    digest?: pulumi.Input<string>;
-    pullPolicy?: pulumi.Input<string>;
+    digest?: pulumi.Input<string | undefined>;
+    pullPolicy?: pulumi.Input<string | undefined>;
     /**
      * You can manage a registry with `registry: quay.io`.
      */
-    registry?: pulumi.Input<string>;
+    registry?: pulumi.Input<string | undefined>;
     /**
      * You can manage a registry with `repository: jetstack/cert-manager-controller`.
      */
-    repository?: pulumi.Input<string>;
+    repository?: pulumi.Input<string | undefined>;
     /**
      * Override the image tag to deploy by setting this variable. If no value is set, the chart's appVersion will be used.
      */
-    tag?: pulumi.Input<string>;
+    tag?: pulumi.Input<string | undefined>;
 }
 
 export interface CertManagerIngressShimArgs {
-    defaultIssuerGroup?: pulumi.Input<string>;
-    defaultIssuerKind?: pulumi.Input<string>;
-    defaultIssuerName?: pulumi.Input<string>;
+    defaultIssuerGroup?: pulumi.Input<string | undefined>;
+    defaultIssuerKind?: pulumi.Input<string | undefined>;
+    defaultIssuerName?: pulumi.Input<string | undefined>;
 }
 
 export interface CertManagerPrometheusArgs {
-    enabled?: pulumi.Input<boolean>;
-    serviceMonitor?: pulumi.Input<inputs.CertManagerPrometheusServiceMonitorArgs>;
+    enabled?: pulumi.Input<boolean | undefined>;
+    serviceMonitor?: pulumi.Input<inputs.CertManagerPrometheusServiceMonitorArgs | undefined>;
 }
 
 export interface CertManagerPrometheusServiceMonitorArgs {
-    enabled?: pulumi.Input<boolean>;
-    interval?: pulumi.Input<string>;
-    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    path?: pulumi.Input<string>;
-    prometheusInstance?: pulumi.Input<string>;
-    string?: pulumi.Input<string>;
-    targetPort?: pulumi.Input<number>;
+    enabled?: pulumi.Input<boolean | undefined>;
+    interval?: pulumi.Input<string | undefined>;
+    labels?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    path?: pulumi.Input<string | undefined>;
+    prometheusInstance?: pulumi.Input<string | undefined>;
+    string?: pulumi.Input<string | undefined>;
+    targetPort?: pulumi.Input<number | undefined>;
 }
 
 export interface CertManagerServiceAccountArgs {
     /**
      * Optional additional annotations to add to the controller's ServiceAccount.
      */
-    annotations?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    annotations?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Automount API credentials for a Service Account.
      */
-    automountServiceAccountToken?: pulumi.Input<boolean>;
+    automountServiceAccountToken?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies whether a service account should be created
      */
-    create?: pulumi.Input<boolean>;
+    create?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the service account to use. If not set and create is true, a name is generated using the fullname template.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }
 
 export interface CertManagerStartupAPICheckArgs {
-    affinity?: pulumi.Input<pulumiKubernetes.types.input.core.v1.Affinity>;
+    affinity?: pulumi.Input<pulumiKubernetes.types.input.core.v1.Affinity | undefined>;
     /**
      * Job backoffLimit
      */
-    backoffLimit?: pulumi.Input<number>;
-    enabled?: pulumi.Input<boolean>;
+    backoffLimit?: pulumi.Input<number | undefined>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * Optional additional arguments for startupapicheck
      */
-    extraArgs?: pulumi.Input<pulumi.Input<string>[]>;
-    image?: pulumi.Input<inputs.CertManagerImageArgs>;
+    extraArgs?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    image?: pulumi.Input<inputs.CertManagerImageArgs | undefined>;
     /**
      * Optional additional annotations to add to the startupapicheck Job
      */
-    jobAnnotations?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    nodeSelector?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    jobAnnotations?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    nodeSelector?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Optional additional annotations to add to the startupapicheck Pods
      */
-    podAnnotations?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    podAnnotations?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Optional additional labels to add to the startupapicheck Pods
      */
-    podLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    rbac?: pulumi.Input<inputs.CertManagerStartupAPICheckRBACArgs>;
-    resources?: pulumi.Input<pulumiKubernetes.types.input.core.v1.ResourceRequirements>;
+    podLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    rbac?: pulumi.Input<inputs.CertManagerStartupAPICheckRBACArgs | undefined>;
+    resources?: pulumi.Input<pulumiKubernetes.types.input.core.v1.ResourceRequirements | undefined>;
     /**
      * Pod Security Context to be set on the startupapicheck component Pod. ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
      */
-    securityContext?: pulumi.Input<pulumiKubernetes.types.input.core.v1.PodSecurityContext>;
-    serviceAccount?: pulumi.Input<inputs.CertManagerServiceAccountArgs>;
+    securityContext?: pulumi.Input<pulumiKubernetes.types.input.core.v1.PodSecurityContext | undefined>;
+    serviceAccount?: pulumi.Input<inputs.CertManagerServiceAccountArgs | undefined>;
     /**
      * Timeout for 'kubectl check api' command
      */
-    timeout?: pulumi.Input<string>;
-    tolerations?: pulumi.Input<pulumi.Input<pulumiKubernetes.types.input.core.v1.Toleration>[]>;
+    timeout?: pulumi.Input<string | undefined>;
+    tolerations?: pulumi.Input<pulumi.Input<pulumiKubernetes.types.input.core.v1.Toleration>[] | undefined>;
 }
 
 export interface CertManagerStartupAPICheckRBACArgs {
     /**
      * annotations for the startup API Check job RBAC and PSP resources
      */
-    annotations?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    annotations?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 export interface CertManagerWebhookArgs {
-    affinity?: pulumi.Input<pulumiKubernetes.types.input.core.v1.Affinity>;
+    affinity?: pulumi.Input<pulumiKubernetes.types.input.core.v1.Affinity | undefined>;
     /**
      * Container Security Context to be set on the webhook component container. ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
      */
-    containerSecurityContext?: pulumi.Input<pulumiKubernetes.types.input.core.v1.SecurityContext>;
+    containerSecurityContext?: pulumi.Input<pulumiKubernetes.types.input.core.v1.SecurityContext | undefined>;
     /**
      * Optional additional annotations to add to the webhook Deployment
      */
-    deploymentAnnotations?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    deploymentAnnotations?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Optional additional arguments for webhook
      */
-    extraArgs?: pulumi.Input<pulumi.Input<string>[]>;
+    extraArgs?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies if the webhook should be started in hostNetwork mode. Required for use in some managed kubernetes clusters (such as AWS EKS) with custom CNI (such as calico), because control-plane managed by AWS cannot communicate with pods' IP CIDR and admission webhooks are not working Since the default port for the webhook conflicts with kubelet on the host network, `webhook.securePort` should be changed to an available port if running in hostNetwork mode.
      */
-    hostNetwork?: pulumi.Input<boolean>;
-    image?: pulumi.Input<inputs.CertManagerImageArgs>;
+    hostNetwork?: pulumi.Input<boolean | undefined>;
+    image?: pulumi.Input<inputs.CertManagerImageArgs | undefined>;
     /**
      * Liveness probe values. Ref: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-probes
      */
-    livenessProbe?: pulumi.Input<pulumiKubernetes.types.input.core.v1.Probe>;
-    loadBalancerIP?: pulumi.Input<string>;
+    livenessProbe?: pulumi.Input<pulumiKubernetes.types.input.core.v1.Probe | undefined>;
+    loadBalancerIP?: pulumi.Input<string | undefined>;
     /**
      * Optional additional annotations to add to the webhook MutatingWebhookConfiguration
      */
-    mutatingWebhookConfigurationAnnotations?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    nodeSelector?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    mutatingWebhookConfigurationAnnotations?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    nodeSelector?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Optional additional annotations to add to the webhook Pods
      */
-    podAnnotations?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    podAnnotations?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Optional additional labels to add to the Webhook Pods
      */
-    podLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    podLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Readiness probe values. Ref: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-probes
      */
-    readinessProbe?: pulumi.Input<pulumiKubernetes.types.input.core.v1.Probe>;
-    replicaCount?: pulumi.Input<number>;
-    resources?: pulumi.Input<pulumiKubernetes.types.input.core.v1.ResourceRequirements>;
+    readinessProbe?: pulumi.Input<pulumiKubernetes.types.input.core.v1.Probe | undefined>;
+    replicaCount?: pulumi.Input<number | undefined>;
+    resources?: pulumi.Input<pulumiKubernetes.types.input.core.v1.ResourceRequirements | undefined>;
     /**
      * The port that the webhook should listen on for requests. In GKE private clusters, by default kubernetes apiservers are allowed to talk to the cluster nodes only on 443 and 10250. so configuring securePort: 10250, will work out of the box without needing to add firewall rules or requiring NET_BIND_SERVICE capabilities to bind port numbers <1000
      */
-    securePort?: pulumi.Input<number>;
+    securePort?: pulumi.Input<number | undefined>;
     /**
      * Pod Security Context to be set on the webhook component Pod. ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
      */
-    securityContext?: pulumi.Input<pulumiKubernetes.types.input.core.v1.PodSecurityContext>;
-    serviceAccount?: pulumi.Input<inputs.CertManagerServiceAccountArgs>;
+    securityContext?: pulumi.Input<pulumiKubernetes.types.input.core.v1.PodSecurityContext | undefined>;
+    serviceAccount?: pulumi.Input<inputs.CertManagerServiceAccountArgs | undefined>;
     /**
      * Optional additional annotations to add to the webhook service
      */
-    serviceAnnotations?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    serviceAnnotations?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Optional additional labels to add to the Webhook Service
      */
-    serviceLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    serviceLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies how the service should be handled. Useful if you want to expose the webhook to outside of the cluster. In some cases, the control plane cannot reach internal services.
      */
-    serviceType?: pulumi.Input<string>;
-    strategy?: pulumi.Input<pulumiKubernetes.types.input.apps.v1.DeploymentStrategy>;
-    timeoutSeconds?: pulumi.Input<number>;
-    tolerations?: pulumi.Input<pulumi.Input<pulumiKubernetes.types.input.core.v1.Toleration>[]>;
+    serviceType?: pulumi.Input<string | undefined>;
+    strategy?: pulumi.Input<pulumiKubernetes.types.input.apps.v1.DeploymentStrategy | undefined>;
+    timeoutSeconds?: pulumi.Input<number | undefined>;
+    tolerations?: pulumi.Input<pulumi.Input<pulumiKubernetes.types.input.core.v1.Toleration>[] | undefined>;
     /**
      * Overrides the mutating webhook and validating webhook so they reach the webhook service using the `url` field instead of a service.
      */
-    url?: pulumi.Input<inputs.CertManagerWebhookURLArgs>;
+    url?: pulumi.Input<inputs.CertManagerWebhookURLArgs | undefined>;
     /**
      * Optional additional annotations to add to the webhook ValidatingWebhookConfiguration
      */
-    validatingWebhookConfigurationAnnotations?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    validatingWebhookConfigurationAnnotations?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
 
 export interface CertManagerWebhookURLArgs {
-    host?: pulumi.Input<string>;
+    host?: pulumi.Input<string | undefined>;
 }
 
 /**
@@ -281,135 +281,135 @@ export interface ReleaseArgs {
     /**
      * If set, installation process purges chart on fail. `skipAwait` will be disabled automatically if atomic is used.
      */
-    atomic?: pulumi.Input<boolean>;
+    atomic?: pulumi.Input<boolean | undefined>;
     /**
      * Chart name to be installed. A path may be used.
      */
-    chart?: pulumi.Input<string>;
+    chart?: pulumi.Input<string | undefined>;
     /**
      * Allow deletion of new resources created in this upgrade when upgrade fails.
      */
-    cleanupOnFail?: pulumi.Input<boolean>;
+    cleanupOnFail?: pulumi.Input<boolean | undefined>;
     /**
      * Create the namespace if it does not exist.
      */
-    createNamespace?: pulumi.Input<boolean>;
+    createNamespace?: pulumi.Input<boolean | undefined>;
     /**
      * Run helm dependency update before installing the chart.
      */
-    dependencyUpdate?: pulumi.Input<boolean>;
+    dependencyUpdate?: pulumi.Input<boolean | undefined>;
     /**
      * Add a custom description
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Use chart development versions, too. Equivalent to version '>0.0.0-0'. If `version` is set, this is ignored.
      */
-    devel?: pulumi.Input<boolean>;
+    devel?: pulumi.Input<boolean | undefined>;
     /**
      * Prevent CRD hooks from, running, but run other hooks.  See helm install --no-crd-hook
      */
-    disableCRDHooks?: pulumi.Input<boolean>;
+    disableCRDHooks?: pulumi.Input<boolean | undefined>;
     /**
      * If set, the installation process will not validate rendered templates against the Kubernetes OpenAPI Schema
      */
-    disableOpenapiValidation?: pulumi.Input<boolean>;
+    disableOpenapiValidation?: pulumi.Input<boolean | undefined>;
     /**
      * Prevent hooks from running.
      */
-    disableWebhooks?: pulumi.Input<boolean>;
+    disableWebhooks?: pulumi.Input<boolean | undefined>;
     /**
      * Force resource update through delete/recreate if needed.
      */
-    forceUpdate?: pulumi.Input<boolean>;
+    forceUpdate?: pulumi.Input<boolean | undefined>;
     /**
      * Location of public keys used for verification. Used only if `verify` is true
      */
-    keyring?: pulumi.Input<string>;
+    keyring?: pulumi.Input<string | undefined>;
     /**
      * Run helm lint when planning.
      */
-    lint?: pulumi.Input<boolean>;
+    lint?: pulumi.Input<boolean | undefined>;
     /**
      * The rendered manifests as JSON. Not yet supported.
      */
-    manifest?: pulumi.Input<{[key: string]: any}>;
+    manifest?: pulumi.Input<{[key: string]: any} | undefined>;
     /**
      * Limit the maximum number of revisions saved per release. Use 0 for no limit.
      */
-    maxHistory?: pulumi.Input<number>;
+    maxHistory?: pulumi.Input<number | undefined>;
     /**
      * Release name.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Namespace to install the release into.
      */
-    namespace?: pulumi.Input<string>;
+    namespace?: pulumi.Input<string | undefined>;
     /**
      * Postrender command to run.
      */
-    postrender?: pulumi.Input<string>;
+    postrender?: pulumi.Input<string | undefined>;
     /**
      * Perform pods restart during upgrade/rollback.
      */
-    recreatePods?: pulumi.Input<boolean>;
+    recreatePods?: pulumi.Input<boolean | undefined>;
     /**
      * If set, render subchart notes along with the parent.
      */
-    renderSubchartNotes?: pulumi.Input<boolean>;
+    renderSubchartNotes?: pulumi.Input<boolean | undefined>;
     /**
      * Re-use the given name, even if that name is already used. This is unsafe in production
      */
-    replace?: pulumi.Input<boolean>;
+    replace?: pulumi.Input<boolean | undefined>;
     /**
      * Specification defining the Helm chart repository to use.
      */
-    repositoryOpts?: pulumi.Input<inputs.RepositoryOptsArgs>;
+    repositoryOpts?: pulumi.Input<inputs.RepositoryOptsArgs | undefined>;
     /**
      * When upgrading, reset the values to the ones built into the chart.
      */
-    resetValues?: pulumi.Input<boolean>;
+    resetValues?: pulumi.Input<boolean | undefined>;
     /**
      * Names of resources created by the release grouped by "kind/version".
      */
-    resourceNames?: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<string>[]>}>;
+    resourceNames?: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<string>[]>} | undefined>;
     /**
      * When upgrading, reuse the last release's values and merge in any overrides. If 'resetValues' is specified, this is ignored
      */
-    reuseValues?: pulumi.Input<boolean>;
+    reuseValues?: pulumi.Input<boolean | undefined>;
     /**
      * By default, the provider waits until all resources are in a ready state before marking the release as successful. Setting this to true will skip such await logic.
      */
-    skipAwait?: pulumi.Input<boolean>;
+    skipAwait?: pulumi.Input<boolean | undefined>;
     /**
      * If set, no CRDs will be installed. By default, CRDs are installed if not already present.
      */
-    skipCrds?: pulumi.Input<boolean>;
+    skipCrds?: pulumi.Input<boolean | undefined>;
     /**
      * Time in seconds to wait for any individual kubernetes operation.
      */
-    timeout?: pulumi.Input<number>;
+    timeout?: pulumi.Input<number | undefined>;
     /**
      * List of assets (raw yaml files). Content is read and merged with values. Not yet supported.
      */
-    valueYamlFiles?: pulumi.Input<pulumi.Input<pulumi.asset.Asset | pulumi.asset.Archive>[]>;
+    valueYamlFiles?: pulumi.Input<pulumi.Input<pulumi.asset.Asset | pulumi.asset.Archive>[] | undefined>;
     /**
      * Custom values set for the release.
      */
-    values?: pulumi.Input<{[key: string]: any}>;
+    values?: pulumi.Input<{[key: string]: any} | undefined>;
     /**
      * Verify the package before installing it.
      */
-    verify?: pulumi.Input<boolean>;
+    verify?: pulumi.Input<boolean | undefined>;
     /**
      * Specify the exact chart version to install. If this is not specified, the latest version is installed.
      */
-    version?: pulumi.Input<string>;
+    version?: pulumi.Input<string | undefined>;
     /**
      * Will wait until all Jobs have been completed before marking the release as successful. This is ignored if `skipAwait` is enabled.
      */
-    waitForJobs?: pulumi.Input<boolean>;
+    waitForJobs?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -419,25 +419,25 @@ export interface RepositoryOptsArgs {
     /**
      * The Repository's CA File
      */
-    caFile?: pulumi.Input<string>;
+    caFile?: pulumi.Input<string | undefined>;
     /**
      * The repository's cert file
      */
-    certFile?: pulumi.Input<string>;
+    certFile?: pulumi.Input<string | undefined>;
     /**
      * The repository's cert key file
      */
-    keyFile?: pulumi.Input<string>;
+    keyFile?: pulumi.Input<string | undefined>;
     /**
      * Password for HTTP basic authentication
      */
-    password?: pulumi.Input<string>;
+    password?: pulumi.Input<string | undefined>;
     /**
      * Repository where to locate the requested chart. If is a URL the chart is installed without installing the repository.
      */
-    repo?: pulumi.Input<string>;
+    repo?: pulumi.Input<string | undefined>;
     /**
      * Username for HTTP basic authentication
      */
-    username?: pulumi.Input<string>;
+    username?: pulumi.Input<string | undefined>;
 }

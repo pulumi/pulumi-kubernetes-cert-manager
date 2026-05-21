@@ -89,71 +89,71 @@ export class CertManager extends pulumi.ComponentResource {
  * The set of arguments for constructing a CertManager resource.
  */
 export interface CertManagerArgs {
-    affinity?: pulumi.Input<pulumiKubernetes.types.input.core.v1.Affinity>;
-    cainjector?: pulumi.Input<inputs.CertManagerCaInjectorArgs>;
+    affinity?: pulumi.Input<pulumiKubernetes.types.input.core.v1.Affinity | undefined>;
+    cainjector?: pulumi.Input<inputs.CertManagerCaInjectorArgs | undefined>;
     /**
      * Override the namespace used to store DNS provider credentials etc. for ClusterIssuer resources. By default, the same namespace as cert-manager is deployed within is used. This namespace will not be automatically created by the Helm chart.
      */
-    clusterResourceNamespace?: pulumi.Input<string>;
+    clusterResourceNamespace?: pulumi.Input<string | undefined>;
     /**
      * Container Security Context to be set on the controller component container. ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
      */
-    containerSecurityContext?: pulumi.Input<pulumiKubernetes.types.input.core.v1.SecurityContext>;
+    containerSecurityContext?: pulumi.Input<pulumiKubernetes.types.input.core.v1.SecurityContext | undefined>;
     /**
      * Optional additional annotations to add to the controller Deployment
      */
-    deploymentAnnotations?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    deploymentAnnotations?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Optional additional arguments.
      */
-    extraArgs?: pulumi.Input<pulumi.Input<string>[]>;
-    extraEnv?: pulumi.Input<pulumi.Input<pulumiKubernetes.types.input.core.v1.EnvVar>[]>;
-    extraVolumeMounts?: pulumi.Input<pulumi.Input<pulumiKubernetes.types.input.core.v1.VolumeMount>[]>;
-    extraVolumes?: pulumi.Input<pulumi.Input<pulumiKubernetes.types.input.core.v1.Volume>[]>;
+    extraArgs?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    extraEnv?: pulumi.Input<pulumi.Input<pulumiKubernetes.types.input.core.v1.EnvVar>[] | undefined>;
+    extraVolumeMounts?: pulumi.Input<pulumi.Input<pulumiKubernetes.types.input.core.v1.VolumeMount>[] | undefined>;
+    extraVolumes?: pulumi.Input<pulumi.Input<pulumiKubernetes.types.input.core.v1.Volume>[] | undefined>;
     /**
      * Comma separated list of feature gates that should be enabled on the controller pod.
      */
-    featureGates?: pulumi.Input<string>;
-    global?: pulumi.Input<inputs.CertManagerGlobalArgs>;
+    featureGates?: pulumi.Input<string | undefined>;
+    global?: pulumi.Input<inputs.CertManagerGlobalArgs | undefined>;
     /**
      * HelmOptions is an escape hatch that lets the end user control any aspect of the Helm deployment. This exposes the entirety of the underlying Helm Release component args.
      */
     helmOptions?: inputs.ReleaseArgs;
-    http_proxy?: pulumi.Input<string>;
-    https_proxy?: pulumi.Input<string>;
-    image?: pulumi.Input<inputs.CertManagerImageArgs>;
-    ingressShim?: pulumi.Input<inputs.CertManagerIngressShimArgs>;
-    installCRDs?: pulumi.Input<boolean>;
-    no_proxy?: pulumi.Input<pulumi.Input<string>[]>;
-    nodeSelector?: pulumi.Input<pulumiKubernetes.types.input.core.v1.NodeSelector>;
+    http_proxy?: pulumi.Input<string | undefined>;
+    https_proxy?: pulumi.Input<string | undefined>;
+    image?: pulumi.Input<inputs.CertManagerImageArgs | undefined>;
+    ingressShim?: pulumi.Input<inputs.CertManagerIngressShimArgs | undefined>;
+    installCRDs?: pulumi.Input<boolean | undefined>;
+    no_proxy?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    nodeSelector?: pulumi.Input<pulumiKubernetes.types.input.core.v1.NodeSelector | undefined>;
     /**
      * Optional additional annotations to add to the controller Pods
      */
-    podAnnotations?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    podDnsConfig?: pulumi.Input<pulumiKubernetes.types.input.core.v1.PodDNSConfig>;
+    podAnnotations?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    podDnsConfig?: pulumi.Input<pulumiKubernetes.types.input.core.v1.PodDNSConfig | undefined>;
     /**
      * Optional DNS settings, useful if you have a public and private DNS zone for the same domain on Route 53. What follows is an example of ensuring cert-manager can access an ingress or DNS TXT records at all times. NOTE: This requires Kubernetes 1.10 or `CustomPodDNS` feature gate enabled for the cluster to work.
      */
-    podDnsPolicy?: pulumi.Input<string>;
-    podLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    prometheus?: pulumi.Input<inputs.CertManagerPrometheusArgs>;
-    replicaCount?: pulumi.Input<number>;
-    resources?: pulumi.Input<pulumiKubernetes.types.input.core.v1.ResourceRequirements>;
+    podDnsPolicy?: pulumi.Input<string | undefined>;
+    podLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    prometheus?: pulumi.Input<inputs.CertManagerPrometheusArgs | undefined>;
+    replicaCount?: pulumi.Input<number | undefined>;
+    resources?: pulumi.Input<pulumiKubernetes.types.input.core.v1.ResourceRequirements | undefined>;
     /**
      * Pod Security Context. ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
      */
-    securityContext?: pulumi.Input<pulumiKubernetes.types.input.core.v1.PodSecurityContext>;
-    serviceAccount?: pulumi.Input<inputs.CertManagerServiceAccountArgs>;
+    securityContext?: pulumi.Input<pulumiKubernetes.types.input.core.v1.PodSecurityContext | undefined>;
+    serviceAccount?: pulumi.Input<inputs.CertManagerServiceAccountArgs | undefined>;
     /**
      * Optional additional annotations to add to the controller service
      */
-    serviceAnnotations?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    serviceAnnotations?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Optional additional labels to add to the controller Service
      */
-    serviceLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    startupapicheck?: pulumi.Input<inputs.CertManagerStartupAPICheckArgs>;
-    strategy?: pulumi.Input<pulumiKubernetes.types.input.apps.v1.DeploymentStrategy>;
-    tolerations?: pulumi.Input<pulumi.Input<pulumiKubernetes.types.input.core.v1.Toleration>[]>;
-    webhook?: pulumi.Input<inputs.CertManagerWebhookArgs>;
+    serviceLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    startupapicheck?: pulumi.Input<inputs.CertManagerStartupAPICheckArgs | undefined>;
+    strategy?: pulumi.Input<pulumiKubernetes.types.input.apps.v1.DeploymentStrategy | undefined>;
+    tolerations?: pulumi.Input<pulumi.Input<pulumiKubernetes.types.input.core.v1.Toleration>[] | undefined>;
+    webhook?: pulumi.Input<inputs.CertManagerWebhookArgs | undefined>;
 }
