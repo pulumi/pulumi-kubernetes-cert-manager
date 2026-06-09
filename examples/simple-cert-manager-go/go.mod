@@ -4,7 +4,7 @@ go 1.25.8
 
 require (
 	github.com/pulumi/pulumi-kubernetes-cert-manager/sdk v0.2.0
-	github.com/pulumi/pulumi-kubernetes/sdk/v4 v4.31.1
+	github.com/pulumi/pulumi-kubernetes/sdk/v4 v4.32.0
 	github.com/pulumi/pulumi/sdk/v3 v3.243.0
 )
 
