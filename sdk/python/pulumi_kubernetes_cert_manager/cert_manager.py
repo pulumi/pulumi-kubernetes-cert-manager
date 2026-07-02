@@ -22,42 +22,43 @@ __all__ = ['CertManagerArgs', 'CertManager']
 @pulumi.input_type
 class CertManagerArgs:
     def __init__(__self__, *,
-                 affinity: Optional[pulumi.Input['pulumi_kubernetes.core.v1.AffinityArgs']] = None,
-                 cainjector: Optional[pulumi.Input['CertManagerCaInjectorArgs']] = None,
-                 cluster_resource_namespace: Optional[pulumi.Input[_builtins.str]] = None,
-                 container_security_context: Optional[pulumi.Input['pulumi_kubernetes.core.v1.SecurityContextArgs']] = None,
-                 deployment_annotations: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 extra_args: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 extra_env: Optional[pulumi.Input[Sequence[pulumi.Input['pulumi_kubernetes.core.v1.EnvVarArgs']]]] = None,
-                 extra_volume_mounts: Optional[pulumi.Input[Sequence[pulumi.Input['pulumi_kubernetes.core.v1.VolumeMountArgs']]]] = None,
-                 extra_volumes: Optional[pulumi.Input[Sequence[pulumi.Input['pulumi_kubernetes.core.v1.VolumeArgs']]]] = None,
-                 feature_gates: Optional[pulumi.Input[_builtins.str]] = None,
-                 global_: Optional[pulumi.Input['CertManagerGlobalArgs']] = None,
+                 affinity: pulumi.Input[Optional['pulumi_kubernetes.core.v1.AffinityArgs']] = None,
+                 cainjector: pulumi.Input[Optional['CertManagerCaInjectorArgs']] = None,
+                 cluster_resource_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+                 container_security_context: pulumi.Input[Optional['pulumi_kubernetes.core.v1.SecurityContextArgs']] = None,
+                 deployment_annotations: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 extra_args: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 extra_env: pulumi.Input[Optional[Sequence[pulumi.Input['pulumi_kubernetes.core.v1.EnvVarArgs']]]] = None,
+                 extra_volume_mounts: pulumi.Input[Optional[Sequence[pulumi.Input['pulumi_kubernetes.core.v1.VolumeMountArgs']]]] = None,
+                 extra_volumes: pulumi.Input[Optional[Sequence[pulumi.Input['pulumi_kubernetes.core.v1.VolumeArgs']]]] = None,
+                 feature_gates: pulumi.Input[Optional[_builtins.str]] = None,
+                 global_: pulumi.Input[Optional['CertManagerGlobalArgs']] = None,
                  helm_options: Optional['ReleaseArgs'] = None,
-                 http_proxy: Optional[pulumi.Input[_builtins.str]] = None,
-                 https_proxy: Optional[pulumi.Input[_builtins.str]] = None,
-                 image: Optional[pulumi.Input['CertManagerImageArgs']] = None,
-                 ingress_shim: Optional[pulumi.Input['CertManagerIngressShimArgs']] = None,
-                 install_crds: Optional[pulumi.Input[_builtins.bool]] = None,
-                 no_proxy: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 node_selector: Optional[pulumi.Input['pulumi_kubernetes.core.v1.NodeSelectorArgs']] = None,
-                 pod_annotations: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 pod_dns_config: Optional[pulumi.Input['pulumi_kubernetes.core.v1.PodDNSConfigArgs']] = None,
-                 pod_dns_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 pod_labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 prometheus: Optional[pulumi.Input['CertManagerPrometheusArgs']] = None,
-                 replica_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 resources: Optional[pulumi.Input['pulumi_kubernetes.core.v1.ResourceRequirementsArgs']] = None,
-                 security_context: Optional[pulumi.Input['pulumi_kubernetes.core.v1.PodSecurityContextArgs']] = None,
-                 service_account: Optional[pulumi.Input['CertManagerServiceAccountArgs']] = None,
-                 service_annotations: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 service_labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 startupapicheck: Optional[pulumi.Input['CertManagerStartupAPICheckArgs']] = None,
-                 strategy: Optional[pulumi.Input['pulumi_kubernetes.apps.v1.DeploymentStrategyArgs']] = None,
-                 tolerations: Optional[pulumi.Input[Sequence[pulumi.Input['pulumi_kubernetes.core.v1.TolerationArgs']]]] = None,
-                 webhook: Optional[pulumi.Input['CertManagerWebhookArgs']] = None):
+                 http_proxy: pulumi.Input[Optional[_builtins.str]] = None,
+                 https_proxy: pulumi.Input[Optional[_builtins.str]] = None,
+                 image: pulumi.Input[Optional['CertManagerImageArgs']] = None,
+                 ingress_shim: pulumi.Input[Optional['CertManagerIngressShimArgs']] = None,
+                 install_crds: pulumi.Input[Optional[_builtins.bool]] = None,
+                 no_proxy: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 node_selector: pulumi.Input[Optional['pulumi_kubernetes.core.v1.NodeSelectorArgs']] = None,
+                 pod_annotations: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 pod_dns_config: pulumi.Input[Optional['pulumi_kubernetes.core.v1.PodDNSConfigArgs']] = None,
+                 pod_dns_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 pod_labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 prometheus: pulumi.Input[Optional['CertManagerPrometheusArgs']] = None,
+                 replica_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 resources: pulumi.Input[Optional['pulumi_kubernetes.core.v1.ResourceRequirementsArgs']] = None,
+                 security_context: pulumi.Input[Optional['pulumi_kubernetes.core.v1.PodSecurityContextArgs']] = None,
+                 service_account: pulumi.Input[Optional['CertManagerServiceAccountArgs']] = None,
+                 service_annotations: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 service_labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 startupapicheck: pulumi.Input[Optional['CertManagerStartupAPICheckArgs']] = None,
+                 strategy: pulumi.Input[Optional['pulumi_kubernetes.apps.v1.DeploymentStrategyArgs']] = None,
+                 tolerations: pulumi.Input[Optional[Sequence[pulumi.Input['pulumi_kubernetes.core.v1.TolerationArgs']]]] = None,
+                 webhook: pulumi.Input[Optional['CertManagerWebhookArgs']] = None):
         """
         The set of arguments for constructing a CertManager resource.
+
         :param pulumi.Input[_builtins.str] cluster_resource_namespace: Override the namespace used to store DNS provider credentials etc. for ClusterIssuer resources. By default, the same namespace as cert-manager is deployed within is used. This namespace will not be automatically created by the Helm chart.
         :param pulumi.Input['pulumi_kubernetes.core.v1.SecurityContextArgs'] container_security_context: Container Security Context to be set on the controller component container. ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] deployment_annotations: Optional additional annotations to add to the controller Deployment
@@ -141,116 +142,116 @@ class CertManagerArgs:
 
     @_builtins.property
     @pulumi.getter
-    def affinity(self) -> Optional[pulumi.Input['pulumi_kubernetes.core.v1.AffinityArgs']]:
+    def affinity(self) -> pulumi.Input[Optional['pulumi_kubernetes.core.v1.AffinityArgs']]:
         return pulumi.get(self, "affinity")
 
     @affinity.setter
-    def affinity(self, value: Optional[pulumi.Input['pulumi_kubernetes.core.v1.AffinityArgs']]):
+    def affinity(self, value: pulumi.Input[Optional['pulumi_kubernetes.core.v1.AffinityArgs']]):
         pulumi.set(self, "affinity", value)
 
     @_builtins.property
     @pulumi.getter
-    def cainjector(self) -> Optional[pulumi.Input['CertManagerCaInjectorArgs']]:
+    def cainjector(self) -> pulumi.Input[Optional['CertManagerCaInjectorArgs']]:
         return pulumi.get(self, "cainjector")
 
     @cainjector.setter
-    def cainjector(self, value: Optional[pulumi.Input['CertManagerCaInjectorArgs']]):
+    def cainjector(self, value: pulumi.Input[Optional['CertManagerCaInjectorArgs']]):
         pulumi.set(self, "cainjector", value)
 
     @_builtins.property
     @pulumi.getter(name="clusterResourceNamespace")
-    def cluster_resource_namespace(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cluster_resource_namespace(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Override the namespace used to store DNS provider credentials etc. for ClusterIssuer resources. By default, the same namespace as cert-manager is deployed within is used. This namespace will not be automatically created by the Helm chart.
         """
         return pulumi.get(self, "cluster_resource_namespace")
 
     @cluster_resource_namespace.setter
-    def cluster_resource_namespace(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cluster_resource_namespace(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cluster_resource_namespace", value)
 
     @_builtins.property
     @pulumi.getter(name="containerSecurityContext")
-    def container_security_context(self) -> Optional[pulumi.Input['pulumi_kubernetes.core.v1.SecurityContextArgs']]:
+    def container_security_context(self) -> pulumi.Input[Optional['pulumi_kubernetes.core.v1.SecurityContextArgs']]:
         """
         Container Security Context to be set on the controller component container. ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
         """
         return pulumi.get(self, "container_security_context")
 
     @container_security_context.setter
-    def container_security_context(self, value: Optional[pulumi.Input['pulumi_kubernetes.core.v1.SecurityContextArgs']]):
+    def container_security_context(self, value: pulumi.Input[Optional['pulumi_kubernetes.core.v1.SecurityContextArgs']]):
         pulumi.set(self, "container_security_context", value)
 
     @_builtins.property
     @pulumi.getter(name="deploymentAnnotations")
-    def deployment_annotations(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def deployment_annotations(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Optional additional annotations to add to the controller Deployment
         """
         return pulumi.get(self, "deployment_annotations")
 
     @deployment_annotations.setter
-    def deployment_annotations(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def deployment_annotations(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "deployment_annotations", value)
 
     @_builtins.property
     @pulumi.getter(name="extraArgs")
-    def extra_args(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def extra_args(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Optional additional arguments.
         """
         return pulumi.get(self, "extra_args")
 
     @extra_args.setter
-    def extra_args(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def extra_args(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "extra_args", value)
 
     @_builtins.property
     @pulumi.getter(name="extraEnv")
-    def extra_env(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['pulumi_kubernetes.core.v1.EnvVarArgs']]]]:
+    def extra_env(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['pulumi_kubernetes.core.v1.EnvVarArgs']]]]:
         return pulumi.get(self, "extra_env")
 
     @extra_env.setter
-    def extra_env(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['pulumi_kubernetes.core.v1.EnvVarArgs']]]]):
+    def extra_env(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['pulumi_kubernetes.core.v1.EnvVarArgs']]]]):
         pulumi.set(self, "extra_env", value)
 
     @_builtins.property
     @pulumi.getter(name="extraVolumeMounts")
-    def extra_volume_mounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['pulumi_kubernetes.core.v1.VolumeMountArgs']]]]:
+    def extra_volume_mounts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['pulumi_kubernetes.core.v1.VolumeMountArgs']]]]:
         return pulumi.get(self, "extra_volume_mounts")
 
     @extra_volume_mounts.setter
-    def extra_volume_mounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['pulumi_kubernetes.core.v1.VolumeMountArgs']]]]):
+    def extra_volume_mounts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['pulumi_kubernetes.core.v1.VolumeMountArgs']]]]):
         pulumi.set(self, "extra_volume_mounts", value)
 
     @_builtins.property
     @pulumi.getter(name="extraVolumes")
-    def extra_volumes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['pulumi_kubernetes.core.v1.VolumeArgs']]]]:
+    def extra_volumes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['pulumi_kubernetes.core.v1.VolumeArgs']]]]:
         return pulumi.get(self, "extra_volumes")
 
     @extra_volumes.setter
-    def extra_volumes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['pulumi_kubernetes.core.v1.VolumeArgs']]]]):
+    def extra_volumes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['pulumi_kubernetes.core.v1.VolumeArgs']]]]):
         pulumi.set(self, "extra_volumes", value)
 
     @_builtins.property
     @pulumi.getter(name="featureGates")
-    def feature_gates(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def feature_gates(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Comma separated list of feature gates that should be enabled on the controller pod.
         """
         return pulumi.get(self, "feature_gates")
 
     @feature_gates.setter
-    def feature_gates(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def feature_gates(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "feature_gates", value)
 
     @_builtins.property
     @pulumi.getter(name="global")
-    def global_(self) -> Optional[pulumi.Input['CertManagerGlobalArgs']]:
+    def global_(self) -> pulumi.Input[Optional['CertManagerGlobalArgs']]:
         return pulumi.get(self, "global_")
 
     @global_.setter
-    def global_(self, value: Optional[pulumi.Input['CertManagerGlobalArgs']]):
+    def global_(self, value: pulumi.Input[Optional['CertManagerGlobalArgs']]):
         pulumi.set(self, "global_", value)
 
     @_builtins.property
@@ -267,215 +268,215 @@ class CertManagerArgs:
 
     @_builtins.property
     @pulumi.getter
-    def http_proxy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def http_proxy(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "http_proxy")
 
     @http_proxy.setter
-    def http_proxy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def http_proxy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "http_proxy", value)
 
     @_builtins.property
     @pulumi.getter
-    def https_proxy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def https_proxy(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "https_proxy")
 
     @https_proxy.setter
-    def https_proxy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def https_proxy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "https_proxy", value)
 
     @_builtins.property
     @pulumi.getter
-    def image(self) -> Optional[pulumi.Input['CertManagerImageArgs']]:
+    def image(self) -> pulumi.Input[Optional['CertManagerImageArgs']]:
         return pulumi.get(self, "image")
 
     @image.setter
-    def image(self, value: Optional[pulumi.Input['CertManagerImageArgs']]):
+    def image(self, value: pulumi.Input[Optional['CertManagerImageArgs']]):
         pulumi.set(self, "image", value)
 
     @_builtins.property
     @pulumi.getter(name="ingressShim")
-    def ingress_shim(self) -> Optional[pulumi.Input['CertManagerIngressShimArgs']]:
+    def ingress_shim(self) -> pulumi.Input[Optional['CertManagerIngressShimArgs']]:
         return pulumi.get(self, "ingress_shim")
 
     @ingress_shim.setter
-    def ingress_shim(self, value: Optional[pulumi.Input['CertManagerIngressShimArgs']]):
+    def ingress_shim(self, value: pulumi.Input[Optional['CertManagerIngressShimArgs']]):
         pulumi.set(self, "ingress_shim", value)
 
     @_builtins.property
     @pulumi.getter(name="installCRDs")
-    def install_crds(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def install_crds(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "install_crds")
 
     @install_crds.setter
-    def install_crds(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def install_crds(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "install_crds", value)
 
     @_builtins.property
     @pulumi.getter
-    def no_proxy(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def no_proxy(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "no_proxy")
 
     @no_proxy.setter
-    def no_proxy(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def no_proxy(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "no_proxy", value)
 
     @_builtins.property
     @pulumi.getter(name="nodeSelector")
-    def node_selector(self) -> Optional[pulumi.Input['pulumi_kubernetes.core.v1.NodeSelectorArgs']]:
+    def node_selector(self) -> pulumi.Input[Optional['pulumi_kubernetes.core.v1.NodeSelectorArgs']]:
         return pulumi.get(self, "node_selector")
 
     @node_selector.setter
-    def node_selector(self, value: Optional[pulumi.Input['pulumi_kubernetes.core.v1.NodeSelectorArgs']]):
+    def node_selector(self, value: pulumi.Input[Optional['pulumi_kubernetes.core.v1.NodeSelectorArgs']]):
         pulumi.set(self, "node_selector", value)
 
     @_builtins.property
     @pulumi.getter(name="podAnnotations")
-    def pod_annotations(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def pod_annotations(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Optional additional annotations to add to the controller Pods
         """
         return pulumi.get(self, "pod_annotations")
 
     @pod_annotations.setter
-    def pod_annotations(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def pod_annotations(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "pod_annotations", value)
 
     @_builtins.property
     @pulumi.getter(name="podDnsConfig")
-    def pod_dns_config(self) -> Optional[pulumi.Input['pulumi_kubernetes.core.v1.PodDNSConfigArgs']]:
+    def pod_dns_config(self) -> pulumi.Input[Optional['pulumi_kubernetes.core.v1.PodDNSConfigArgs']]:
         return pulumi.get(self, "pod_dns_config")
 
     @pod_dns_config.setter
-    def pod_dns_config(self, value: Optional[pulumi.Input['pulumi_kubernetes.core.v1.PodDNSConfigArgs']]):
+    def pod_dns_config(self, value: pulumi.Input[Optional['pulumi_kubernetes.core.v1.PodDNSConfigArgs']]):
         pulumi.set(self, "pod_dns_config", value)
 
     @_builtins.property
     @pulumi.getter(name="podDnsPolicy")
-    def pod_dns_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def pod_dns_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Optional DNS settings, useful if you have a public and private DNS zone for the same domain on Route 53. What follows is an example of ensuring cert-manager can access an ingress or DNS TXT records at all times. NOTE: This requires Kubernetes 1.10 or `CustomPodDNS` feature gate enabled for the cluster to work.
         """
         return pulumi.get(self, "pod_dns_policy")
 
     @pod_dns_policy.setter
-    def pod_dns_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def pod_dns_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "pod_dns_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="podLabels")
-    def pod_labels(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def pod_labels(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "pod_labels")
 
     @pod_labels.setter
-    def pod_labels(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def pod_labels(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "pod_labels", value)
 
     @_builtins.property
     @pulumi.getter
-    def prometheus(self) -> Optional[pulumi.Input['CertManagerPrometheusArgs']]:
+    def prometheus(self) -> pulumi.Input[Optional['CertManagerPrometheusArgs']]:
         return pulumi.get(self, "prometheus")
 
     @prometheus.setter
-    def prometheus(self, value: Optional[pulumi.Input['CertManagerPrometheusArgs']]):
+    def prometheus(self, value: pulumi.Input[Optional['CertManagerPrometheusArgs']]):
         pulumi.set(self, "prometheus", value)
 
     @_builtins.property
     @pulumi.getter(name="replicaCount")
-    def replica_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def replica_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         return pulumi.get(self, "replica_count")
 
     @replica_count.setter
-    def replica_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def replica_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "replica_count", value)
 
     @_builtins.property
     @pulumi.getter
-    def resources(self) -> Optional[pulumi.Input['pulumi_kubernetes.core.v1.ResourceRequirementsArgs']]:
+    def resources(self) -> pulumi.Input[Optional['pulumi_kubernetes.core.v1.ResourceRequirementsArgs']]:
         return pulumi.get(self, "resources")
 
     @resources.setter
-    def resources(self, value: Optional[pulumi.Input['pulumi_kubernetes.core.v1.ResourceRequirementsArgs']]):
+    def resources(self, value: pulumi.Input[Optional['pulumi_kubernetes.core.v1.ResourceRequirementsArgs']]):
         pulumi.set(self, "resources", value)
 
     @_builtins.property
     @pulumi.getter(name="securityContext")
-    def security_context(self) -> Optional[pulumi.Input['pulumi_kubernetes.core.v1.PodSecurityContextArgs']]:
+    def security_context(self) -> pulumi.Input[Optional['pulumi_kubernetes.core.v1.PodSecurityContextArgs']]:
         """
         Pod Security Context. ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
         """
         return pulumi.get(self, "security_context")
 
     @security_context.setter
-    def security_context(self, value: Optional[pulumi.Input['pulumi_kubernetes.core.v1.PodSecurityContextArgs']]):
+    def security_context(self, value: pulumi.Input[Optional['pulumi_kubernetes.core.v1.PodSecurityContextArgs']]):
         pulumi.set(self, "security_context", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceAccount")
-    def service_account(self) -> Optional[pulumi.Input['CertManagerServiceAccountArgs']]:
+    def service_account(self) -> pulumi.Input[Optional['CertManagerServiceAccountArgs']]:
         return pulumi.get(self, "service_account")
 
     @service_account.setter
-    def service_account(self, value: Optional[pulumi.Input['CertManagerServiceAccountArgs']]):
+    def service_account(self, value: pulumi.Input[Optional['CertManagerServiceAccountArgs']]):
         pulumi.set(self, "service_account", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceAnnotations")
-    def service_annotations(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def service_annotations(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Optional additional annotations to add to the controller service
         """
         return pulumi.get(self, "service_annotations")
 
     @service_annotations.setter
-    def service_annotations(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def service_annotations(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "service_annotations", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceLabels")
-    def service_labels(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def service_labels(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Optional additional labels to add to the controller Service
         """
         return pulumi.get(self, "service_labels")
 
     @service_labels.setter
-    def service_labels(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def service_labels(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "service_labels", value)
 
     @_builtins.property
     @pulumi.getter
-    def startupapicheck(self) -> Optional[pulumi.Input['CertManagerStartupAPICheckArgs']]:
+    def startupapicheck(self) -> pulumi.Input[Optional['CertManagerStartupAPICheckArgs']]:
         return pulumi.get(self, "startupapicheck")
 
     @startupapicheck.setter
-    def startupapicheck(self, value: Optional[pulumi.Input['CertManagerStartupAPICheckArgs']]):
+    def startupapicheck(self, value: pulumi.Input[Optional['CertManagerStartupAPICheckArgs']]):
         pulumi.set(self, "startupapicheck", value)
 
     @_builtins.property
     @pulumi.getter
-    def strategy(self) -> Optional[pulumi.Input['pulumi_kubernetes.apps.v1.DeploymentStrategyArgs']]:
+    def strategy(self) -> pulumi.Input[Optional['pulumi_kubernetes.apps.v1.DeploymentStrategyArgs']]:
         return pulumi.get(self, "strategy")
 
     @strategy.setter
-    def strategy(self, value: Optional[pulumi.Input['pulumi_kubernetes.apps.v1.DeploymentStrategyArgs']]):
+    def strategy(self, value: pulumi.Input[Optional['pulumi_kubernetes.apps.v1.DeploymentStrategyArgs']]):
         pulumi.set(self, "strategy", value)
 
     @_builtins.property
     @pulumi.getter
-    def tolerations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['pulumi_kubernetes.core.v1.TolerationArgs']]]]:
+    def tolerations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['pulumi_kubernetes.core.v1.TolerationArgs']]]]:
         return pulumi.get(self, "tolerations")
 
     @tolerations.setter
-    def tolerations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['pulumi_kubernetes.core.v1.TolerationArgs']]]]):
+    def tolerations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['pulumi_kubernetes.core.v1.TolerationArgs']]]]):
         pulumi.set(self, "tolerations", value)
 
     @_builtins.property
     @pulumi.getter
-    def webhook(self) -> Optional[pulumi.Input['CertManagerWebhookArgs']]:
+    def webhook(self) -> pulumi.Input[Optional['CertManagerWebhookArgs']]:
         return pulumi.get(self, "webhook")
 
     @webhook.setter
-    def webhook(self, value: Optional[pulumi.Input['CertManagerWebhookArgs']]):
+    def webhook(self, value: pulumi.Input[Optional['CertManagerWebhookArgs']]):
         pulumi.set(self, "webhook", value)
 
 
@@ -485,40 +486,40 @@ class CertManager(pulumi.ComponentResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 affinity: Optional[pulumi.Input[pulumi.InputType['pulumi_kubernetes.core.v1.AffinityArgs']]] = None,
-                 cainjector: Optional[pulumi.Input[Union['CertManagerCaInjectorArgs', 'CertManagerCaInjectorArgsDict']]] = None,
-                 cluster_resource_namespace: Optional[pulumi.Input[_builtins.str]] = None,
-                 container_security_context: Optional[pulumi.Input[pulumi.InputType['pulumi_kubernetes.core.v1.SecurityContextArgs']]] = None,
-                 deployment_annotations: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 extra_args: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 extra_env: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['pulumi_kubernetes.core.v1.EnvVarArgs']]]]] = None,
-                 extra_volume_mounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['pulumi_kubernetes.core.v1.VolumeMountArgs']]]]] = None,
-                 extra_volumes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['pulumi_kubernetes.core.v1.VolumeArgs']]]]] = None,
-                 feature_gates: Optional[pulumi.Input[_builtins.str]] = None,
-                 global_: Optional[pulumi.Input[Union['CertManagerGlobalArgs', 'CertManagerGlobalArgsDict']]] = None,
+                 affinity: pulumi.Input[Optional[pulumi.InputType['pulumi_kubernetes.core.v1.AffinityArgs']]] = None,
+                 cainjector: pulumi.Input[Optional[Union['CertManagerCaInjectorArgs', 'CertManagerCaInjectorArgsDict']]] = None,
+                 cluster_resource_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+                 container_security_context: pulumi.Input[Optional[pulumi.InputType['pulumi_kubernetes.core.v1.SecurityContextArgs']]] = None,
+                 deployment_annotations: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 extra_args: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 extra_env: pulumi.Input[Optional[Sequence[pulumi.Input[pulumi.InputType['pulumi_kubernetes.core.v1.EnvVarArgs']]]]] = None,
+                 extra_volume_mounts: pulumi.Input[Optional[Sequence[pulumi.Input[pulumi.InputType['pulumi_kubernetes.core.v1.VolumeMountArgs']]]]] = None,
+                 extra_volumes: pulumi.Input[Optional[Sequence[pulumi.Input[pulumi.InputType['pulumi_kubernetes.core.v1.VolumeArgs']]]]] = None,
+                 feature_gates: pulumi.Input[Optional[_builtins.str]] = None,
+                 global_: pulumi.Input[Optional[Union['CertManagerGlobalArgs', 'CertManagerGlobalArgsDict']]] = None,
                  helm_options: Optional[Union['ReleaseArgs', 'ReleaseArgsDict']] = None,
-                 http_proxy: Optional[pulumi.Input[_builtins.str]] = None,
-                 https_proxy: Optional[pulumi.Input[_builtins.str]] = None,
-                 image: Optional[pulumi.Input[Union['CertManagerImageArgs', 'CertManagerImageArgsDict']]] = None,
-                 ingress_shim: Optional[pulumi.Input[Union['CertManagerIngressShimArgs', 'CertManagerIngressShimArgsDict']]] = None,
-                 install_crds: Optional[pulumi.Input[_builtins.bool]] = None,
-                 no_proxy: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 node_selector: Optional[pulumi.Input[pulumi.InputType['pulumi_kubernetes.core.v1.NodeSelectorArgs']]] = None,
-                 pod_annotations: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 pod_dns_config: Optional[pulumi.Input[pulumi.InputType['pulumi_kubernetes.core.v1.PodDNSConfigArgs']]] = None,
-                 pod_dns_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 pod_labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 prometheus: Optional[pulumi.Input[Union['CertManagerPrometheusArgs', 'CertManagerPrometheusArgsDict']]] = None,
-                 replica_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 resources: Optional[pulumi.Input[pulumi.InputType['pulumi_kubernetes.core.v1.ResourceRequirementsArgs']]] = None,
-                 security_context: Optional[pulumi.Input[pulumi.InputType['pulumi_kubernetes.core.v1.PodSecurityContextArgs']]] = None,
-                 service_account: Optional[pulumi.Input[Union['CertManagerServiceAccountArgs', 'CertManagerServiceAccountArgsDict']]] = None,
-                 service_annotations: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 service_labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 startupapicheck: Optional[pulumi.Input[Union['CertManagerStartupAPICheckArgs', 'CertManagerStartupAPICheckArgsDict']]] = None,
-                 strategy: Optional[pulumi.Input[pulumi.InputType['pulumi_kubernetes.apps.v1.DeploymentStrategyArgs']]] = None,
-                 tolerations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['pulumi_kubernetes.core.v1.TolerationArgs']]]]] = None,
-                 webhook: Optional[pulumi.Input[Union['CertManagerWebhookArgs', 'CertManagerWebhookArgsDict']]] = None,
+                 http_proxy: pulumi.Input[Optional[_builtins.str]] = None,
+                 https_proxy: pulumi.Input[Optional[_builtins.str]] = None,
+                 image: pulumi.Input[Optional[Union['CertManagerImageArgs', 'CertManagerImageArgsDict']]] = None,
+                 ingress_shim: pulumi.Input[Optional[Union['CertManagerIngressShimArgs', 'CertManagerIngressShimArgsDict']]] = None,
+                 install_crds: pulumi.Input[Optional[_builtins.bool]] = None,
+                 no_proxy: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 node_selector: pulumi.Input[Optional[pulumi.InputType['pulumi_kubernetes.core.v1.NodeSelectorArgs']]] = None,
+                 pod_annotations: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 pod_dns_config: pulumi.Input[Optional[pulumi.InputType['pulumi_kubernetes.core.v1.PodDNSConfigArgs']]] = None,
+                 pod_dns_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 pod_labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 prometheus: pulumi.Input[Optional[Union['CertManagerPrometheusArgs', 'CertManagerPrometheusArgsDict']]] = None,
+                 replica_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 resources: pulumi.Input[Optional[pulumi.InputType['pulumi_kubernetes.core.v1.ResourceRequirementsArgs']]] = None,
+                 security_context: pulumi.Input[Optional[pulumi.InputType['pulumi_kubernetes.core.v1.PodSecurityContextArgs']]] = None,
+                 service_account: pulumi.Input[Optional[Union['CertManagerServiceAccountArgs', 'CertManagerServiceAccountArgsDict']]] = None,
+                 service_annotations: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 service_labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 startupapicheck: pulumi.Input[Optional[Union['CertManagerStartupAPICheckArgs', 'CertManagerStartupAPICheckArgsDict']]] = None,
+                 strategy: pulumi.Input[Optional[pulumi.InputType['pulumi_kubernetes.apps.v1.DeploymentStrategyArgs']]] = None,
+                 tolerations: pulumi.Input[Optional[Sequence[pulumi.Input[pulumi.InputType['pulumi_kubernetes.core.v1.TolerationArgs']]]]] = None,
+                 webhook: pulumi.Input[Optional[Union['CertManagerWebhookArgs', 'CertManagerWebhookArgsDict']]] = None,
                  __props__=None):
         """
         Automates the management and issuance of TLS certificates from various issuing sources within Kubernetes
@@ -561,40 +562,40 @@ class CertManager(pulumi.ComponentResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 affinity: Optional[pulumi.Input[pulumi.InputType['pulumi_kubernetes.core.v1.AffinityArgs']]] = None,
-                 cainjector: Optional[pulumi.Input[Union['CertManagerCaInjectorArgs', 'CertManagerCaInjectorArgsDict']]] = None,
-                 cluster_resource_namespace: Optional[pulumi.Input[_builtins.str]] = None,
-                 container_security_context: Optional[pulumi.Input[pulumi.InputType['pulumi_kubernetes.core.v1.SecurityContextArgs']]] = None,
-                 deployment_annotations: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 extra_args: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 extra_env: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['pulumi_kubernetes.core.v1.EnvVarArgs']]]]] = None,
-                 extra_volume_mounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['pulumi_kubernetes.core.v1.VolumeMountArgs']]]]] = None,
-                 extra_volumes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['pulumi_kubernetes.core.v1.VolumeArgs']]]]] = None,
-                 feature_gates: Optional[pulumi.Input[_builtins.str]] = None,
-                 global_: Optional[pulumi.Input[Union['CertManagerGlobalArgs', 'CertManagerGlobalArgsDict']]] = None,
+                 affinity: pulumi.Input[Optional[pulumi.InputType['pulumi_kubernetes.core.v1.AffinityArgs']]] = None,
+                 cainjector: pulumi.Input[Optional[Union['CertManagerCaInjectorArgs', 'CertManagerCaInjectorArgsDict']]] = None,
+                 cluster_resource_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+                 container_security_context: pulumi.Input[Optional[pulumi.InputType['pulumi_kubernetes.core.v1.SecurityContextArgs']]] = None,
+                 deployment_annotations: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 extra_args: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 extra_env: pulumi.Input[Optional[Sequence[pulumi.Input[pulumi.InputType['pulumi_kubernetes.core.v1.EnvVarArgs']]]]] = None,
+                 extra_volume_mounts: pulumi.Input[Optional[Sequence[pulumi.Input[pulumi.InputType['pulumi_kubernetes.core.v1.VolumeMountArgs']]]]] = None,
+                 extra_volumes: pulumi.Input[Optional[Sequence[pulumi.Input[pulumi.InputType['pulumi_kubernetes.core.v1.VolumeArgs']]]]] = None,
+                 feature_gates: pulumi.Input[Optional[_builtins.str]] = None,
+                 global_: pulumi.Input[Optional[Union['CertManagerGlobalArgs', 'CertManagerGlobalArgsDict']]] = None,
                  helm_options: Optional[Union['ReleaseArgs', 'ReleaseArgsDict']] = None,
-                 http_proxy: Optional[pulumi.Input[_builtins.str]] = None,
-                 https_proxy: Optional[pulumi.Input[_builtins.str]] = None,
-                 image: Optional[pulumi.Input[Union['CertManagerImageArgs', 'CertManagerImageArgsDict']]] = None,
-                 ingress_shim: Optional[pulumi.Input[Union['CertManagerIngressShimArgs', 'CertManagerIngressShimArgsDict']]] = None,
-                 install_crds: Optional[pulumi.Input[_builtins.bool]] = None,
-                 no_proxy: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 node_selector: Optional[pulumi.Input[pulumi.InputType['pulumi_kubernetes.core.v1.NodeSelectorArgs']]] = None,
-                 pod_annotations: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 pod_dns_config: Optional[pulumi.Input[pulumi.InputType['pulumi_kubernetes.core.v1.PodDNSConfigArgs']]] = None,
-                 pod_dns_policy: Optional[pulumi.Input[_builtins.str]] = None,
-                 pod_labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 prometheus: Optional[pulumi.Input[Union['CertManagerPrometheusArgs', 'CertManagerPrometheusArgsDict']]] = None,
-                 replica_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 resources: Optional[pulumi.Input[pulumi.InputType['pulumi_kubernetes.core.v1.ResourceRequirementsArgs']]] = None,
-                 security_context: Optional[pulumi.Input[pulumi.InputType['pulumi_kubernetes.core.v1.PodSecurityContextArgs']]] = None,
-                 service_account: Optional[pulumi.Input[Union['CertManagerServiceAccountArgs', 'CertManagerServiceAccountArgsDict']]] = None,
-                 service_annotations: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 service_labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 startupapicheck: Optional[pulumi.Input[Union['CertManagerStartupAPICheckArgs', 'CertManagerStartupAPICheckArgsDict']]] = None,
-                 strategy: Optional[pulumi.Input[pulumi.InputType['pulumi_kubernetes.apps.v1.DeploymentStrategyArgs']]] = None,
-                 tolerations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['pulumi_kubernetes.core.v1.TolerationArgs']]]]] = None,
-                 webhook: Optional[pulumi.Input[Union['CertManagerWebhookArgs', 'CertManagerWebhookArgsDict']]] = None,
+                 http_proxy: pulumi.Input[Optional[_builtins.str]] = None,
+                 https_proxy: pulumi.Input[Optional[_builtins.str]] = None,
+                 image: pulumi.Input[Optional[Union['CertManagerImageArgs', 'CertManagerImageArgsDict']]] = None,
+                 ingress_shim: pulumi.Input[Optional[Union['CertManagerIngressShimArgs', 'CertManagerIngressShimArgsDict']]] = None,
+                 install_crds: pulumi.Input[Optional[_builtins.bool]] = None,
+                 no_proxy: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 node_selector: pulumi.Input[Optional[pulumi.InputType['pulumi_kubernetes.core.v1.NodeSelectorArgs']]] = None,
+                 pod_annotations: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 pod_dns_config: pulumi.Input[Optional[pulumi.InputType['pulumi_kubernetes.core.v1.PodDNSConfigArgs']]] = None,
+                 pod_dns_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 pod_labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 prometheus: pulumi.Input[Optional[Union['CertManagerPrometheusArgs', 'CertManagerPrometheusArgsDict']]] = None,
+                 replica_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 resources: pulumi.Input[Optional[pulumi.InputType['pulumi_kubernetes.core.v1.ResourceRequirementsArgs']]] = None,
+                 security_context: pulumi.Input[Optional[pulumi.InputType['pulumi_kubernetes.core.v1.PodSecurityContextArgs']]] = None,
+                 service_account: pulumi.Input[Optional[Union['CertManagerServiceAccountArgs', 'CertManagerServiceAccountArgsDict']]] = None,
+                 service_annotations: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 service_labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 startupapicheck: pulumi.Input[Optional[Union['CertManagerStartupAPICheckArgs', 'CertManagerStartupAPICheckArgsDict']]] = None,
+                 strategy: pulumi.Input[Optional[pulumi.InputType['pulumi_kubernetes.apps.v1.DeploymentStrategyArgs']]] = None,
+                 tolerations: pulumi.Input[Optional[Sequence[pulumi.Input[pulumi.InputType['pulumi_kubernetes.core.v1.TolerationArgs']]]]] = None,
+                 webhook: pulumi.Input[Optional[Union['CertManagerWebhookArgs', 'CertManagerWebhookArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
