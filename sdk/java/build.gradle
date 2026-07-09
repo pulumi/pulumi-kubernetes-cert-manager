@@ -96,7 +96,7 @@ publishing {
                 inceptionYear = "2022"
                 name = "pulumi-kubernetes-cert-manager"
                 packaging = "jar"
-                description = "Strongly-typed Cert Manager installation"
+                description = $/Strongly-typed Cert Manager installation/$
 
                 url = "https://github.com/pulumi/pulumi-kubernetes-cert-manager"
 
