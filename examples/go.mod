@@ -1,6 +1,6 @@
 module github.com/pulumi/pulumi-kubernetes-cert-manager/examples
 
-go 1.25.11
+go 1.26.0
 
 require (
 	github.com/pulumi/providertest v0.7.0
