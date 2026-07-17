@@ -176,8 +176,6 @@ github.com/pulumi/pulumi-go-helmbase v0.2.0 h1:QnIbS4RfiaUbmo3SnMF2pAExO2qoOb0aC
 github.com/pulumi/pulumi-go-helmbase v0.2.0/go.mod h1:hK0t8QYmBvB/qYoGayrVumSkkhCydrmSJ4DHtSjc3os=
 github.com/pulumi/pulumi-kubernetes/sdk/v4 v4.32.0 h1:QwJzM3PseaorfASUlDXxsyntVGac7ZSYjqjxa038uoU=
 github.com/pulumi/pulumi-kubernetes/sdk/v4 v4.32.0/go.mod h1:MtckkCd6mzQQ3AYw+qjdt6ROfdBB3dr8dI/dE5/jxrM=
-github.com/pulumi/pulumi/pkg/v3 v3.253.0 h1:5ViNqP5IfPscO6YZNkHnS2lJ9/vlMoR1klHweIk6Zjs=
-github.com/pulumi/pulumi/pkg/v3 v3.253.0/go.mod h1:lNvUut/pYEiiu+6Q8PVgKhZlbnTh2J6e0+vQd/jkDPo=
 github.com/pulumi/pulumi/sdk/v3 v3.253.0 h1:YWdKcZMZC7DtYSqNBn1Yv2UXmFMcgx7RqG3lhhBNZyE=
 github.com/pulumi/pulumi/sdk/v3 v3.253.0/go.mod h1:iTb2Yb9mn0kfUfMjwHgSuI5sxVUOcXRy0JcV7DLWsrc=
 github.com/rivo/uniseg v0.4.7 h1:WUdvkW8uEhrYfLC4ZzdpI2ztxP1I582+49Oc5Mq64VQ=
