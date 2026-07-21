@@ -62,8 +62,8 @@ func main() {
 				Namespace: ns.Metadata.Name(),
 			},
 			OtherFields: kubernetes.UntypedArgs{
-				"spec": map[string]interface{}{
-					"selfSigned": map[string]interface{}{},
+				"spec": map[string]any{
+					"selfSigned": map[string]any{},
 				},
 			},
 		}, pulumi.DependsOn([]pulumi.Resource{manager}))
