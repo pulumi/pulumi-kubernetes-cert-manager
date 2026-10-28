@@ -1,3 +1,0 @@
-name: simple-cert-manager-ts
-runtime: nodejs
-description: A simple Kubernetes CertManager installation
