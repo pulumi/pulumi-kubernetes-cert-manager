@@ -1,6 +1,6 @@
 module github.com/pulumi/pulumi-kubernetes-cert-manager/provider
 
-go 1.26.0
+go 1.26.10
 
 require (
 	github.com/pulumi/pulumi-go-helmbase v0.2.0
