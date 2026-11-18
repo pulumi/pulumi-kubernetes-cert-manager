@@ -3,9 +3,9 @@ module github.com/pulumi/pulumi-kubernetes-cert-manager/examples
 go 1.26.6
 
 require (
-	github.com/pulumi/providertest v0.7.0
-	github.com/pulumi/pulumi/pkg/v3 v3.276.0
-	github.com/pulumi/pulumi/sdk/v3 v3.276.0
+	github.com/pulumi/providertest v0.8.0
+	github.com/pulumi/pulumi/pkg/v3 v3.277.0
+	github.com/pulumi/pulumi/sdk/v3 v3.277.0
 )
 
 require (
