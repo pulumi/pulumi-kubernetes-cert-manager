@@ -170,8 +170,8 @@ github.com/pulumi/pulumi-cloud-sdk/go v1.20261123.0 h1:WnMbtcd9nObs3UpLGgNUOuqv3
 github.com/pulumi/pulumi-cloud-sdk/go v1.20261123.0/go.mod h1:aMwd3130zrFnJzpXi0X+Jd9DidPGT2I5zwGOhqqQ/GA=
 github.com/pulumi/pulumi-kubernetes-cert-manager/sdk v0.3.0 h1:X0Fh7wopTaz+j0fhYuf3nv6Imn8ssH8TciZUqpQz5qM=
 github.com/pulumi/pulumi-kubernetes-cert-manager/sdk v0.3.0/go.mod h1:Ag7NGWFFdaawfdlrk9QDtTG9iRmYMCDD7iGQLl5ZIXw=
-github.com/pulumi/pulumi-kubernetes/sdk/v4 v4.34.3 h1:hMRlxnnO+zNPMbfJGQNist96TXqOKi+zgjcLUmiKYl0=
-github.com/pulumi/pulumi-kubernetes/sdk/v4 v4.34.3/go.mod h1:egs4a1Hh9d6jbRg294xpakgdSBdSy80hnFOQmF6V7I4=
+github.com/pulumi/pulumi-kubernetes/sdk/v4 v4.35.0 h1:j8AXoFbwYDS4DqeQ8bg9f733GLFI3eITcXckku87qkk=
+github.com/pulumi/pulumi-kubernetes/sdk/v4 v4.35.0/go.mod h1:egs4a1Hh9d6jbRg294xpakgdSBdSy80hnFOQmF6V7I4=
 github.com/pulumi/pulumi/sdk/v3 v3.268.0 h1:j9XuukM7q4Y3cqAxVXr9LCx82Nn7OxqsNrB8y7Y+jUg=
 github.com/pulumi/pulumi/sdk/v3 v3.268.0/go.mod h1:dRCRPrTZKXAp5XwcX+rKzrSBvDqmoCcrPVB1zwzIpao=
 github.com/rivo/uniseg v0.4.7 h1:WUdvkW8uEhrYfLC4ZzdpI2ztxP1I582+49Oc5Mq64VQ=
