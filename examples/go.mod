@@ -4,8 +4,8 @@ go 1.26.6
 
 require (
 	github.com/pulumi/providertest v0.8.0
-	github.com/pulumi/pulumi/pkg/v3 v3.277.0
-	github.com/pulumi/pulumi/sdk/v3 v3.277.0
+	github.com/pulumi/pulumi/pkg/v3 v3.278.0
+	github.com/pulumi/pulumi/sdk/v3 v3.278.0
 )
 
 require (
